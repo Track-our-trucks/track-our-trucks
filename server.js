@@ -14,7 +14,8 @@ const port = 9000;
 
 
 app.set('superSecret', config.secret);
-app.use(express.static(__dirname + './src'));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/node_modules'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));

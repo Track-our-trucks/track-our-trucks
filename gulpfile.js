@@ -11,7 +11,10 @@ const sourcemaps = require('gulp-sourcemaps');
 // here are the gulp file paths
 const paths = {
   jsSource: ['./src/js/**/*.js'],
-  sassSource: ['./src/styles/**/*.scss']
+  sassSource: ['./src/styles/**/*.scss'],
+  HTMLSource: ['./src/**/*.html'],
+  ImageSource: ['./src/img/*.*']
+
 }
 
 gulp.task('js', function() {
@@ -34,10 +37,22 @@ gulp.task('sass', function() {
   .pipe(gulp.dest('./public'))
 });
 
+gulp.task('HTML', function() {
+  return gulp.src(paths.HTMLSource)
+  .pipe(gulp.dest('./public'))
+});
+gulp.task('Image', function() {
+  return gulp.src(paths.ImageSource)
+  .pipe(gulp.dest('./public'))
+});
+
 
 gulp.task('watch', function() {
   gulp.watch(paths.jsSource, ['js']);
   gulp.watch(paths.sassSource, ['sass']);
+  gulp.watch(paths.HTMLSource, ['HTML']);
+  gulp.watch(paths.ImageSource, ['Image']);
+
 });
 
-gulp.task('default', ['watch', 'js', 'sass']);
+gulp.task('default', ['watch', 'js', 'sass', 'HTML', 'Image']);

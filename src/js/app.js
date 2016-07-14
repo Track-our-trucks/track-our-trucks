@@ -1,6 +1,7 @@
-angular.module('trackOurTruck', ['ui-router']).config(function($stateProvider, $urlRouterProvider) {
+angular.module('trackOurTruck', ['ui.router'])
+.config(function($stateProvider, $urlRouterProvider) {
 
-$urlRouterProvider.otherwise('/welcome');
+$urlRouterProvider.otherwise('/');
 
 $stateProvider
 
