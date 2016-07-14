@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='trackOurTruck'>
   <head>
     <meta charset="utf-8">
     <link href="./bundle.css" />
@@ -7,8 +7,10 @@
   </head>
   <body>
 
-    <script src="/node_modules/angular/angular.js"></script>
-    <script src=/node_modules/angular-ui-router/release/angular-ui-router.js></script>
+   <ui-view></ui-view>
+
+    <script src="./angular/angular.js"></script>
+    <script src=./angular-ui-router/release/angular-ui-router.js></script>
     <script src="./bundle.js"></script>
   </body>
 </html>
