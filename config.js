@@ -1,4 +1,4 @@
 module.exports = {
-  'secret': 'd0nttellthefr0ntend',
+    'TOKEN_SECRET': 'd0nttellthefr0ntend',
     'database': 'mongodb://localhost/9000'
 }
