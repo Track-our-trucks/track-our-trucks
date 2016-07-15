@@ -2,11 +2,107 @@
 .welcome-background {
     height: 100vh;
     width: 100vw;
-    background-image: url("./truck-c.jpg");
+    background-image: url("./truck-d-min.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 .welcome-header {
+    height: 10vh;
+    width: 100%;
+    padding-right: 40px;
+    display: flex;
+    justify-content: flex-end;
+    // flex-direction: row;
+}
+.logo-cont {
+    height: 163.4px;
+    width: 245px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.549);
+    .logo {
+        height: 100%;
+        width: 100%;
+        background-image: url('./LogoLTealG.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+.welcome-menu {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.55);
+    ul {
+        display: flex;
+        flex-direction: row;
+    }
+    li {
+        font-family: $font1;
+        color: $white;
+        font-size: 30px;
+        padding: 6px;
+    }
+    li:hover {
+        background-color: $teal;
+        transition: 0.3s;
+    }
+}
+.welcome-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+        font-family: $font1;
+        font-size: 50px;
+        color: $white;
+    }
+    .title-bar {
+        background-color: $teal;
+        height: 4px;
+        width: 45%;
+        margin: 15px;
+    }
+    h3 {
+        font-family: $font1;
+        font-size: 25px;
+        color: $white;
+        margin-bottom: 30px;
+    }
+    .welcome-button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+    }
+    button {
+        background: $teal;
+        color: $white;
+        padding: 10px;
+        font-size: 15px;
+        width: 200px;
+    }
+    button:hover {
+        width: 220px;
+        font-size: 17px;
+        transition: 0.3s;
+    }
+    button:focus {
+        outline: 0;
+    }
+}
+.welcome-content {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.55);
+}
+.welcome-footer {
     height: 10vh;
     width: 100%;
     padding-left: 40px;
@@ -14,72 +110,55 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-}
-.logo {
-    background-image: url('./LogoWhite.png');
-    height: 200%;
-    width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-
-}
-.welcome-menu {
-    display: flex;
-    align-items: center;
-
-
-    box-shadow: 0px 0px 131px 58px rgba(0,0,0,0.6);
-    background: rgba(0,0,0,0.55);
-
-    ul {
+    .footer-menu {
         display: flex;
-        flex-direction: row;
-    }
-    li {
-      font-family: $font1;
-        color: $white;
-        font-size: 30px;
-        padding: 6px;
+        align-items: center;
+        box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.55);
+        ul {
+            display: flex;
+            flex-direction: row;
+        }
+        li {
+            font-family: $font1;
+            color: $white;
+            font-size: 30px;
+            padding: 6px;
+        }
     }
 }
-.welcome-container {
+.welcome-sloped-cont {
 
-  height: 80vh;
+    .welcome-sloped {
+        margin: 0 -100px;
+        background: $teal;
+        transform-origin: left center;
+        transform: rotate(-2deg);
+        // margin-top: -20px;
+        height: 70vh;
 
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  h2{
-    font-family: $font1;
-    font-size: 40px;
-    color: $white;
-  }
-  .title-bar{
-    background-color: $teal;
-    height: 4px;
-    width: 45%;
-    margin: 15px;
-  }
-  h3{
-    font-family: $font1;
-    font-size: 25px;
-    color: $white;
-  }
-  button{
-    background: $teal;
-    color: $white;
-    padding: 10px;
-    font-size: 15px;
-    width: 200px;
-    margin-top: 30px;
+        .slope-content{
 
-  }
+          padding: 20vh;
+
+          transform: rotate(2deg);
+
+          p{
+            font-family: $font1;
+            color: $white;
+            font-size: 22px;
+          }
+        }
+    }
+
 }
-.welcome-content {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.welcome-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./road.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
