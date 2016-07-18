@@ -1,0 +1,12 @@
+
+<ul ng-repeat="user in users track by $index">
+
+  <li ng-click="itemSelected($index)">
+      {{user.name}} <br>
+      {{user.email}}
+      <button type="button" ng-show="$index === selected" ng-click="deleteUser($index)">Delete User</button>
+      <button type="button" ng-show="$index === selected" ng-click="showUser($index)">Show User</button>
+      <button type="button" ng-show="$index === selected" ng-click="updateUser($index)">Update User</button>
+  </li>
+
+</ul>

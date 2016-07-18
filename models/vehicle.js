@@ -7,12 +7,14 @@ var turnSchema = require('./turnSchema.js')
 var idleSchema = require('./idleSchema.js')
 var accelerationSchema = require('./accelerationSchema.js')
 var diagnosticSchema = require('./diagnosticSchema.js')
+var headingSchema = require('./diagnosticSchema.js')
 
 var vehicleSchema = new Schema({
   name: {type: String},
   identifier: {type: String},
   locations: [locationSchema],
   speeds: [speedSchema],
+  headings: [headingSchema],
   brakings: [brakeSchema],
   turns: [turnSchema],
   idlings: [idleSchema],

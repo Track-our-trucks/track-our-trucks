@@ -32,6 +32,8 @@ app.use(cors(corsOptions));
 
 // server controllers
 const userCtrl = require('./serverControllers/userCtrl');
+const adminCtrl = require('./serverControllers/adminCtrl');
+const vehicleCtrl = require('./serverControllers/vehicleCtrl');
 
 // schemas
 const User = require('./models/user');
@@ -39,13 +41,14 @@ const User = require('./models/user');
 // Local authentication through Satellizer
 
 function ensureAuthenticated(req, res, next) {
+
     if (!req.header('Authorization')) {
         return res.status(401).send({
             message: 'Please make sure your request has an Authorization header'
         });
     }
     var token = req.header('Authorization').split(' ')[1];
-
+    console.log(token);
     var payload = null;
     try {
         payload = jwt.decode(token, config.TOKEN_SECRET);
@@ -90,20 +93,18 @@ function createJWT(user) {
 
 // update endpoint authentication
 
-app.put('/api/me', ensureAuthenticated, function(req, res) {
-    User.findById(req.user, function(err, user) {
-        if (!user) {
-            return res.status(400).send({
-                message: 'User not found'
-            });
-        }
-        user.displayName = req.body.displayName || user.displayName;
-        user.email = req.body.email || user.email;
-        user.create(function(err) {
-            res.status(200).end();
-        });
-    });
-});
+// app.put('/api/me', ensureAuthenticated, function(req, res) {
+//     User.findOne({email: req.body.email}, function(err, user) {
+//         if (!user) {
+//             return res.status(400).send({
+//                 message: 'User not found'
+//             });
+//         }
+//         else {
+//           return res.status(200).json(user)
+//         }
+//     });
+// });
 
 /*
  |--------------------------------------------------------------------------
@@ -127,7 +128,8 @@ app.post('/auth/login', function(req, res) {
                 });
             }
             res.send({
-                token: createJWT(user)
+                token: createJWT(user),
+                user: user
             });
         });
     });
@@ -162,34 +164,22 @@ app.post('/auth/signup', function(req, res) {
 });
 
 
-//user endpoints {
-// app.post('')
-// app.get('')
-// app.put('')
-//
-// //vehicle, user can only change vehicle name
-// app.put('')
-//
-// //}
-//
-// //admin endpoints {
-// app.post('')
-// app.get('')
-// app.put('')
-//
-// //vehicle endpoints for admin
-// app.post('')
-// app.get('')
-// app.put('')
-// app.delete('')
-//
-// //user endpoints for admin
-// app.post('')
-// app.get('')
-// app.put('')
-// app.delete('')
-//
-// //}
+
+
+
+
+app.get('/api/getusers', adminCtrl.index)
+app.get('/api/getoneuser/:id', adminCtrl.show)
+app.put('/api/updateuser/:id', adminCtrl.update)
+app.delete('/api/deleteuser/:id', adminCtrl.destroy)
+
+app.post('/api/addvehicle/:userid', vehicleCtrl.create)
+app.put('/api/updatevehicle/:id')
+
+
+
+
+
 
 
 
