@@ -1,5 +1,7 @@
 angular.module('trackOurTruck').service('userService', function($http, $q){
 
+  this.currentUser;
+
   this.signUp = function(user){
     return $http({
       method: "POST",
@@ -16,10 +18,5 @@ angular.module('trackOurTruck').service('userService', function($http, $q){
     })
   }
 
-  this.getUsers = function(){
-    return $http({
-      method: "GET",
-      url: '/api/getusers'
-    })
-  }
+
 })

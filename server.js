@@ -161,6 +161,12 @@ app.post('/auth/signup', function(req, res) {
     });
 });
 
+
+
+
+
+
+//ADMIN ENDPOINTS
 app.get('/api/getusers', function(req, res){
   User.find({}, function(err, users){
     if(err){
@@ -171,6 +177,8 @@ app.get('/api/getusers', function(req, res){
     }
   })
 })
+
+
 
 
 
