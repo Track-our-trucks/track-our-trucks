@@ -1,0 +1,55 @@
+@import 'main';
+
+
+.footer{
+  width: 100%;
+  height: 150px;
+  background-color: $dgrey;
+  // border-top: 5px $orange solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .footer-social{
+    color: $teal;
+    font-size: 30px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    div{
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  ul{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+  li{
+    color: $white;
+    margin: 15px;
+    font-family: $font1;
+  }
+
+  p{
+    color: $white;
+    font-family: $font1;
+    font-size: 13px;
+  }
+}
+
+// .footer-bottom{
+//   width: 100%;
+//   height: 65px;
+//   background-color: $dblue;
+//   // border-top: 5px $orange solid;
+// }
