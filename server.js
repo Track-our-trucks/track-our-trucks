@@ -227,12 +227,12 @@ app.post('/auth/adminsignup', function(req, res) {
 
 
 
-app.get('/api/getusers', adminCtrl.index)
-app.get('/api/getoneuser/:id', adminCtrl.show)
-app.put('/api/updateuser/:id', adminCtrl.update)
-app.delete('/api/deleteuser/:id', adminCtrl.destroy)
+app.get('/api/getusers', ensureAuthenticated, adminCtrl.index)
+app.get('/api/getoneuser/:id', ensureAuthenticated, adminCtrl.show)
+app.put('/api/updateuser/:id', ensureAuthenticated, adminCtrl.update)
+app.delete('/api/deleteuser/:id', ensureAuthenticated, adminCtrl.destroy)
 
-app.post('/api/addvehicle/:userid', vehicleCtrl.create)
+app.post('/api/addvehicle/:userid', ensureAuthenticated, vehicleCtrl.create)
 app.put('/api/updatevehicle/:id')
 
 
