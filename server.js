@@ -39,13 +39,14 @@ const User = require('./models/user');
 // Local authentication through Satellizer
 
 function ensureAuthenticated(req, res, next) {
+
     if (!req.header('Authorization')) {
         return res.status(401).send({
             message: 'Please make sure your request has an Authorization header'
         });
     }
     var token = req.header('Authorization').split(' ')[1];
-
+    console.log(token);
     var payload = null;
     try {
         payload = jwt.decode(token, config.TOKEN_SECRET);
@@ -91,17 +92,15 @@ function createJWT(user) {
 // update endpoint authentication
 
 app.put('/api/me', ensureAuthenticated, function(req, res) {
-    User.findById(req.user, function(err, user) {
+    User.findOne({email: req.body.email}, function(err, user) {
         if (!user) {
             return res.status(400).send({
                 message: 'User not found'
             });
         }
-        user.displayName = req.body.displayName || user.displayName;
-        user.email = req.body.email || user.email;
-        user.create(function(err) {
-            res.status(200).end();
-        });
+        else {
+          return res.status(200).json(user)
+        }
     });
 });
 
@@ -127,7 +126,8 @@ app.post('/auth/login', function(req, res) {
                 });
             }
             res.send({
-                token: createJWT(user)
+                token: createJWT(user),
+                user: user
             });
         });
     });
