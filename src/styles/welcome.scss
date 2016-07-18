@@ -37,22 +37,23 @@
     ul {
         display: flex;
         flex-direction: row;
-    }
-    li {
-        font-family: $font1;
-        color: $white;
-        font-size: 30px;
-        padding: 6px;
-    }
-    li:after {
-      display:block;
-      content: '';
-      border-bottom: solid 3px $orange;
-      transform: scaleX(0.0001);
-      transition: transform 250ms ease-in-out;
-    }
-    li:hover:after {
-         transform: scaleX(1)
+        li {
+            font-family: $font1;
+            color: $white;
+            font-size: 30px;
+            padding: 6px;
+        }
+        li:after {
+          display:block;
+          content: '';
+          border-bottom: solid 3px $orange;
+          transform: scaleX(0.0001);
+          transition: transform 250ms ease-in-out;
+        }
+        li:hover:after {
+             transform: scaleX(1)
+        }
+
     }
 }
 .welcome-container {
@@ -142,7 +143,8 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 20vh;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
 
     position: absolute;
     top: -116px;
@@ -153,16 +155,78 @@
         font-family: $font1;
         font-size: 40px;
         color: $white;
+        margin-bottom: 40px;
+
+    }
+    .slope-content-lower{
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+
+      .slope-content-lower-left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70vw;
+        padding-left: 100px;
+
+        p{
+          font-family: $font1;
+          color: $white;
+          font-size: 22px;
+          margin-top: 25px;
+
+
+
+        }
+      }
+
+.slope-content-lower-right{
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+      .welcome-circle{
+        border-radius: 100px;
+        height: 200px;
+        width: 200px;
+        background: $white;
+        position: relative;
+
+        .icon-map{
+          color: $teal;
+          font-size: 100px;
+          position: absolute;
+          top: 50px;
+          left:50px;
+
+          .icon-map-marker{
+            font-size: 30px;
+            color: $orange;
+          }
+
+          .marker-one{
+            position: absolute;
+            top: 45px;
+            left:70px;
+          }
+          .marker-two{
+            position: absolute;
+            top: 13px;
+            left:3px;
+          }
+        }
+      }
 
     }
 
-    p{
-      font-family: $font1;
-      color: $white;
-      font-size: 22px;
-      margin-top: 25px;
-
     }
+
 
   }
 
@@ -173,12 +237,12 @@
         transform-origin: left center;
         transform: rotate(-3deg);
         // margin-top: -20px;
-        height: 40vh;
+        height: 35vh;
 
     }
 
     .welcome-mid-section{
-      height: 20vh;
+      height: 10vh;
       width: 100%;
       background: $teal;
 
@@ -193,7 +257,7 @@
       transform-origin: left center;
       transform: rotate(2deg);
       // margin-top: -20px;
-      height: 40vh;
+      height: 35vh;
 
     }
 
@@ -227,18 +291,30 @@
       li{
         display: flex;
         flex-direction: row;
-
-
-        font-family: $font1;
-        color: $white;
-        font-size: 30px;
         padding: 6px;
-        margin: 10px;
+        margin: 20px;
         div{
           color: $teal;
           margin-right: 20px;
+          font-size: 30px;
+        }
+
+        p{
+          font-family: $font1;
+          color: $white;
+          font-size: 30px;
+          border-bottom: transparent 3px solid ;
+        }
+        p:after{
+          display:block;
+          content: '';
+          border-bottom: solid 3px $orange;
+          transform: scaleX(0.0001);
+          transition: transform 250ms ease-in-out;
+        }
+        p:hover:after {
+             transform: scaleX(1)
         }
       }
     }
-
 }
