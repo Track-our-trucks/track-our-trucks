@@ -32,6 +32,8 @@ app.use(cors(corsOptions));
 
 // server controllers
 const userCtrl = require('./serverControllers/userCtrl');
+const adminCtrl = require('./serverControllers/adminCtrl');
+const vehicleCtrl = require('./serverControllers/vehicleCtrl');
 
 // schemas
 const User = require('./models/user');
@@ -161,16 +163,19 @@ app.post('/auth/signup', function(req, res) {
     });
 });
 
-app.get('/api/getusers', function(req, res){
-  User.find({}, function(err, users){
-    if(err){
-      res.status(500).json(err.message)
-    }
-    else {
-      res.status(200).json(users)
-    }
-  })
-})
+
+
+
+// admin endpoints
+
+app.get('/api/getusers', adminCtrl.index)
+app.get('/api/getoneuser/:id', adminCtrl.show)
+app.put('/api/updateuser/:id', adminCtrl.update)
+app.delete('/api/deleteuser/:id', adminCtrl.destroy)
+
+app.post('/api/addvehicle/:userid', vehicleCtrl.create)
+app.put('/api/updatevehicle/:id')
+
 
 
 
