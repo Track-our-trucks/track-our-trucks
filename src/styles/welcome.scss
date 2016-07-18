@@ -1,4 +1,5 @@
 @import 'main';
+
 .welcome-background {
     height: 100vh;
     width: 100vw;
@@ -90,11 +91,15 @@
         padding: 10px;
         font-size: 15px;
         width: 200px;
+        transition: 0.3s;
+
     }
+
     button:hover {
         width: 220px;
         font-size: 17px;
         transition: 0.3s;
+        background: $orange;
     }
     button:focus {
         outline: 0;
@@ -144,7 +149,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 20vh;
-    padding-bottom: 20vh;
+    // padding-bottom: 20vh;
 
     position: absolute;
     top: -116px;
@@ -221,6 +226,14 @@
             left:3px;
           }
         }
+
+        .icon-line-chart{
+          color: $teal;
+          font-size: 100px;
+          position: absolute;
+          top: 50px;
+          left:50px;
+        }
       }
 
     }
@@ -261,12 +274,22 @@
 
     }
 
+    .welcome-bottom-section{
+      height: 30vh;
+      width: 100%;
+      background: $teal;
+
+      margin-top: -80px;
+
+
+    }
+
 }
 .welcome-driving {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 150px 100px 100px;
+    padding: 100px 100px 100px;
 
 
     background-image: url('./road.jpeg');
@@ -275,13 +298,51 @@
     height: 100vh;
     width: 100vw;
 
-    h2{
-      font-family: $font1;
-      font-size: 40px;
-      color: $white;
+    .driving-content-view{
+
+      margin-top: 80px;
+      width: 55%;
       box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
       background: rgba(0,0,0,0.55);
+
+      .driving-content-header{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+        h3{
+          font-family: $font1;
+          font-size: 40px;
+          color: $white;
+        }
+
+        .title-bar {
+            background-color: $orange;
+            height: 4px;
+            width: 45%;
+            margin: 15px;
+        }
+
+      }
+
+
+      p{
+        font-family: $font1;
+        color: $white;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 25px;
+
+      }
+
+
+
+
     }
+
 
     ul{
       display: flex;
@@ -315,6 +376,8 @@
         p:hover:after {
              transform: scaleX(1)
         }
+
       }
+
     }
 }

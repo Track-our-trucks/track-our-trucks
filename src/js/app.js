@@ -10,6 +10,41 @@ $stateProvider
   templateUrl: './ui-views/welcome.html',
   controller: 'welcomeCtrl'
 })
+.state("welcome.globe", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeGlobe.html',
+  controller: 'welcomeCtrl'
+})
+.state("welcome.learn", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeLearn.html',
+  controller: 'welcomeCtrl'
+})
+.state("welcome.marker", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeMarker.html',
+  controller: 'welcomeCtrl'
+})
+.state("welcome.truck", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeTruck.html',
+  controller: 'welcomeCtrl'
+})
+.state("welcome.clock", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeClock.html',
+  controller: 'welcomeCtrl'
+})
+.state("welcome.speed", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeSpeed.html',
+  controller: 'welcomeCtrl'
+})
+.state("welcome.calender", {
+  url:'/welcome',
+  templateUrl:'./ui-views/welcomeCalender.html',
+  controller: 'welcomeCtrl'
+})
 .state('login', {
   url: '/login',
   templateUrl: './ui-views/login.html',
