@@ -11,7 +11,7 @@ var adminSchema = new Schema({
 })
 
 adminSchema.pre('save', function(next) {
-  var user admin= this;
+  var admin = this;
   if (!admin.isModified('password')) {
     return next();
   }
