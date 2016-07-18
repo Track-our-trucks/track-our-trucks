@@ -166,7 +166,7 @@ app.post('/auth/signup', function(req, res) {
 
 
 
-// admin endpoints
+
 
 app.get('/api/getusers', adminCtrl.index)
 app.get('/api/getoneuser/:id', adminCtrl.show)
@@ -175,6 +175,9 @@ app.delete('/api/deleteuser/:id', adminCtrl.destroy)
 
 app.post('/api/addvehicle/:userid', vehicleCtrl.create)
 app.put('/api/updatevehicle/:id')
+
+
+
 
 
 
