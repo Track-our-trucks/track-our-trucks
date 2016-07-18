@@ -37,6 +37,8 @@ const vehicleCtrl = require('./serverControllers/vehicleCtrl');
 
 // schemas
 const User = require('./models/user');
+const Admin = require('./models/admin');
+const Vehicle = require('./models/vehicle')
 
 // Local authentication through Satellizer
 
@@ -108,7 +110,7 @@ function createJWT(user) {
 
 /*
  |--------------------------------------------------------------------------
- | Log in with Email
+ | User Log in with Email
  |--------------------------------------------------------------------------
  */
 app.post('/auth/login', function(req, res) {
@@ -137,7 +139,7 @@ app.post('/auth/login', function(req, res) {
 
 /*
  |--------------------------------------------------------------------------
- | Create Account
+ | User Create Account
  |--------------------------------------------------------------------------
  */
 
@@ -163,6 +165,63 @@ app.post('/auth/signup', function(req, res) {
     });
 });
 
+/*
+ |--------------------------------------------------------------------------
+ | Admin Log in with Email
+ |--------------------------------------------------------------------------
+ */
+
+app.post('/auth/adminlogin', function(req, res) {
+    Admin.findOne({
+        email: req.body.email
+    }, function(err, admin) {
+      console.log(admin);
+        if (!user) {
+            return res.status(401).send({
+                message: 'Invalid email'
+            });
+        }
+        user.comparePassword(req.body.password, user.password, function(err, isMatch) {
+            if (!isMatch) {
+                return res.status(401).send({
+                    message: 'Invalid email and/or password'
+                });
+            }
+            res.send({
+                token: createJWT(admin),
+                admin: admin
+            });
+        });
+    });
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Admin Create Account
+ |--------------------------------------------------------------------------
+ */
+
+app.post('/auth/adminsignup', function(req, res) {
+    Admin.findOne({
+        email: req.body.email
+    }, function(err, existingAdmin) {
+        if (existingAdmin) {
+            return res.status(409).send({
+                message: 'Email is already taken'
+            });
+        }
+        Admin.create(req.body, function(err, result) {
+            if (err) {
+                res.status(500).send({
+                    message: err.message
+                });
+            }
+            res.send({
+                token: createJWT(result)
+            });
+        });
+    });
+});
 
 
 
@@ -175,14 +234,6 @@ app.delete('/api/deleteuser/:id', adminCtrl.destroy)
 
 app.post('/api/addvehicle/:userid', vehicleCtrl.create)
 app.put('/api/updatevehicle/:id')
-
-
-
-
-
-
-
-
 
 
 
