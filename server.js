@@ -176,12 +176,12 @@ app.post('/auth/adminlogin', function(req, res) {
         email: req.body.email
     }, function(err, admin) {
       console.log(admin);
-        if (!user) {
+        if (!admin) {
             return res.status(401).send({
                 message: 'Invalid email'
             });
         }
-        user.comparePassword(req.body.password, user.password, function(err, isMatch) {
+        admin.comparePassword(req.body.password, admin.password, function(err, isMatch) {
             if (!isMatch) {
                 return res.status(401).send({
                     message: 'Invalid email and/or password'

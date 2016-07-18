@@ -1,17 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var bcrypt = require('bcryptjs');
 
 var adminSchema = new Schema({
   name: {type: String, required: true},
   email: {type: String, required: true, unique: true},
-  password: {type: String, required: true, minlength: 8},
+  password: {type: String, required: true},
   vehicles: [{type: String, ref: 'Vehicle'}],
   users: [{type: String, ref: 'User'}],
 
 })
 
 adminSchema.pre('save', function(next) {
-  var user admin= this;
+  var admin = this;
   if (!admin.isModified('password')) {
     return next();
   }
