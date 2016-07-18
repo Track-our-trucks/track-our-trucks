@@ -25,6 +25,16 @@ $stateProvider
   templateUrl: './ui-views/admin.html',
   controller: 'adminCtrl'
 })
+.state('adminLogin', {
+  url: '/adminLogin',
+  templateUrl: './ui-views/adminLogin.html',
+  controller: 'adminLoginCtrl'
+})
+.state('adminSignup', {
+  url: '/adminSignup',
+  templateUrl: './ui-views/adminSignup.html',
+  controller: 'adminSignupCtrl'
+})
 
 
 
