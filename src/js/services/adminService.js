@@ -31,4 +31,20 @@ angular.module('trackOurTruck').service('adminService', function($http, $q){
     })
   }
 
+  this.adminLogin = function(admin){
+    return $http({
+      method: "POST",
+      url: '/auth/adminlogin',
+      data: admin
+    })
+  }
+
+  this.adminSignup = function(admin){
+    return $http({
+      method: "POST",
+      url: '/auth/adminsignup',
+      data: admin
+    })
+  }
+
 })
