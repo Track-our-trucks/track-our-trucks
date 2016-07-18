@@ -60,7 +60,11 @@ $stateProvider
   templateUrl: './ui-views/admin.html',
   controller: 'adminCtrl'
 })
-
+.state('userHome', {
+  url: '/userhome',
+  templateUrl: './ui-views/userHomeTmpl.html',
+  controller: 'userHomeCtrl'
+})
 
 
 
