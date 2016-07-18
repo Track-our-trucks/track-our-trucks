@@ -13,6 +13,7 @@ var vehicleSchema = new Schema({
   identifier: {type: String},
   locations: [locationSchema],
   speeds: [speedSchema],
+  headings: [headingSchema],
   brakings: [brakeSchema],
   turns: [turnSchema],
   idlings: [idleSchema],
