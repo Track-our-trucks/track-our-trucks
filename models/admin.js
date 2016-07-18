@@ -10,4 +10,23 @@ var adminSchema = new Schema({
 
 })
 
+adminSchema.pre('save', function(next) {
+  var user admin= this;
+  if (!admin.isModified('password')) {
+    return next();
+  }
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(admin.password, salt, function(err, hash) {
+      admin.password = hash;
+      next();
+    });
+  });
+});
+
+adminSchema.methods.comparePassword = (password, hash, done) => {
+  bcrypt.compare(password, hash, function(err, isMatch) {
+    done(err, isMatch);
+  });
+};
+
 module.exports = mongoose.model("Admin", adminSchema);
