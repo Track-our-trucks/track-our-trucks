@@ -91,18 +91,18 @@ function createJWT(user) {
 
 // update endpoint authentication
 
-app.put('/api/me', ensureAuthenticated, function(req, res) {
-    User.findOne({email: req.body.email}, function(err, user) {
-        if (!user) {
-            return res.status(400).send({
-                message: 'User not found'
-            });
-        }
-        else {
-          return res.status(200).json(user)
-        }
-    });
-});
+// app.put('/api/me', ensureAuthenticated, function(req, res) {
+//     User.findOne({email: req.body.email}, function(err, user) {
+//         if (!user) {
+//             return res.status(400).send({
+//                 message: 'User not found'
+//             });
+//         }
+//         else {
+//           return res.status(200).json(user)
+//         }
+//     });
+// });
 
 /*
  |--------------------------------------------------------------------------
@@ -161,35 +161,17 @@ app.post('/auth/signup', function(req, res) {
     });
 });
 
+app.get('/api/getusers', function(req, res){
+  User.find({}, function(err, users){
+    if(err){
+      res.status(500).json(err.message)
+    }
+    else {
+      res.status(200).json(users)
+    }
+  })
+})
 
-//user endpoints {
-// app.post('')
-// app.get('')
-// app.put('')
-//
-// //vehicle, user can only change vehicle name
-// app.put('')
-//
-// //}
-//
-// //admin endpoints {
-// app.post('')
-// app.get('')
-// app.put('')
-//
-// //vehicle endpoints for admin
-// app.post('')
-// app.get('')
-// app.put('')
-// app.delete('')
-//
-// //user endpoints for admin
-// app.post('')
-// app.get('')
-// app.put('')
-// app.delete('')
-//
-// //}
 
 
 

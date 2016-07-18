@@ -15,4 +15,11 @@ angular.module('trackOurTruck').service('userService', function($http, $q){
       data: user
     })
   }
+
+  this.getUsers = function(){
+    return $http({
+      method: "GET",
+      url: '/api/getusers'
+    })
+  }
 })
