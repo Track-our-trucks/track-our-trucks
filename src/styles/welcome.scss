@@ -129,30 +129,69 @@
 }
 .welcome-sloped-cont {
 
+  position: relative;
+
+  .slope-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20vh;
+
+    position: absolute;
+    top: -116px;
+    z-index: 200;
+
+    // transform: rotate(3deg);
+    h3 {
+        font-family: $font1;
+        font-size: 40px;
+        color: $white;
+
+    }
+
+    p{
+      font-family: $font1;
+      color: $white;
+      font-size: 22px;
+      margin-top: 25px;
+
+    }
+  }
+
+
     .welcome-sloped {
         margin: 0 -100px;
         background: $teal;
         transform-origin: left center;
-        transform: rotate(-2deg);
+        transform: rotate(-3deg);
         // margin-top: -20px;
-        height: 70vh;
+        height: 40vh;
 
-        .slope-content{
+    }
 
-          padding: 20vh;
+    .welcome-mid-section{
+      height: 20vh;
+      width: 100%;
+      background: $teal;
 
-          transform: rotate(2deg);
+      margin-top: -80px;
+      margin-bottom: -80px;
 
-          p{
-            font-family: $font1;
-            color: $white;
-            font-size: 22px;
-          }
-        }
+    }
+
+    .welcome-neg-sloped{
+      margin: 0 -100px;
+      background: $teal;
+      transform-origin: left center;
+      transform: rotate(2deg);
+      // margin-top: -20px;
+      height: 40vh;
+
     }
 
 }
-.welcome-map {
+.welcome-driving {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,4 +200,15 @@
     background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
+    ul{
+      display: flex;
+      flex-direction: column;
+      li{
+        font-family: $font1;
+        color: $white;
+        font-size: 30px;
+        padding: 6px;
+      }
+    }
+
 }
