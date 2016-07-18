@@ -10,6 +10,11 @@ $stateProvider
   templateUrl: './ui-views/welcome.html',
   controller: 'welcomeCtrl'
 })
+.state("welcome.login", {
+  url:'/welcome',
+  templateUrl:'./ui-views/login.html',
+  controller: 'loginCtrl'
+})
 .state("welcome.globe", {
   url:'/welcome',
   templateUrl:'./ui-views/welcomeGlobe.html',

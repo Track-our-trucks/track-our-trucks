@@ -1,0 +1,25 @@
+<section ng-if='modalOn'>
+
+
+
+    <section class="modalBox">
+
+        <section class="modalNav">
+
+            <div class="icon-times-circle closeMod" ng-click="modalOff()"></div>
+
+        </section>
+
+
+      <ui-view></ui-view>
+
+
+
+    </section>
+
+    <section class="modalCurtain" ng-click="modalOff()">
+
+
+    </section>
+
+</section>
