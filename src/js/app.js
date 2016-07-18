@@ -16,7 +16,7 @@ $stateProvider
   controller: 'loginCtrl'
 })
 .state('signUp', {
-  url: '/signUp',
+  url: '/signup',
   templateUrl: './ui-views/signUp.html',
   controller: 'signUpCtrl'
 })

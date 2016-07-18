@@ -8,7 +8,7 @@ $lgrey: #dedede;
 $dblue: #2d556e;
 
 
-body{
-  width: 100vw;
-  overflow: none;
+html, body{
+  max-width: 100%;
+  overflow-x: hidden;
 }
