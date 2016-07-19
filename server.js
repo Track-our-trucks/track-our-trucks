@@ -42,7 +42,7 @@ const Vehicle = require('./models/vehicle')
 
 // Local authentication through Satellizer
 
-function ensureAuthenticated(req, res, next) {
+var ensureAuthenticated = (req, res, next) => {
 
     if (!req.header('Authorization')) {
         return res.status(401).send({
@@ -71,7 +71,7 @@ function ensureAuthenticated(req, res, next) {
 
 // webtoken for authentication
 
-function createJWT(user) {
+var createJWT = (user) => {
     var payload = {
         sub: user._id,
         iat: moment().unix(),
@@ -84,7 +84,7 @@ function createJWT(user) {
     return jwt.encode(payload, config.TOKEN_SECRET);
 }
 
-function adminEnsureAuthenticated(req, res, next) {
+var adminEnsureAuthenticated = (req, res, next) => {
 
     if (!req.header('Authorization')) {
         return res.status(401).send({
@@ -113,7 +113,7 @@ function adminEnsureAuthenticated(req, res, next) {
 
 // webtoken for authentication
 
-function adminCreateJWT(user) {
+var adminCreateJWT = (user) => {
     var payload = {
         sub: user._id,
         iat: moment().unix(),
@@ -156,17 +156,17 @@ function adminCreateJWT(user) {
  | User Log in with Email
  |--------------------------------------------------------------------------
  */
-app.post('/auth/login', function(req, res) {
+app.post('/auth/login', (req, res) => {
     User.findOne({
         email: req.body.email
-    }, function(err, user) {
+    }, (err, user) => {
       console.log(user);
         if (!user) {
             return res.status(401).send({
                 message: 'Invalid email'
             });
         }
-        user.comparePassword(req.body.password, user.password, function(err, isMatch) {
+        user.comparePassword(req.body.password, user.password, (err, isMatch) => {
             if (!isMatch) {
                 return res.status(401).send({
                     message: 'Invalid email and/or password'
@@ -186,16 +186,16 @@ app.post('/auth/login', function(req, res) {
  |--------------------------------------------------------------------------
  */
 
-app.post('/auth/signup', function(req, res) {
+app.post('/auth/signup', (req, res) => {
     User.findOne({
         email: req.body.email
-    }, function(err, existingUser) {
+    }, (err, existingUser) => {
         if (existingUser) {
             return res.status(409).send({
                 message: 'Email is already taken'
             });
         }
-        User.create(req.body, function(err, result) {
+        User.create(req.body, (err, result) => {
             if (err) {
                 res.status(500).send({
                     message: err.message
@@ -227,17 +227,17 @@ app.post('/auth/signup', function(req, res) {
  |--------------------------------------------------------------------------
  */
 
-app.post('/auth/adminlogin', function(req, res) {
+app.post('/auth/adminlogin', (req, res) => {
     Admin.findOne({
         email: req.body.email
-    }, function(err, admin) {
+    }, (err, admin) => {
 
         if (!admin) {
             return res.status(401).send({
                 message: 'Invalid email'
             });
         }
-        admin.comparePassword(req.body.password, admin.password, function(err, isMatch) {
+        admin.comparePassword(req.body.password, admin.password, (err, isMatch) => {
             if (!isMatch) {
                 return res.status(401).send({
                     message: 'Invalid email and/or password'
@@ -257,16 +257,16 @@ app.post('/auth/adminlogin', function(req, res) {
  |--------------------------------------------------------------------------
  */
 
-app.post('/auth/adminsignup', function(req, res) {
+app.post('/auth/adminsignup', (req, res) => {
     Admin.findOne({
         email: req.body.email
-    }, function(err, existingAdmin) {
+    }, (err, existingAdmin) => {
         if (existingAdmin) {
             return res.status(409).send({
                 message: 'Email is already taken'
             });
         }
-        Admin.create(req.body, function(err, result) {
+        Admin.create(req.body, (err, result) => {
 
             if (err) {
                 res.status(500).send({
@@ -297,6 +297,6 @@ app.put('/api/updatevehicle/:id')
 
 
 
-app.listen(port, function() {
+app.listen(port, () => {
     console.log("It's over: " + port);
 })

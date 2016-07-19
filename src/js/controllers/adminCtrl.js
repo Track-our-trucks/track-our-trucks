@@ -1,7 +1,7 @@
-angular.module('trackOurTruck').controller('adminCtrl', function($scope, $state, userService, vehicleService, adminService) {
+angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userService, vehicleService, adminService) => {
 
-  $scope.getUsers = function() {
-    adminService.getUsers().then(function(response) {
+  $scope.getUsers = () => {
+    adminService.getUsers().then((response) => {
       $scope.users = response.data
     })
   }
@@ -10,7 +10,7 @@ angular.module('trackOurTruck').controller('adminCtrl', function($scope, $state,
 
   $scope.selected = -1;
   let flag = false;
-  $scope.itemSelected = function(index){
+  $scope.itemSelected = (index) => {
     if(!flag){
       $scope.selected = index;
       adminService.currentUser = $scope.users[index];
@@ -25,19 +25,19 @@ angular.module('trackOurTruck').controller('adminCtrl', function($scope, $state,
 
   }
 
-  $scope.deleteUser = function(index){
+  $scope.deleteUser = (index) => {
     adminService.deleteUser($scope.users[index]).then(response => {
       $scope.getUsers();
     })
   }
 
-  $scope.showUser = function(index){
+  $scope.showUser = (index) => {
     adminService.showUser($scope.users[index]).then(response => {
       $scope.theCurrentUser = response.data;
     })
   }
 
-  $scope.updateUser = function(index){
+  $scope.updateUser = (index) => {
     adminService.updateUser($scope.users[index]).then(response => {
       $scope.getUsers();
     })
