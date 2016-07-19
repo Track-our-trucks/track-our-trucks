@@ -36,7 +36,7 @@ gulp.task('js', function() {
         }))
         .pipe(concat('bundle.js'))
         // .pipe(uglify()) uncomment when rdy for production
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
         .on('end', reload);
 });
@@ -47,7 +47,7 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(concat('bundle.css'))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
         .pipe(browserSync.stream({
             match: '**/*.css'

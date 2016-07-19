@@ -1,0 +1,14 @@
+{
+    "restartable": "rs",
+    "colours": "true",
+    "execMap": {
+        "js": "node"
+    },
+    "ignoreRoot": "ignoreRoot",
+    "watch": ["./models", "./serverControllers", "./server.js"],
+    "verbose": "false",
+    "stdout": "true",
+    "env": {
+        "NODE_ENV": "development"
+    }
+}
