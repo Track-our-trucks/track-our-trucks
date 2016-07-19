@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('userHomeCtrl', function($scope) {
+angular.module('trackOurTruck').controller('userHomeCtrl', ($scope) => {
 
 
 

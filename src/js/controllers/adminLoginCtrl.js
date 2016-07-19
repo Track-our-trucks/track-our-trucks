@@ -1,7 +1,7 @@
-angular.module('trackOurTruck').controller('adminLoginCtrl', function($auth, $scope, $state, adminService) {
+angular.module('trackOurTruck').controller('adminLoginCtrl', ($auth, $scope, $state, adminService) => {
 
-  $scope.login = function(admin) {
-    adminService.adminLogin(admin).then(function(response) {
+  $scope.login = (admin) => {
+    adminService.adminLogin(admin).then(response => {
       $auth.setToken(response);
       $state.go('admin');
 

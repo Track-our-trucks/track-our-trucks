@@ -1,6 +1,6 @@
-angular.module('trackOurTruck').controller('welcomeCtrl', function($scope, $state) {
+angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state) => {
 
-  $scope.modalOff = function() {
+  $scope.modalOff = () => {
 
       $state.go('welcome');
 
@@ -9,7 +9,7 @@ angular.module('trackOurTruck').controller('welcomeCtrl', function($scope, $stat
 
   }
 
-$scope.loginModal = function () {
+$scope.loginModal = () => {
 
   $state.go('welcome.login');
 

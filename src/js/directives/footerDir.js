@@ -1,14 +1,14 @@
-angular.module("trackOurTruck").directive("footerDir", function(){
+angular.module("trackOurTruck").directive("footerDir", () => {
   return {
     templateUrl: '../ui-views/directiveTmpls/footerTmpl.html',
     restric: "EA",
     scope: {
 
     },
-    controller: function($scope){
+    controller: ($scope) => {
 
     },
-    link: function(scope, element, attrs){
+    link: (scope, element, attrs) => {
 
     }
 
