@@ -1,7 +1,7 @@
-angular.module('trackOurTruck').controller('signUpCtrl', function($auth, $scope, $state, userService) {
+angular.module('trackOurTruck').controller('signUpCtrl', ($auth, $scope, $state, userService) => {
 
-$scope.signUp = function(user){
-  userService.signUp(user).then(function(response){
+$scope.signUp = (user) => {
+  userService.signUp(user).then(response => {
     $auth.setToken(response);
   })
 }

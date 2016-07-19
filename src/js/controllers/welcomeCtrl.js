@@ -1,13 +1,13 @@
-angular.module('trackOurTruck').controller('welcomeCtrl', function($scope, $state) {
+angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state) => {
 
-  $scope.modalOff = function() {
+  $scope.modalOff = () => {
 
       $scope.modalOn = false;
-    
+
 
   }
 
-$scope.loginModal = function () {
+$scope.loginModal = () => {
 
   $scope.modalOn = true;
 
