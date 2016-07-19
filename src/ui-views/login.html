@@ -1,13 +1,29 @@
 
 <section class="signup-cont">
 
-  <section>
+  <section class="signup-top">
 
-    LOGIN
+    <h3>SIGN IN</h3>
 
-    <input ng-model="user.email" type="email" name="name"  placeholder="email">
-    <input ng-model="user.password" type="password" name="name"  placeholder="password">
-    <button ng-click="login(user)" type="button" name="button">sign up</button>
+    <div class="signin-input">
+        <div class="icon-user signin-user-icon"></div>
+        <input ng-model="user.email" type="email" name="name"  placeholder="Email"></input>
+    </div>
+
+    <div class="signin-input">
+        <div class="icon-key signin-key-icon"></div>
+        <input ng-model="user.password" type="password" name="name"  placeholder="Password"></input>
+    </div>
+
+    <button ng-click="login(user)" type="button" name="button">SIGN IN</button>
+
+  </section>
+
+  <section class="signup-bottom">
+
+    <p>
+      Don't have an account? <span ui-sref = "welcome.signup">Create one now</span>
+    </p>
 
   </section>
 
