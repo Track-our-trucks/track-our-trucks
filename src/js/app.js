@@ -1,4 +1,4 @@
-angular.module('trackOurTruck', ['ui.router', 'satellizer'])
+angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap'])
 .config(function($stateProvider, $urlRouterProvider) {
 
 $urlRouterProvider.otherwise('/welcome');
