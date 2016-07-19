@@ -50,7 +50,7 @@ function ensureAuthenticated(req, res, next) {
         });
     }
     var token = req.header('Authorization').split(' ')[1];
-    console.log(token);
+
     var payload = null;
     try {
         payload = jwt.decode(token, config.TOKEN_SECRET);
@@ -83,6 +83,49 @@ function createJWT(user) {
     };
     return jwt.encode(payload, config.TOKEN_SECRET);
 }
+
+function adminEnsureAuthenticated(req, res, next) {
+
+    if (!req.header('Authorization')) {
+        return res.status(401).send({
+            message: 'Please make sure your request has an Authorization header'
+        });
+    }
+    var token = req.header('Authorization').split(' ')[1];
+
+    var payload = null;
+    try {
+        payload = jwt.decode(token, config.ADMIN_TOKEN_SECRET);
+    } catch (err) {
+        return res.status(401).send({
+            message: err.message
+        });
+    }
+
+    if (payload.exp <= moment().unix()) {
+        return res.status(401).send({
+            message: 'Token has expired'
+        });
+    }
+    req.user = payload.sub;
+    next();
+}
+
+// webtoken for authentication
+
+function adminCreateJWT(user) {
+    var payload = {
+        sub: user._id,
+        iat: moment().unix(),
+        exp: moment().add(14, 'days').unix(),
+        name: user.name,
+        email: user.email,
+        setLocation: user.setLocation,
+        vehicles: user.vehicles
+    };
+    return jwt.encode(payload, config.ADMIN_TOKEN_SECRET);
+}
+
 
 // endopoint for login
 
@@ -158,9 +201,22 @@ app.post('/auth/signup', function(req, res) {
                     message: err.message
                 });
             }
-            res.send({
-                token: createJWT(result)
-            });
+            else {
+
+              Admin.findOneAndUpdate({email: 'tot@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
+
+                if(err){
+                  res.send(500).json(err)
+                }
+                else {
+                  res.send({
+                      token: createJWT(result)
+                  });
+                }
+              })
+
+            }
+
         });
     });
 });
@@ -175,7 +231,7 @@ app.post('/auth/adminlogin', function(req, res) {
     Admin.findOne({
         email: req.body.email
     }, function(err, admin) {
-      console.log(admin);
+
         if (!admin) {
             return res.status(401).send({
                 message: 'Invalid email'
@@ -188,7 +244,7 @@ app.post('/auth/adminlogin', function(req, res) {
                 });
             }
             res.send({
-                token: createJWT(admin),
+                token: adminCreateJWT(admin),
                 admin: admin
             });
         });
@@ -211,13 +267,14 @@ app.post('/auth/adminsignup', function(req, res) {
             });
         }
         Admin.create(req.body, function(err, result) {
+
             if (err) {
                 res.status(500).send({
                     message: err.message
                 });
             }
             res.send({
-                token: createJWT(result)
+                token: adminCreateJWT(result)
             });
         });
     });
@@ -227,10 +284,10 @@ app.post('/auth/adminsignup', function(req, res) {
 
 
 
-app.get('/api/getusers', ensureAuthenticated, adminCtrl.index)
-app.get('/api/getoneuser/:id', ensureAuthenticated, adminCtrl.show)
-app.put('/api/updateuser/:id', ensureAuthenticated, adminCtrl.update)
-app.delete('/api/deleteuser/:id', ensureAuthenticated, adminCtrl.destroy)
+app.get('/api/getusers', adminEnsureAuthenticated, adminCtrl.index)
+app.get('/api/getoneuser/:id', adminEnsureAuthenticated, adminCtrl.show)
+app.put('/api/updateuser/:id', adminEnsureAuthenticated, adminCtrl.update)
+app.delete('/api/deleteuser/:id', adminEnsureAuthenticated, adminCtrl.destroy)
 
 app.post('/api/addvehicle/:userid', ensureAuthenticated, vehicleCtrl.create)
 app.put('/api/updatevehicle/:id')
