@@ -1,12 +1,38 @@
-<section ng-if='modalOn'>
+<section ng-if='wideModalOn'>
 
 
 
-    <section class="modalBox">
+    <section class="wide-modal-box">
 
-        <section class="modalNav">
+        <section class="modal-nav">
 
-            <div class="icon-times-circle closeMod" ng-click="modalOff()"></div>
+            <div class="icon-times-circle close-mod" ng-click="modalOff()"></div>
+
+        </section>
+
+
+      <ui-view></ui-view>
+
+
+
+    </section>
+
+    <section class="modalCurtain" ng-click="modalOff()">
+
+
+    </section>
+
+</section>
+
+<section ng-if='thinModalOn'>
+
+
+
+    <section class="thin-modal-box">
+
+        <section class="modal-nav">
+
+            <div class="icon-times-circle close-mod" ng-click="modalOff()"></div>
 
         </section>
 
