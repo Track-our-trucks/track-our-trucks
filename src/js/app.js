@@ -10,51 +10,51 @@ $stateProvider
   templateUrl: './ui-views/welcome.html',
   controller: 'welcomeCtrl'
 })
-.state("welcome.login", {
-  url:'/welcome',
-  templateUrl:'./ui-views/login.html',
-  controller: 'loginCtrl'
-})
 .state("welcome.globe", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeGlobe.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.learn", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeLearn.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.marker", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeMarker.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.truck", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeTruck.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.clock", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeClock.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.speed", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeSpeed.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.calender", {
-  url:'/welcome',
+  url:'/',
   templateUrl:'./ui-views/welcomeCalender.html',
   controller: 'welcomeCtrl'
 })
-.state('login', {
-  url: '/login',
-  templateUrl: './ui-views/login.html',
+.state("welcome.login", {
+  url:'/',
+  templateUrl:'./ui-views/login.html',
   controller: 'loginCtrl'
 })
+// .state('login', {
+//   url: '/login',
+//   templateUrl: './ui-views/login.html',
+//   controller: 'loginCtrl'
+// })
 .state('signUp', {
   url: '/signup',
   templateUrl: './ui-views/signUp.html',

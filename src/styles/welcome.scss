@@ -4,7 +4,7 @@
     height: 100vh;
     width: 100vw;
     background-image: url("./birdShit.jpeg");
-    
+
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -34,8 +34,8 @@
 .welcome-menu {
     display: flex;
     align-items: center;
-    box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
-    background: rgba(0,0,0,0.55);
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
     ul {
         display: flex;
         flex-direction: row;
@@ -112,8 +112,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
-    background: rgba(0,0,0,0.55);
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
 }
 .welcome-footer {
     height: 10vh;
