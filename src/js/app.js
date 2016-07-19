@@ -46,7 +46,7 @@ $stateProvider
   controller: 'welcomeCtrl'
 })
 .state("welcome.login", {
-  url:'/',
+  url:'/login',
   templateUrl:'./ui-views/login.html',
   controller: 'loginCtrl'
 })

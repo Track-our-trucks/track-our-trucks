@@ -3,14 +3,17 @@ angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state) => {
   $scope.modalOff = () => {
 
       $state.go('welcome');
-      $scope.modalOn = false;
+
+      $scope.thinModalOn = false;
 
 
   }
 
 $scope.loginModal = () => {
 
-  $scope.modalOn = true;
+  $state.go('welcome.login');
+
+  $scope.thinModalOn = true;
 
   let body = document.getElementById('body');
 
