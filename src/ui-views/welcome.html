@@ -16,10 +16,10 @@
 
         <section class="welcome-menu">
             <ul>
-                <li>Home</li>
+                <li ui-sref = "welcome">Home</li>
                 <li>About</li>
                 <li ng-click ='loginModal()' >Login</li>
-                <li>Signup</li>
+                <li ng-click ='signupModal()'>Signup</li>
             </ul>
         </section>
 
@@ -37,7 +37,7 @@
 
             <h3>deserunt mollit anim id est laborum.</h3>
             <div class="welcome-button-container">
-                <button type="button" name="button">Signup Now</button>
+                <button type="button" name="button" ng-click ='signupModal()'>Signup Now</button>
             </div>
 
         </section>
