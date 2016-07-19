@@ -23,7 +23,8 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init())
         .pipe(annotate())
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['es2015'],
+            ignore: ['**/ng-map.js']
         }))
         .pipe(concat('bundle.js'))
         // .pipe(uglify()) uncomment when rdy for production
