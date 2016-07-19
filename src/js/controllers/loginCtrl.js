@@ -1,8 +1,8 @@
-angular.module('trackOurTruck').controller('loginCtrl', function($scope, $state, userService) {
+angular.module('trackOurTruck').controller('loginCtrl', function($auth, $scope, $state, userService) {
 
   $scope.login = function(user) {
     userService.login(user).then(function(response) {
-      console.log(response.data);
+      $auth.setToken(response);
     })
   }
 
