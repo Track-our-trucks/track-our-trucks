@@ -1,7 +1,7 @@
 angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap'])
 .config( ($stateProvider, $urlRouterProvider) => {
 
-$urlRouterProvider.otherwise('/welcome');
+$urlRouterProvider.otherwise('/welcome.globe');
 
 $stateProvider
 
@@ -28,11 +28,6 @@ $stateProvider
 .state("welcome.globe", {
   url:'/',
   templateUrl:'./ui-views/welcomeGlobe.html',
-  controller: 'welcomeCtrl'
-})
-.state("welcome.learn", {
-  url:'/',
-  templateUrl:'./ui-views/welcomeLearn.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.marker", {
