@@ -36,12 +36,21 @@
   position: relative;
 }
 
-.close-mod{
+.close-mod-blue{
   position: absolute;
   top: 15px;
   right: 10px;
 
   color: $dblue;
+  font-size: 30px;
+}
+
+.close-mod-white{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+
+  color: $white;
   font-size: 30px;
 }
 

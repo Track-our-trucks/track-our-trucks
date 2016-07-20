@@ -1,0 +1,60 @@
+@import "main";
+
+.user-info{
+
+.user-info-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: $mteal;
+    height: auto;
+
+    .user-name-tab {
+
+      width: 100%;
+      background: $dteal;
+      text-align: left;
+
+      h4{
+        font-family: $font2;
+        color: $white;
+        font-size: 35px;
+
+        padding: 24px 0px 11px 42px;
+
+
+      }
+
+    }
+}
+
+.user-info-bottom{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+
+  .user-icon{
+    color: $mteal;
+    font-size: 400px;
+
+    position: relative;
+
+    .icon-user{
+      font-size: 220px;
+
+      position: absolute;
+
+      top: 70px;
+      left: 90px;
+    }
+
+  }
+
+
+}
+
+}
