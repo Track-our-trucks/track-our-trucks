@@ -1,0 +1,70 @@
+@import "main";
+.vehicle-info-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: $mteal;
+    height: auto;
+
+    .vehicle-name-tab {
+
+      width: 100%;
+      background: $dteal;
+      text-align: left;
+
+      h4{
+        font-family: $font2;
+        color: $white;
+        font-size: 35px;
+
+        padding: 24px 0px 11px 42px;
+
+
+      }
+
+    }
+
+    p {
+        font-family: $font2;
+        color: $white;
+        font-size: 24px;
+        text-align: center;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .vehicle-tabs {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 50%;
+
+        div{
+          width: 90%;
+
+        }
+        div:active{
+          color: $teal;
+          transition: 0.3s;
+        }
+
+        .location-tab {
+
+        }
+        .behavior-tab {
+
+        }
+    }
+
+    // div {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     border: 2px solid $mgrey;
+    //     border-bottom: transparent;
+    //     width: 100%;
+    //     height: 100%;
+    // }
+}

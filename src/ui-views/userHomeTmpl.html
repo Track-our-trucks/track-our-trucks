@@ -1,3 +1,5 @@
+<modal-dir></modal-dir>
+
 <section class="user-home-main">
 
 <section class="main-side-menu">
@@ -7,7 +9,7 @@
    <div class="side-menu-options">
      <ul>
 
-       <li>
+       <li ng-click="userModal()">
          <div class="truck-user-list">
            <div class="icon-truck"></div>
            <p>
@@ -154,7 +156,35 @@
   </section>
 
   <div class="map" map-lazy-load='https://maps.google.com/maps/api/js'>
-    <ng-map zoom='13' center='[40.7608, -111.8910]'></ng-map>
+    <ng-map zoom='13' center='[40.7608, -111.8910]'>
+
+    <marker icon="{
+          path: "M210,250 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0",
+          scale: 10
+        }"
+         position="[40.7509, -111.8910]" title="first">
+
+    </marker>
+
+    <marker style="" position="[40.7568, -111.8762]" title="second">
+
+    </marker>
+
+    <marker position="[40.7599, -111.9003]" title="third" draggable="true">
+
+    </marker>
+
+    <shape  name="circle"
+       stroke-color="#3c3d3c"
+       stroke-opacity="0.8"
+       stroke-weight="2"
+       fill-color="#3c3d3c"
+       fill-opacity="0.35"
+       center="[40.7599, -111.9003]"
+       radius="6502">
+     </shape>
+
+    </ng-map>
   </div>
 
 </section>
