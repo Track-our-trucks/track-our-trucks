@@ -50,12 +50,7 @@ $stateProvider
   templateUrl:'./ui-views/login.html',
   controller: 'loginCtrl'
 })
-// .state('login', {
-//   url: '/login',
-//   templateUrl: './ui-views/login.html',
-//   controller: 'loginCtrl'
-// })
-.state('signUp', {
+.state('welcome.signup', {
   url: '/signup',
   templateUrl: './ui-views/signUp.html',
   controller: 'signUpCtrl'
