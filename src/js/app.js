@@ -81,17 +81,17 @@ $stateProvider
   controller: 'userHomeCtrl'
 })
 .state('userHome.userInfo', {
-  url: '/userhome',
+  url: '/userInfo',
   templateUrl: './ui-views/userInfo.html',
   controller: 'userInfoCtrl'
 })
 .state('userHome.vehicleInfo', {
-  url: '/userhome',
+  url: '/vehicle',
   templateUrl: './ui-views/vehicleInfo.html',
   controller: 'vehicleCtrl'
 })
 .state('userHome.vehicleInfo.location', {
-  url: '/userhome',
+  url: '/vehicle',
   templateUrl: './ui-views/vehicleLocation.html',
   controller: 'vehicleCtrl'
 })
