@@ -68,12 +68,12 @@ $stateProvider
 .state('userHome.vehicleInfo', {
   url: '/userhome',
   templateUrl: './ui-views/vehicleInfo.html',
-  controller: 'userHomeCtrl'
+  controller: 'vehicleCtrl'
 })
 .state('userHome.vehicleInfo.location', {
   url: '/userhome',
   templateUrl: './ui-views/vehicleLocation.html',
-  controller: 'userHomeCtrl'
+  controller: 'vehicleCtrl'
 })
 .state('adminLogin', {
   url: '/adminlogin',
