@@ -1,0 +1,42 @@
+@import "main";
+.about-background {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("./truck-d-min.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.about-container {
+    height: 75vh;
+    width: 60%;
+    margin-left: 20%;
+    padding-top: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.35);
+    h1 {
+        color: $white;
+        font-size: 40px;
+        font-family: $font3;
+        text-align: center;
+
+    }
+    .title-bar {
+        background-color: $teal;
+        height: 4px;
+        width: 300px;
+        margin: 15px;
+        position: relative;
+    }
+    p {
+        color: $white;
+        font-size: 25px;
+        font-family: $font2;
+        padding-top: 50px;
+        line-height: 2;
+        text-align: center;
+    }
+}
