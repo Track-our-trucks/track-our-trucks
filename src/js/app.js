@@ -5,6 +5,21 @@ $urlRouterProvider.otherwise('/welcome');
 
 $stateProvider
 
+.state('about', {
+  url: '/about',
+  templateUrl: './ui-views/about.html',
+  controller: 'aboutCtrl'
+})
+.state("about.login", {
+  url:'/login',
+  templateUrl:'./ui-views/login.html',
+  controller: 'loginCtrl'
+})
+.state('about.signup', {
+  url: '/signup',
+  templateUrl: './ui-views/signUp.html',
+  controller: 'signUpCtrl'
+})
 .state('welcome', {
   url: '/welcome',
   templateUrl: './ui-views/welcome.html',
@@ -66,17 +81,17 @@ $stateProvider
   controller: 'userHomeCtrl'
 })
 .state('userHome.userInfo', {
-  url: '/userhome',
+  url: '/userInfo',
   templateUrl: './ui-views/userInfo.html',
   controller: 'userInfoCtrl'
 })
 .state('userHome.vehicleInfo', {
-  url: '/userhome',
+  url: '/vehicle',
   templateUrl: './ui-views/vehicleInfo.html',
   controller: 'vehicleCtrl'
 })
 .state('userHome.vehicleInfo.location', {
-  url: '/userhome',
+  url: '/vehicle',
   templateUrl: './ui-views/vehicleLocation.html',
   controller: 'vehicleCtrl'
 })
