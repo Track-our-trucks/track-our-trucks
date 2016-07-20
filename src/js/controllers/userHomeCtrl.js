@@ -7,9 +7,21 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($scope, $state) => {
 
 
   }
-  $scope.userModal = () => {
+  $scope.vehicleModal = () => {
 
     $state.go('userHome.vehicleInfo');
+
+    $scope.wideModalOn = true;
+
+    let body = document.getElementById('body');
+
+    body.style.overflow="hidden";
+
+  }
+
+  $scope.userInfo = () => {
+
+    $state.go('userHome.userInfo');
 
     $scope.wideModalOn = true;
 

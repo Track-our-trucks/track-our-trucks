@@ -62,8 +62,13 @@ $stateProvider
 })
 .state('userHome', {
   url: '/userhome',
-  templateUrl: './ui-views/userHomeTmpl.html',
+  templateUrl: './ui-views/userHome.html',
   controller: 'userHomeCtrl'
+})
+.state('userHome.userInfo', {
+  url: '/userhome',
+  templateUrl: './ui-views/userInfo.html',
+  controller: 'userInfoCtrl'
 })
 .state('userHome.vehicleInfo', {
   url: '/userhome',
