@@ -160,7 +160,6 @@ app.post('/auth/login', (req, res) => {
     User.findOne({
         email: req.body.email
     }, (err, user) => {
-      console.log(user);
         if (!user) {
             return res.status(401).send({
                 message: 'Invalid email'
@@ -197,16 +196,15 @@ app.post('/auth/signup', (req, res) => {
         }
         User.create(req.body, (err, result) => {
             if (err) {
-                res.status(500).send({
+                res.status(501).send({
                     message: err.message
                 });
             }
             else {
-
               Admin.findOneAndUpdate({email: 'tot@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
 
                 if(err){
-                  res.send(500).json(err)
+                  res.send(500).json(err.message)
                 }
                 else {
                   res.send({
