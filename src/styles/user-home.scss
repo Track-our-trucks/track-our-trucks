@@ -106,9 +106,17 @@ width: 80%;
     }
   }
 }
-.user-right-sections{
+
+
+
+.user-right-section{
   height: 100vh;
   width: 75vw;
+
+  ng-map{
+    height: 90vh;
+  }
+
 }
 
 .user-top-menu{
@@ -166,12 +174,3 @@ width: 80%;
   }
 }
 }
-
-ng-map{
-  height: 90vh;
-}
-
-  .map{
-    width: 75vw;
-    height: 90vh;
-  }

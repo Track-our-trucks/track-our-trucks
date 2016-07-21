@@ -2,28 +2,7 @@
 
 <section class="welcome-background">
 
-    <section class="welcome-header">
-
-
-        <div class="logo-cont">
-
-            <section class="logo">
-
-            </section>
-
-        </div>
-
-
-        <section class="welcome-menu">
-          <ul>
-              <li ui-sref = "welcome">Home</li>
-              <li ui-sref = "about">About</li>
-              <li ng-click ='loginModal()' >Login</li>
-              <li ng-click ='signupModal()'>Signup</li>
-          </ul>
-        </section>
-
-    </section>
+    <header-dir></header-dir>
 
     <section class="welcome-container">
 
@@ -102,7 +81,7 @@
 
         <ul>
 
-            <li ui-sref='welcome.globe'>
+            <li ng-mouseover=globe() ui-sref='welcome.globe'>
                 <div class="icon-globe"></div>
 
                 <p>
@@ -110,35 +89,35 @@
                 </p>
             </li>
 
-            <li ui-sref='welcome.marker'>
+            <li ng-mouseover=marker() ui-sref='welcome.marker'>
                 <div class="icon-map-marker"></div>
                 <p>
                     GPS Location
                 </p>
             </li>
 
-            <li ui-sref='welcome.truck'>
+            <li ng-mouseover=truck() ui-sref='welcome.truck'>
                 <div class="icon-truck"></div>
                 <p>
                     Vehicle Tracking
                 </p>
             </li>
 
-            <li ui-sref='welcome.clock'>
+            <li ng-mouseover=clock() ui-sref='welcome.clock'>
                 <div class="icon-clock-o"></div>
                 <p>
                     Time Management
                 </p>
             </li>
 
-            <li ui-sref='welcome.speed'>
+            <li ng-mouseover=speed() ui-sref='welcome.speed'>
                 <div class="icon-tachometer"></div>
                 <p>
                     Speeding Alerts
                 </p>
             </li>
 
-            <li ui-sref='welcome.calender'>
+            <li ng-mouseover=calender() ui-sref='welcome.calender'>
                 <div class="icon-calendar"></div>
                 <p>
                     Daily Timeline
