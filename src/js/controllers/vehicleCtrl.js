@@ -1,5 +1,3 @@
-angular.module('trackOurTruck').controller('vehicleCtrl', function($scope) {
-
-
+angular.module('trackOurTruck').controller('vehicleCtrl', function($scope, $state) {
 
 })
