@@ -1,7 +1,7 @@
-angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap'])
+angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap', '720kb.datepicker'])
 .config( ($stateProvider, $urlRouterProvider) => {
 
-$urlRouterProvider.otherwise('/welcome.globe');
+$urlRouterProvider.otherwise('/welcome');
 
 $stateProvider
 
