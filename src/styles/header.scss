@@ -1,0 +1,54 @@
+@import "main";
+
+.welcome-header {
+    height: 10vh;
+    width: 100%;
+    padding-right: 40px;
+    display: flex;
+    justify-content: flex-end;
+    // flex-direction: row;
+}
+.logo-cont {
+    height: 163.4px;
+    width: 245px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    box-shadow: 0 0 158px 71px rgba(0,0,0,0.544);
+    .logo {
+        height: 100%;
+        width: 100%;
+        background-image: url('./LogoOrangeTealG.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+.welcome-menu {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 125px 58px rgba(0,0,0,0.38);
+    background: rgba(0,0,0,0.35);
+
+    border-radius: 100px;
+    ul {
+        display: flex;
+        flex-direction: row;
+        li {
+            font-family: $font1;
+            color: $white;
+            font-size: 30px;
+            padding: 22px;
+        }
+        li:after {
+          display:block;
+          content: '';
+          border-bottom: solid 3px $orange;
+          transform: scaleX(0.0001);
+          transition: transform 250ms ease-in-out;
+        }
+        li:hover:after {
+             transform: scaleX(1)
+        }
+
+    }
+}

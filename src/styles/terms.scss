@@ -1,0 +1,71 @@
+@import "main";
+
+.terms-background {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("./car-tire-min.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title-bar {
+    background: $teal;
+    height: 4px;
+    width: 300px;
+    margin: 15px;
+
+}
+
+
+.terms-container {
+
+    height: 60vh;
+    overflow: scroll;
+
+    margin-top: 15vh;
+
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.35);
+
+    opacity: 0.99;
+
+
+    h1 {
+        color: $white;
+        font-size: 40px;
+        font-family: $font3;
+
+    }
+
+    h2 {
+        color: $white;
+        font-size: 20px;
+        font-family: $font3;
+
+        padding: 20px;
+
+    }
+
+    p{
+      color: $white;
+      font-size: 16px;
+      font-family: $font3;
+      text-align: left;
+    }
+
+    ol li {
+      color: $white;
+      font-size: 16px;
+      font-family: $font3;
+      text-align: left;
+    }
+}
