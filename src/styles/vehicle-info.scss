@@ -35,19 +35,20 @@
         padding-bottom: 15px;
     }
 
+
     .vehicle-tabs {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       width: 50%;
 
+      div.active{
+        background: $orange;
+      }
+
         div{
           width: 90%;
 
-        }
-        div:active{
-          color: $teal;
-          transition: 0.3s;
         }
 
         .location-tab {
