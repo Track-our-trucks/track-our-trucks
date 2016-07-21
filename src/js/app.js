@@ -1,10 +1,25 @@
 angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap'])
 .config( ($stateProvider, $urlRouterProvider) => {
 
-$urlRouterProvider.otherwise('/welcome');
+$urlRouterProvider.otherwise('/welcome.globe');
 
 $stateProvider
 
+.state('about', {
+  url: '/about',
+  templateUrl: './ui-views/about.html',
+  controller: 'aboutCtrl'
+})
+.state("about.login", {
+  url:'/login',
+  templateUrl:'./ui-views/login.html',
+  controller: 'loginCtrl'
+})
+.state('about.signup', {
+  url: '/signup',
+  templateUrl: './ui-views/signUp.html',
+  controller: 'signUpCtrl'
+})
 .state('welcome', {
   url: '/welcome',
   templateUrl: './ui-views/welcome.html',
@@ -13,11 +28,6 @@ $stateProvider
 .state("welcome.globe", {
   url:'/',
   templateUrl:'./ui-views/welcomeGlobe.html',
-  controller: 'welcomeCtrl'
-})
-.state("welcome.learn", {
-  url:'/',
-  templateUrl:'./ui-views/welcomeLearn.html',
   controller: 'welcomeCtrl'
 })
 .state("welcome.marker", {
@@ -55,6 +65,54 @@ $stateProvider
   templateUrl: './ui-views/signUp.html',
   controller: 'signUpCtrl'
 })
+.state('contact', {
+  url: '/contact',
+  templateUrl: './ui-views/contact.html',
+  controller: 'contactCtrl'
+})
+.state('contact.login', {
+  url: '/login',
+  templateUrl: './ui-views/login.html',
+  controller: 'loginCtrl'
+})
+.state('contact.signup', {
+  url: '/signup',
+  templateUrl: './ui-views/signup.html',
+  controller: 'signupCtrl'
+})
+
+.state('privacy', {
+  url: '/privacy',
+  templateUrl: './ui-views/privacy.html',
+  controller: 'privacyCtrl'
+})
+.state('privacy.login', {
+  url: '/login',
+  templateUrl: './ui-views/login.html',
+  controller: 'loginCtrl'
+})
+.state('privacy.signup', {
+  url: '/signup',
+  templateUrl: './ui-views/signup.html',
+  controller: 'signupCtrl'
+})
+
+.state('terms', {
+  url: '/terms',
+  templateUrl: './ui-views/terms.html',
+  controller: 'termsCtrl'
+})
+.state('terms.login', {
+  url: '/login',
+  templateUrl: './ui-views/login.html',
+  controller: 'loginCtrl'
+})
+.state('terms.signup', {
+  url: '/signup',
+  templateUrl: './ui-views/signup.html',
+  controller: 'signupCtrl'
+})
+
 .state('admin', {
   url: '/admin',
   templateUrl: './ui-views/admin.html',
@@ -66,17 +124,17 @@ $stateProvider
   controller: 'userHomeCtrl'
 })
 .state('userHome.userInfo', {
-  url: '/userhome',
+  url: '/userInfo',
   templateUrl: './ui-views/userInfo.html',
   controller: 'userHomeCtrl'
 })
 .state('userHome.vehicleInfo', {
-  url: '/userhome',
+  url: '/vehicle',
   templateUrl: './ui-views/vehicleInfo.html',
   controller: 'vehicleCtrl'
 })
 .state('userHome.vehicleInfo.location', {
-  url: '/userhome',
+  url: '/vehicle',
   templateUrl: './ui-views/vehicleLocation.html',
   controller: 'vehicleCtrl'
 })

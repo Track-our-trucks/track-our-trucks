@@ -7,7 +7,10 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($scope, $state) => {
 
 
   }
+
   $scope.vehicleModal = () => {
+
+
 
     $state.go('userHome.vehicleInfo');
 

@@ -1,0 +1,55 @@
+@import "main";
+
+.contact-background {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("./traffic-min.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contact-container {
+    height: 75vh;
+    width: 60%;
+    border-radius: 50px;
+    margin-left: 20%;
+    padding-top: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.38);
+    background: rgba(0,0,0,0.35);
+    h1 {
+        color: $white;
+        font-size: 40px;
+        font-family: $font3;
+        text-align: center;
+
+    }
+
+    .title-bar {
+        background-color: $teal;
+        height: 4px;
+        width: 300px;
+        margin: 15px;
+        position: relative;
+    }
+    h2 {
+        color: $white;
+        font-size: 30px;
+        font-family: $font3;
+        text-align: center;
+        font-weight: 200;
+        padding-bottom: 20px;
+
+    }
+    p {
+        color: $white;
+        font-size: 25px;
+        font-family: $font2;
+        padding-top: 20px;
+        line-height: 2;
+        text-align: center;
+    }
+}
