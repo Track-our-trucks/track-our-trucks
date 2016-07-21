@@ -32,6 +32,7 @@ $scope.loginModal = () => {
 
 
   body.style.overflow="hidden";
+  html.style.overflow="hidden";
 
 }
 
