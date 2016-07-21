@@ -1,45 +1,45 @@
-
-
-
-
-
-
-
 <section class="signup-cont">
 
-  <section class="signup-top">
+    <section class="signup-top">
 
-    <h3>SIGN UP</h3>
+        <h3>SIGN UP</h3>
 
-    <div class="signin-input">
-        <div class="icon-mail signin-user-icon"></div>
-        <input ng-model="user.email" type="email" name="name"  placeholder="email"></input>
-    </div>
+        <div class="signin-input">
+            <div class="icon-user signin-user-icon"></div>
+            <input ng-model="user.name" type="input" name="name" placeholder="name"></input>
+        </div>
 
-    <div class="signin-input">
-        <div class="icon-user signin-user-icon"></div>
-        <input ng-model="user.name" type="input" name="name"  placeholder="name"></input>
-    </div>
+        <div class="signin-input">
+            <div class="icon-call-phone signin-user-icon"></div>
+            <input ng-model="user.phoneNumber" type="input" name="name" placeholder="number"></input>
+        </div>
 
-    <div class="signin-input">
-        <div class="icon-key signin-key-icon"></div>
-        <input ng-model="user.password" type="password" name="name"  placeholder="password"></input>
-    </div>
+        <div class="signin-input">
+            <div class="icon-mail signin-user-icon"></div>
+            <input ng-model="user.email" type="email" name="name" placeholder="email"></input>
+        </div>
 
-    <button ng-click="signUp(user)" type="button" name="button">SIGN UP</button>
 
-  </section>
+        <div class="signin-input">
+            <div class="icon-key signin-key-icon"></div>
+            <input ng-model="user.password" type="password" name="name" placeholder="password"></input>
+        </div>
 
-  <section class="signup-bottom">
 
-    <p>
-      Already have an account? <span ui-sref = "welcome.login">Sign In Now</span>
-    </p>
+        <button ng-click="signUp(user)" type="button" name="button">SIGN UP</button>
 
-  </section>
+    </section>
 
-  <section>
+    <section class="signup-bottom">
 
-  </section>
+        <p>
+            Already have an account? <span ui-sref="welcome.login">Sign In Now</span>
+        </p>
+
+    </section>
+
+    <section>
+
+    </section>
 
 </section>
