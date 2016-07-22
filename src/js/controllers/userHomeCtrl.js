@@ -47,7 +47,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($scope, $state, $int
 
     $scope.getUser();
 
-    $state.go('userHome.vehicleInfo');
+    $state.go('userHome.vehicleInfo.location');
 
     $scope.wideModalOn = true;
 

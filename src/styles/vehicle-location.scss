@@ -1,68 +1,77 @@
 @import 'main';
 
-  ng-map{
-    height: 72vh;
-    width: 65%;
-  }
-.vehicle-location-view{
-  display: flex;
-  flex-direction: row;
-.location-left{
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  height: 72vh;
-
-  background: $dblue;
-
-}
-  .location-header{
-
-    padding: 10px;
+.vehicle-location-view {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    input{
-      border: none;
-      background: none;
-      color: $white;
-      font-size: 20px;
+
+    .location-left {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        height: 72vh;
+        background: $dblue;
     }
-    input:focus {
-      outline: none;
-      border: none;
-  }
-    .icon-caret-up-down{
-      font-size: 20px;
-      color: $white;
+    .location-header {
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: $teal;
+        input {
+            border: none;
+            background: none;
+            color: $white;
+            font-size: 20px;
+            text-align: center;
+        }
+        input:focus {
+            outline: none;
+            border: none;
+        }
+        ::-webkit-input-placeholder {
+            color: $white;
+        }
+        :-moz-placeholder {
+            /* Firefox 18- */
+            color: $white;
+        }
+        ::-moz-placeholder {
+            /* Firefox 19+ */
+            color: $white;
+        }
+        :-ms-input-placeholder {
+            color: $orange;
+        }
+        .icon-caret-up-down {
+            font-size: 20px;
+            color: $white;
+        }
     }
-  }
-
-.vehicle-locations{
-  height: 100%;
-  width: auto;
-
-
-  overflow-y: scroll;
-
-ul{
-  display: flex;
-  flex-direction: column;
-
-  li{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    color: $white;
-    font-family: $font1;
-
-    border-bottom: 1px $lgrey solid;
+    .vehicle-locations {
+        height: 100%;
+        width: auto;
+        overflow-y: scroll;
+        ul {
+            display: flex;
+            flex-direction: column;
+            li {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                color: $white;
+                font-family: $font1;
+                border-bottom: 1px $lgrey solid;
+            }
+            li:hover {
+                background: $orange;
+            }
+        }
     }
-  li:hover{
-    background: $orange;
-  }
-  }
-}
+
+    ng-map {
+        height: 72vh;
+        width: 65%;
+    }
+
 }

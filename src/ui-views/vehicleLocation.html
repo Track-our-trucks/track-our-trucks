@@ -2,33 +2,39 @@
   <section class="location-left">
 
     <section class="location-header">
+
         <datepicker date-format="EEE MM/dd/yyyy" selector="form-control">
-       <div class="input-group">
-           <input class="form-control" placeholder="Choose a date"/>
-           <span class="input-group-addon" style="cursor: pointer">
-           <i class="fa fa-lg fa-calendar"></i>
-           </span>
-    </datepicker>
-      </div>
+
+             <div class="input-group">
+                 <input class="form-control" placeholder="Choose a date"/>
+                 <span class="input-group-addon" style="cursor: pointer"><i class="fa fa-lg fa-calendar"></i></span>
+            </div>
+
+        </datepicker>
+
         <div class="icon-caret-up-down reverseBtn"></div>
+
     </section>
 
-<section class="vehicle-locations">
-  <ul >
-    <li ng-repeat="address in addresses track by $index">
+    <section class="vehicle-locations">
+      <ul >
+        <li ng-repeat="address in addresses track by $index">
 
-      <div class="icon-map-marker"></div>
+          <div class="icon-map-marker"></div>
 
-      {{address.time | date: 'shortDate'}}
-     {{address.time | date: 'shortTime'}}
+          {{address.time | date: 'shortDate'}}
+          {{address.time | date: 'shortTime'}}
 
-      <br>
-      {{address.address}}
+          <br>
+          {{address.address}}
 
-    </li>
-  </ul>
+        </li>
+      </ul>
+    </section>
+
 </section>
-</section>
+
+
 
   <ng-map zoom='15' center='{{lines}}[0]'>
     <marker ng-repeat="pin in pins track by $index" position="{{pin}}">
@@ -42,4 +48,7 @@
           stroke-weight="2">
         </shape>
   </ng-map>
+
+
+
 </section>
