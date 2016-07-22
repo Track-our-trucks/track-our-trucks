@@ -24,6 +24,7 @@
     justify-content: center;
 
     div{
+      cursor: pointer;
       margin-left: 10px;
       margin-right: 10px;
     }
@@ -37,6 +38,7 @@
 }
 
   li{
+    cursor: pointer;
     color: $white;
     margin: 15px;
     font-family: $font1;

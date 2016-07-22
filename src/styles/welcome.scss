@@ -32,12 +32,14 @@
         margin-bottom: 30px;
     }
     .welcome-button-container {
+
         display: flex;
         justify-content: center;
         align-items: center;
         height: 40px;
     }
     button {
+      cursor: pointer;
         background: $teal;
         color: $white;
         padding: 10px;
@@ -308,6 +310,7 @@
         flex-direction: row;
         padding: 6px;
         margin: 20px;
+        cursor: pointer;
         div{
           color: $teal;
           margin-right: 20px;
