@@ -8,6 +8,7 @@
         display: flex;
         flex-direction: column;
         width: 35%;
+        min-width: 240px;
         height: 72vh;
         background: $dblue;
     }
@@ -17,6 +18,12 @@
         flex-direction: row;
         justify-content: space-between;
         background: $teal;
+
+        .icon-calender {
+            font-size: 20px;
+            color: $white;
+        }
+
         input {
             border: none;
             background: none;
