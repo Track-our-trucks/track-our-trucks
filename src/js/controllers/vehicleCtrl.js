@@ -64,14 +64,23 @@ $scope.positionFilter = (function(){
   $scope.addresses = newPos;
 
   var newPin = [];
+  var newLine = [];
   for (let i = 0; i < $scope.tracker.length; i++) {
       var pinObj = {
         pos:[$scope.tracker[i].lat, $scope.tracker[i].long]
       };
         newPin.push(pinObj.pos);
+
+        newLine.push([$scope.tracker[i].lat, $scope.tracker[i].long]);
   }
 
   $scope.pins = newPin;
+  console.log('marker coordinates' + $scope.pins);
+
+  $scope.lines = newLine;
+  console.log('line coordinates' + $scope.lines);
+
+
 })();
 
 

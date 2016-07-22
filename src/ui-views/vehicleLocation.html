@@ -11,19 +11,14 @@
 
 </section>
 <section class="vehicle-locations">
-  <ul ng-repeat="address in addresses track by $index">
-    <li>
+  <ul >
+    <li ng-repeat="address in addresses track by $index">
       {{address.time | date: 'shortDate'}}
      {{address.time | date: 'shortTime'}}
 
       <br>
       {{address.address}}
 
-      <!-- {{postion.fixTime}}
-      {{postion.lat}}
-      {{postion.long}}
-      {{postion.speed}}
-      {{postion.heading}} -->
     </li>
   </ul>
 </section>
@@ -32,5 +27,13 @@
   <ng-map zoom='15' center='[40.226209, -111.660947]'>
     <marker ng-repeat="pin in pins track by $index" position="{{pin}}">
       <marker>
+
+        <shape name="polyline"
+          path='{{lines}}'
+          geodesic="true"
+          stroke-color="#ffa027"
+          stroke-opacity="1.0"
+          stroke-weight="2">
+        </shape>
   </ng-map>
 </section>
