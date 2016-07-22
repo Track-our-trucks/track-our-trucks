@@ -1,11 +1,10 @@
 angular.module('trackOurTruck').service('userService', function($http, $q){
 
-  this.currentUser;
-
-  this.getUser = user => {
+  this.getUser = userId => {
+    console.log(userId);
     return $http({
       method: "GET",
-      url: '/api/currentuser/' + this.currentUser._id 
+      url: '/api/currentuser/' + userId
     })
   }
 

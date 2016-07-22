@@ -1,18 +1,24 @@
-angular.module('trackOurTruck').controller('userHomeCtrl', ($scope, $state, $interval, $rootScope, userService) => {
+angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService) => {
+
+  var payload = () => {
+    var payloadData = $auth.getPayload()
+    return payloadData.sub
+  }
 
   $scope.getUser = () => {
-      userService.getUser().then(response => {
+      userService.getUser(payload()).then(response => {
+        console.log(response);
         userService.currentUser = response.data;
-        console.log(userService.currentUser);
       })
     }
+
+    $scope.getUser()
 
   $scope.time;
 
   $scope.timer = () => {
     $scope.time = $interval( () => {
       $scope.getUser();
-      console.log('hello');
     }, 10000)
   }
 
@@ -24,7 +30,6 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($scope, $state, $int
   }
 
   $rootScope.$on('$stateChangeSuccess', () => {
-    console.log('state changed... yay');
     if ($state.current.name !== 'userHome') {
       $scope.stopTimer();
     } else {

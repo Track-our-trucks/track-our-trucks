@@ -121,7 +121,10 @@ $stateProvider
 .state('userHome', {
   url: '/userhome',
   templateUrl: './ui-views/userHome.html',
-  controller: 'userHomeCtrl'
+  controller: 'userHomeCtrl',
+  resolve: {
+    loginRequired: loginRequired
+  }
 })
 .state('userHome.userInfo', {
   url: '/userInfo',
@@ -149,5 +152,25 @@ $stateProvider
   controller: 'adminSignupCtrl'
 })
 
+function skipIfLoggedIn($q, $auth, $state) {
+     var deferred = $q.defer();
+     if ($auth.isAuthenticated()) {
+       $state.go('userHome')
+       deferred.reject();
+     } else {
+       deferred.resolve();
+     }
+     return deferred.promise;
+   }
+
+   function loginRequired($q, $location, $auth) {
+     var deferred = $q.defer();
+     if ($auth.isAuthenticated()) {
+       deferred.resolve();
+     } else {
+       $state.go('/welcome');
+     }
+     return deferred.promise;
+   }
 
 })
