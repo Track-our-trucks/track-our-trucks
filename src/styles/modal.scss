@@ -2,6 +2,8 @@
 
 .modalCurtain{
 
+  cursor: pointer;
+  
   width: 100vw;
   height: 100vh;
 
@@ -38,6 +40,7 @@
 }
 
 .close-mod-blue{
+  cursor: pointer;
   position: absolute;
   top: 15px;
   right: 10px;
@@ -47,6 +50,7 @@
 }
 
 .close-mod-white{
+  cursor: pointer;
   position: absolute;
   top: 15px;
   right: 10px;
