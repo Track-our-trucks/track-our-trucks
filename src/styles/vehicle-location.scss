@@ -1,0 +1,45 @@
+@import 'main';
+
+  ng-map{
+    height: 72vh;
+    width: 65%;
+  }
+.vehicle-location-view{
+  display: flex;
+  flex-direction: row;
+.location-left{
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  height: 72vh;
+
+
+
+}
+.location-header{
+
+}
+.vehicle-locations{
+  height: 100%;
+  width: auto;
+  background: white;
+
+  overflow-y: scroll;
+
+ul{
+  display: flex;
+  flex-direction: column;
+
+  li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+    border-bottom: 1px $lgrey solid;
+    margin-top: 5px;
+    }
+  }
+}
+}
