@@ -206,7 +206,8 @@ app.post('/auth/signup', (req, res) => {
                 }
                 else {
                   res.send({
-                      token: createJWT(result)
+                      token: createJWT(result),
+                      user: result
                   });
                 }
               })

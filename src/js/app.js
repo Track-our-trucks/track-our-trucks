@@ -1,5 +1,5 @@
 angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap', '720kb.datepicker'])
-.config( ($stateProvider, $urlRouterProvider) => {
+.config( ($stateProvider, $urlRouterProvider, $location) => {
 
 $urlRouterProvider.otherwise('/welcome');
 
@@ -8,135 +8,213 @@ $stateProvider
 .state('about', {
   url: '/about',
   templateUrl: './ui-views/about.html',
-  controller: 'aboutCtrl'
+  controller: 'aboutCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("about.login", {
   url:'/login',
   templateUrl:'./ui-views/login.html',
-  controller: 'loginCtrl'
+  controller: 'loginCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('about.signup', {
   url: '/signup',
   templateUrl: './ui-views/signUp.html',
-  controller: 'signUpCtrl'
+  controller: 'signUpCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('welcome', {
   url: '/welcome',
   templateUrl: './ui-views/welcome.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.globe", {
   url:'/',
   templateUrl:'./ui-views/welcomeGlobe.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.marker", {
   url:'/',
   templateUrl:'./ui-views/welcomeMarker.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.truck", {
   url:'/',
   templateUrl:'./ui-views/welcomeTruck.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.clock", {
   url:'/',
   templateUrl:'./ui-views/welcomeClock.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.speed", {
   url:'/',
   templateUrl:'./ui-views/welcomeSpeed.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.calender", {
   url:'/',
   templateUrl:'./ui-views/welcomeCalender.html',
-  controller: 'welcomeCtrl'
+  controller: 'welcomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state("welcome.login", {
   url:'/login',
   templateUrl:'./ui-views/login.html',
-  controller: 'loginCtrl'
+  controller: 'loginCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('welcome.signup', {
   url: '/signup',
   templateUrl: './ui-views/signUp.html',
-  controller: 'signUpCtrl'
+  controller: 'signUpCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('contact', {
   url: '/contact',
   templateUrl: './ui-views/contact.html',
-  controller: 'contactCtrl'
+  controller: 'contactCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('contact.login', {
   url: '/login',
   templateUrl: './ui-views/login.html',
-  controller: 'loginCtrl'
+  controller: 'loginCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('contact.signup', {
   url: '/signup',
   templateUrl: './ui-views/signup.html',
-  controller: 'signupCtrl'
+  controller: 'signupCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 
 .state('privacy', {
   url: '/privacy',
   templateUrl: './ui-views/privacy.html',
-  controller: 'privacyCtrl'
+  controller: 'privacyCtrl',
+  resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('privacy.login', {
   url: '/login',
   templateUrl: './ui-views/login.html',
-  controller: 'loginCtrl'
+  controller: 'loginCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('privacy.signup', {
   url: '/signup',
   templateUrl: './ui-views/signup.html',
-  controller: 'signupCtrl'
+  controller: 'signupCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 
 .state('terms', {
   url: '/terms',
   templateUrl: './ui-views/terms.html',
-  controller: 'termsCtrl'
+  controller: 'termsCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('terms.login', {
   url: '/login',
   templateUrl: './ui-views/login.html',
-  controller: 'loginCtrl'
+  controller: 'loginCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 .state('terms.signup', {
   url: '/signup',
   templateUrl: './ui-views/signup.html',
-  controller: 'signupCtrl'
+  controller: 'signupCtrl',
+  resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
 })
 
 .state('admin', {
   url: '/admin',
   templateUrl: './ui-views/admin.html',
-  controller: 'adminCtrl'
+  controller: 'adminCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('userHome', {
   url: '/userhome',
   templateUrl: './ui-views/userHome.html',
-  controller: 'userHomeCtrl'
+  controller: 'userHomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('userHome.userInfo', {
   url: '/userInfo',
   templateUrl: './ui-views/userInfo.html',
-  controller: 'userHomeCtrl'
+  controller: 'userHomeCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('userHome.vehicleInfo', {
   url: '/vehicle',
   templateUrl: './ui-views/vehicleInfo.html',
-  controller: 'vehicleCtrl'
+  controller: 'vehicleCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('userHome.vehicleInfo.location', {
   url: '/vehicle',
   templateUrl: './ui-views/vehicleLocation.html',
-  controller: 'vehicleCtrl'
+  controller: 'vehicleCtrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
 })
 .state('adminLogin', {
   url: '/adminlogin',
@@ -149,5 +227,24 @@ $stateProvider
   controller: 'adminSignupCtrl'
 })
 
+function skipIfLoggedIn($q, $auth) {
+     var deferred = $q.defer();
+     if ($auth.isAuthenticated()) {
+       deferred.reject();
+     } else {
+       deferred.resolve();
+     }
+     return deferred.promise;
+   }
+
+   function loginRequired($q, $location, $auth) {
+     var deferred = $q.defer();
+     if ($auth.isAuthenticated()) {
+       deferred.resolve();
+     } else {
+       $location.path('/welcome.login');
+     }
+     return deferred.promise;
+   }
 
 })
