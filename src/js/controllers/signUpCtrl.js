@@ -4,6 +4,7 @@ $scope.signUp = (user) => {
   userService.signUp(user).then(response => {
     $auth.setToken(response);
     if (response.status === 200) {
+      userService.currentUser = response.data.user;
       $state.go('userHome')
     }
   })
