@@ -137,7 +137,7 @@ $stateProvider
   controller: 'vehicleCtrl'
 })
 .state('userHome.vehicleInfo.location', {
-  url: '/vehicle',
+  url: '/location',
   templateUrl: './ui-views/vehicleLocation.html',
   controller: 'vehicleCtrl'
 })
