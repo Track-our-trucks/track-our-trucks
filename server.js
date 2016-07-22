@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 
 
@@ -75,11 +75,7 @@ var createJWT = (user) => {
     var payload = {
         sub: user._id,
         iat: moment().unix(),
-        exp: moment().add(14, 'days').unix(),
-        name: user.name,
-        email: user.email,
-        setLocation: user.setLocation,
-        vehicles: user.vehicles
+        exp: moment().add(14, 'days').unix()
     };
     return jwt.encode(payload, config.TOKEN_SECRET);
 }
@@ -117,11 +113,7 @@ var adminCreateJWT = (user) => {
     var payload = {
         sub: user._id,
         iat: moment().unix(),
-        exp: moment().add(14, 'days').unix(),
-        name: user.name,
-        email: user.email,
-        setLocation: user.setLocation,
-        vehicles: user.vehicles
+        exp: moment().add(14, 'days').unix()
     };
     return jwt.encode(payload, config.ADMIN_TOKEN_SECRET);
 }
