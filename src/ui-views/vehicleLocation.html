@@ -1,36 +1,45 @@
 <section class="vehicle-location-view">
   <section class="location-left">
-<section class="location-header">
 
-    <h4>Select Date</h4>
-
-    <datepicker>
-      <input ng-model="date" type="text" placeholder="Select Date"/>
+    <section class="location-header">
+        <datepicker date-format="EEE MM/dd/yyyy" selector="form-control">
+       <div class="input-group">
+           <input class="form-control" placeholder="Choose a date"/>
+           <span class="input-group-addon" style="cursor: pointer">
+           <i class="fa fa-lg fa-calendar"></i>
+           </span>
     </datepicker>
+      </div>
+        <div class="icon-caret-up-down reverseBtn"></div>
+    </section>
 
-
-</section>
 <section class="vehicle-locations">
-  <ul ng-repeat="address in addresses track by $index">
-    <li>
+  <ul >
+    <li ng-repeat="address in addresses track by $index">
+
+      <div class="icon-map-marker"></div>
+
       {{address.time | date: 'shortDate'}}
      {{address.time | date: 'shortTime'}}
 
       <br>
       {{address.address}}
 
-      <!-- {{postion.fixTime}}
-      {{postion.lat}}
-      {{postion.long}}
-      {{postion.speed}}
-      {{postion.heading}} -->
     </li>
   </ul>
 </section>
 </section>
 
-  <ng-map zoom='15' center='[40.226209, -111.660947]'>
+  <ng-map zoom='15' center='{{lines}}[0]'>
     <marker ng-repeat="pin in pins track by $index" position="{{pin}}">
       <marker>
+
+        <shape name="polyline"
+          path='{{lines}}'
+          geodesic="true"
+          stroke-color="#ffa027"
+          stroke-opacity="1.0"
+          stroke-weight="2">
+        </shape>
   </ng-map>
 </section>

@@ -13,16 +13,35 @@
   width: 35%;
   height: 72vh;
 
-
-
-}
-.location-header{
+  background: $dblue;
 
 }
+  .location-header{
+
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    input{
+      border: none;
+      background: none;
+      color: $white;
+      font-size: 20px;
+    }
+    input:focus {
+      outline: none;
+      border: none;
+  }
+    .icon-caret-up-down{
+      font-size: 20px;
+      color: $white;
+    }
+  }
+
 .vehicle-locations{
   height: 100%;
   width: auto;
-  background: white;
+
 
   overflow-y: scroll;
 
@@ -36,10 +55,14 @@ ul{
     align-items: center;
     justify-content: space-between;
 
-    padding: 10px;
+    color: $white;
+    font-family: $font1;
+
     border-bottom: 1px $lgrey solid;
-    margin-top: 5px;
     }
+  li:hover{
+    background: $orange;
+  }
   }
 }
 }
