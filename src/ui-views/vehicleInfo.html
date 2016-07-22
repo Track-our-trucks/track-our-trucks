@@ -5,6 +5,7 @@
 </h4>
   </div>
 
+
   <section class="vehicle-tabs">
 
   <div ui-sref="userHome.vehicleInfo.location" ng-click="setTab(1)" ng-class="{active: isSet(1) }">
@@ -19,11 +20,8 @@
 </p>
   </div>
 </section>
-
 </section>
 
-<datepicker>
-  <input ng-model="date" type="text"/>
-</datepicker>
+  <ui-view>
 
-  <ui-view></ui-view>
+  </ui-view>

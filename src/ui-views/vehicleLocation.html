@@ -1,2 +1,36 @@
+<section class="vehicle-location-view">
+  <section class="location-left">
+<section class="location-header">
 
-  <ng-map zoom='15' center='[40.226209, -111.660947]'></ng-map>
+    <h4>Select Date</h4>
+
+    <datepicker>
+      <input ng-model="date" type="text" placeholder="Select Date"/>
+    </datepicker>
+
+
+</section>
+<section class="vehicle-locations">
+  <ul ng-repeat="address in addresses track by $index">
+    <li>
+      {{address.time | date: 'shortDate'}}
+     {{address.time | date: 'shortTime'}}
+
+      <br>
+      {{address.address}}
+
+      <!-- {{postion.fixTime}}
+      {{postion.lat}}
+      {{postion.long}}
+      {{postion.speed}}
+      {{postion.heading}} -->
+    </li>
+  </ul>
+</section>
+</section>
+
+  <ng-map zoom='15' center='[40.226209, -111.660947]'>
+    <marker ng-repeat="pin in pins track by $index" position="{{pin}}">
+      <marker>
+  </ng-map>
+</section>
