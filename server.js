@@ -157,9 +157,7 @@ var adminCreateJWT = (user) => {
  |--------------------------------------------------------------------------
  */
 app.post('/auth/login', (req, res) => {
-    User.findOne({
-        email: req.body.email
-    }, (err, user) => {
+    User.findOne({email: req.body.email}).populate('vehicles').exec( (err, user) => {
         if (!user) {
             return res.status(401).send({
                 message: 'Invalid email'
@@ -196,7 +194,7 @@ app.post('/auth/signup', (req, res) => {
         }
         User.create(req.body, (err, result) => {
             if (err) {
-                res.status(501).send({
+                res.status(500).send({
                     message: err.message
                 });
             }
@@ -278,10 +276,11 @@ app.post('/auth/adminsignup', (req, res) => {
     });
 });
 
+// user endpoints
+app.get('/api/currentuser/:id', ensureAuthenticated, userCtrl.show)
+app.put('/api/currentuser/:id', ensureAuthenticated, userCtrl.update)
 
-
-
-
+// admin endpoints
 app.get('/api/getusers', adminEnsureAuthenticated, adminCtrl.index)
 app.get('/api/getoneuser/:id', adminEnsureAuthenticated, adminCtrl.show)
 app.put('/api/updateuser/:id', adminEnsureAuthenticated, adminCtrl.update)
