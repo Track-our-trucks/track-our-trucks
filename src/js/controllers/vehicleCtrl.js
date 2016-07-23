@@ -110,6 +110,9 @@ angular.module('trackOurTruck').controller('vehicleCtrl', function($scope, $stat
 
 $scope.positionFilter = (function(){
 
+  var compass = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  var newCompass;
+
   var newPos = [];
   for (let i = 0; i < $scope.tracker.length; i++) {
       var posObj = {
@@ -122,8 +125,15 @@ $scope.positionFilter = (function(){
           time: new Date($scope.tracker[i].fixTime)
         }
         newPos.push(addressWithTime);
-        console.log(addressWithTime);
+
       })
+
+      var val = Math.floor(($scope.tracker[i].heading / 22.5) + 0.5);
+      newCompass =  compass[(val % 16)];
+      console.log($scope.direction);
+
+      $scope.directions.push(newCompass);
+
 
   }
 
