@@ -1,11 +1,11 @@
-angular.module('trackOurTruck').controller('vehicleCtrl', function($scope, $state, vehicleService) {
+angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehicleService) => {
   $scope.tab = 0;
 
-  $scope.setTab = function(newTab){
+  $scope.setTab = (newTab => {
     $scope.tab = newTab;
   };
 
-   $scope.isSet = function(tabNum){
+   $scope.isSet = tabNum => {
      return $scope.tab === tabNum;
    };
 
@@ -63,7 +63,7 @@ $scope.positionFilter = () => {
         pos:[$scope.theDayPins[i].lat, $scope.theDayPins[i].long]
       };
 
-      vehicleService.getAddress(posObj).then(function(res){
+      vehicleService.getAddress(posObj).then(res => {
         var addressWithTime = {
           address: res.data.results[0].formatted_address,
           time: new Date($scope.theDayPins[i].fixTime)

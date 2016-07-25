@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('showUserCtrl', function($scope, $state, adminService, vehicleService){
+angular.module('trackOurTruck').controller('showUserCtrl', ($scope, $state, adminService, vehicleService) => {
 $scope.getSelectedUser = () => {
   adminService.showUser(adminService.selectedUser).then(response => {
     $scope.selectedUser = response.data;

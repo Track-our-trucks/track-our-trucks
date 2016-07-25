@@ -1,30 +1,30 @@
-angular.module('trackOurTruck').service('adminService', function($http, $q){
+angular.module('trackOurTruck').service('adminService', ($http, $q) => {
 
-  
+
   this.selectedUser;
 
-  this.getUsers = function(){
+  this.getUsers = () => {
     return $http({
       method: "GET",
       url: '/api/getusers'
     })
   }
 
-  this.deleteUser = function(user){
+  this.deleteUser = user => {
     return $http({
       method: "DELETE",
       url: '/api/deleteuser/' + user._id
     })
   }
 
-  this.showUser = function(user){
+  this.showUser = user =>{
     return $http({
       method: "GET",
       url: '/api/getoneuser/' + user._id
     })
   }
 
-  this.updateUser = function(user){
+  this.updateUser = user => {
     return $http({
       method: "PUT",
       url: '/api/updateuser/' + user._id,
@@ -32,7 +32,7 @@ angular.module('trackOurTruck').service('adminService', function($http, $q){
     })
   }
 
-  this.adminLogin = function(admin){
+  this.adminLogin = admin => {
     return $http({
       method: "POST",
       url: '/auth/adminlogin',
@@ -40,7 +40,7 @@ angular.module('trackOurTruck').service('adminService', function($http, $q){
     })
   }
 
-  this.adminSignup = function(admin){
+  this.adminSignup = admin => {
     return $http({
       method: "POST",
       url: '/auth/adminsignup',
