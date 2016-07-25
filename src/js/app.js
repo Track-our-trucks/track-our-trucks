@@ -121,10 +121,7 @@ $stateProvider
 .state('userHome', {
   url: '/userhome',
   templateUrl: './ui-views/userHome.html',
-  controller: 'userHomeCtrl',
-  resolve: {
-    loginRequired: loginRequired
-  }
+  controller: 'userHomeCtrl'
 })
 .state('userHome.userInfo', {
   url: '/userInfo',
