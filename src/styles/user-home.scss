@@ -41,6 +41,8 @@ width: 80%;
       // border-bottom: 1px $lgrey solid;
       margin-top: 5px;
 
+      transition: 0.2s ease-in-out;
+
       .truck-user-list{
         display: flex;
         flex-direction: row;
@@ -59,7 +61,7 @@ width: 80%;
         p{
           font-family: $font2;
           font-weight: 300;
-          color: $lgrey;
+          color: $white;
           font-size: 17px;
           margin-left: 20px
         }
@@ -103,6 +105,10 @@ width: 80%;
         }
 
 
+    }
+    li:hover{
+      background: $teal;
+      opacity: 1;
     }
   }
 }
