@@ -4,9 +4,12 @@ const gulp = require('gulp'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     annotate = require('gulp-ng-annotate'),
+    cleanCSS = require('gulp-clean-css'),
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload,
+    gulpif = require('gulp-if'),
+    runSequence = require('run-sequence'),
     plumber = require('gulp-plumber');
 
 // here are the gulp file paths
@@ -16,6 +19,8 @@ const paths = {
     HTMLSource: ['src/**/*.html'],
     ImageSource: ['src/img/*.*']
 };
+
+let build = false;
 
 gulp.task('server', function() {
     browserSync.init({
@@ -29,13 +34,13 @@ gulp.task('js', function() {
     return gulp.src(paths.jsSource)
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        .pipe(annotate())
         .pipe(babel({
             presets: ['es2015'],
             ignore: ['**/ng-map.js']
         }))
+        .pipe(annotate())
         .pipe(concat('bundle.js'))
-        // .pipe(uglify()) uncomment when rdy for production
+        .pipe(gulpif(build, uglify()))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
         .on('end', reload);
@@ -46,6 +51,7 @@ gulp.task('sass', function() {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(gulpif(build, cleanCSS()))
         .pipe(concat('bundle.css'))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
@@ -73,7 +79,14 @@ gulp.task('watch', function() {
     gulp.watch(paths.sassSource, ['sass']);
     gulp.watch(paths.HTMLSource, ['HTML']);
     gulp.watch(paths.ImageSource, ['Image']);
+});
 
+gulp.task('set-production', function() {
+  build = true;
+});
+
+gulp.task('build', function(done) {
+  runSequence('set-production', ['js', 'sass', 'HTML', 'Image'], done);
 });
 
 gulp.task('default', ['server', 'watch', 'js', 'sass', 'HTML', 'Image']);

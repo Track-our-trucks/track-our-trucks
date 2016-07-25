@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').service('userService', ($http, $q) => {
+angular.module('trackOurTruck').service('userService', function($http, $q) {
 
   this.getUser = userId => {
 

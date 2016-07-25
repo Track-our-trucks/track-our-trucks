@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').service('adminService', ($http, $q) => {
+angular.module('trackOurTruck').service('adminService', function($http, $q) {
 
 
   this.selectedUser;
