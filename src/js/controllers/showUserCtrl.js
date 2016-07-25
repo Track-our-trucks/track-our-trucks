@@ -20,7 +20,7 @@ let flag = false;
 $scope.itemSelected = (index) => {
   if(!flag){
     $scope.selected = index;
-    
+
     flag = true;
   }
   else {
@@ -30,5 +30,12 @@ $scope.itemSelected = (index) => {
 
 }
 
+$scope.deleteVehicle = index => {
+
+}
+
+$scope.updateVehicle = index => {
+  $state.go('updateVehicle')
+}
 
 })

@@ -22,13 +22,24 @@ module.exports = {
     })
   },
 
-  show: (req, res) => {
+  index: (req, res) => {
     Vehicle.find({}, (err, vehicles) => {
       if (err) {
         res.status(500).json(err.message)
       }
       else {
         res.status(200).json(vehicles)
+      }
+    })
+  },
+
+  show: (req, res) => {
+    Vehicle.findOne({}, (err, vehicle) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(vehicle)
       }
     })
   }

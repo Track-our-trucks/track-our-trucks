@@ -2,13 +2,20 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q){
 
   this.currentUser;
   this.selectedUser;
+  this.currentVehicleId;
 
-
-  this.addVehicle = function(vehicle){
+  this.addVehicle = vehicle => {
     return $http({
       method: "POST",
       url: '/api/addvehicle/' + this.selectedUser._id,
       data: vehicle
+    })
+  }
+
+  this.getVehicle = () => {
+    return $http({
+      method: "GET",
+      url: '/api/getonevehicle/' + this.currentVehicleId
     })
   }
 
