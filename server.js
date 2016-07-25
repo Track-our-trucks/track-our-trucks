@@ -192,7 +192,7 @@ app.post('/auth/signup', (req, res) => {
                 });
             }
             else {
-              Admin.findOneAndUpdate({email: 'tot@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
+              Admin.findOneAndUpdate({email: 'trackourtruck@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
 
                 if(err){
                   res.send(500).json(err.message)
