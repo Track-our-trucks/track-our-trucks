@@ -1,6 +1,7 @@
 angular.module('trackOurTruck').service('adminService', function($http, $q){
 
-  this.currentUser;
+  
+  this.selectedUser;
 
   this.getUsers = function(){
     return $http({

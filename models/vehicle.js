@@ -12,7 +12,7 @@ var headingSchema = require('./diagnosticSchema.js')
 var vehicleSchema = new Schema({
   name: {type: String},
   truck: {type: Boolean, default: true},
-  identifier: {type: String},
+  esn: {type: String},
   locations: [locationSchema],
   speeds: [speedSchema],
   headings: [headingSchema],
