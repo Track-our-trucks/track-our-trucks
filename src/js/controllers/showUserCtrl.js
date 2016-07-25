@@ -31,10 +31,14 @@ $scope.itemSelected = (index) => {
 }
 
 $scope.deleteVehicle = index => {
-
+  vehicleService.deleteVehicle($scope.vehicles[index]._id).then(response => {
+    alert('user deleted successfully!');
+    $scope.getSelectedUser();
+  })
 }
 
 $scope.updateVehicle = index => {
+  vehicleService.currentVehicleId = $scope.vehicles[index]._id;
   $state.go('updateVehicle')
 }
 

@@ -284,7 +284,8 @@ app.delete('/api/deleteuser/:id', adminEnsureAuthenticated, adminCtrl.destroy)
 app.post('/api/addvehicle/:userid', adminEnsureAuthenticated, vehicleCtrl.create)
 app.get('/api/getvehicles', adminEnsureAuthenticated, vehicleCtrl.index)
 app.get('/api/getonevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.show)
-app.put('/api/updatevehicle/:id')
+app.put('/api/updatevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.update)
+app.delete('/api/deletevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.destroy)
 
 
 
