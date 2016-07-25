@@ -14,7 +14,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehic
 
    $scope.vehicletimer = () => {
      $scope.vehicletime = $interval( () => {
-       $scope.getUser();
+       $scope.getUserVehicle();
      }, 10000)
    }
 
@@ -25,7 +25,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehic
      $scope.vehicletime = undefined;
    }
 
-   $scope.getUser = () => {
+   $scope.getUserVehicle = () => {
      var payloadData = $auth.getPayload()
      userService.getUser(payloadData.sub).then(response => {
         $scope.tracker = response.data.vehicles[0].timeDistanceProfiles;
