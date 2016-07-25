@@ -19,10 +19,25 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q){
     })
   }
 
+  this.updateVehicle = (newVehicle) => {
+    return $http({
+      method: "PUT",
+      url: '/api/updatevehicle/' + this.currentVehicleId,
+      data: newVehicle
+    })
+  }
+
   this.getvehicles = () => {
     return $http({
       method: "GET",
       url: '/api/getvehicles'
+    })
+  }
+
+  this.deleteVehicle = (vehicleId) => {
+    return $http({
+      method: "DELETE",
+      url: '/api/deletevehicle/' + vehicleId
     })
   }
 

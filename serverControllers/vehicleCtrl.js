@@ -34,7 +34,30 @@ module.exports = {
   },
 
   show: (req, res) => {
-    Vehicle.findOne({}, (err, vehicle) => {
+    Vehicle.findById(req.params.id, (err, vehicle) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(vehicle)
+      }
+    })
+  },
+
+  update: (req, res) => {
+    Vehicle.findByIdAndUpdate(req.params.id, {$set: {name: req.body.name, esn: req.body.esn}}, (err, success) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(success)
+      }
+    })
+
+  },
+
+  destroy: (req, res) => {
+    Vehicle.findByIdAndRemove(req.params.id, (err, vehicle) => {
       if (err) {
         res.status(500).json(err.message)
       }
