@@ -175,41 +175,41 @@ app.post('/auth/login', (req, res) => {
  |--------------------------------------------------------------------------
  */
 
-app.post('/auth/signup', (req, res) => {
-    User.findOne({
-        email: req.body.email
-    }, (err, existingUser) => {
-        if (existingUser) {
-            return res.status(409).send({
-                message: 'Email is already taken'
-            });
-        }
-        User.create(req.body, (err, result) => {
-          console.log(req.body);
-            if (err) {
-                res.status(500).send({
-                    message: err.message
-                });
-            }
-            else {
-              Admin.findOneAndUpdate({email: 'tot@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
-
-                if(err){
-                  res.send(500).json(err.message)
-                }
-                else {
-                  res.send({
-                      token: createJWT(result),
-                      user: result
-                  });
-                }
-              })
-
-            }
-
-        });
-    });
-});
+// app.post('/auth/signup', (req, res) => {
+//     User.findOne({
+//         email: req.body.email
+//     }, (err, existingUser) => {
+//         if (existingUser) {
+//             return res.status(409).send({
+//                 message: 'Email is already taken'
+//             });
+//         }
+//         User.create(req.body, (err, result) => {
+//           console.log(req.body);
+//             if (err) {
+//                 res.status(500).send({
+//                     message: err.message
+//                 });
+//             }
+//             else {
+//               Admin.findOneAndUpdate({email: 'trackourtruck@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
+//
+//                 if(err){
+//                   res.send(500).json(err.message)
+//                 }
+//                 else {
+//                   res.send({
+//                       token: createJWT(result),
+//                       user: result
+//                   });
+//                 }
+//               })
+//
+//             }
+//
+//         });
+//     });
+// });
 
 /*
  |--------------------------------------------------------------------------
