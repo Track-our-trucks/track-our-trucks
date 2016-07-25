@@ -8,6 +8,8 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload,
+    cached = require('gulp-cached'),
+    remember = require('gulp-remember'),
     gulpif = require('gulp-if'),
     runSequence = require('run-sequence'),
     plumber = require('gulp-plumber');
@@ -32,6 +34,7 @@ gulp.task('server', function() {
 
 gulp.task('js', function() {
     return gulp.src(paths.jsSource)
+        .pipe(cached('js'))
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(babel({
@@ -39,6 +42,7 @@ gulp.task('js', function() {
             ignore: ['**/ng-map.js', '**/angular.js', '**/angular-ui-router.js', '**/satellizer.js']
         }))
         .pipe(annotate())
+        .pipe(remember('js'))
         .pipe(concat('bundle.js'))
         .pipe(gulpif(build, uglify()))
         .pipe(sourcemaps.write('./'))
