@@ -11,8 +11,8 @@ var headingSchema = require('./diagnosticSchema.js')
 
 var vehicleSchema = new Schema({
   name: {type: String},
-  esn: {type: String},
-  timeDistanceProfiles: [{type: Object}] 
+  esn: {type: String, index: true},
+  timeDistanceProfiles: [{type: Object}]
 })
 
 module.exports = mongoose.model("Vehicle", vehicleSchema);
