@@ -1,5 +1,22 @@
 angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userService, vehicleService, adminService) => {
 
+  // $scope.newUserInputsHidden = true;
+  // let flag = false;
+  // $scope.newUser = () => {
+  //   $scope.newUserInputsHidden = false;
+  // }
+
+  $scope.addUser = (newUser) => {
+    console.log(newUser);
+    userService.signUp(newUser).then(response => {
+
+      if (response.status === 200) {
+        alert('user added successfully!')
+      }
+      $scope.getUsers();
+    })
+  }
+
   $scope.getUsers = () => {
     adminService.getUsers().then((response) => {
       $scope.users = response.data
@@ -13,9 +30,9 @@ angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userSer
   $scope.itemSelected = (index) => {
     if(!flag){
       $scope.selected = index;
-      adminService.currentUser = $scope.users[index];
-      vehicleService.currentUser = $scope.users[index];
-      userService.currentUser = $scope.users[index];
+      adminService.selectedUser = $scope.users[index];
+      vehicleService.selectedUser = $scope.users[index];
+      userService.selectedUser = $scope.users[index];
       flag = true;
     }
     else {
@@ -32,15 +49,14 @@ angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userSer
   }
 
   $scope.showUser = (index) => {
-    adminService.showUser($scope.users[index]).then(response => {
-      $scope.theCurrentUser = response.data;
-    })
+    adminService.selectedUser = $scope.users[index]
+      $state.go('showUser')
+
   }
 
   $scope.updateUser = (index) => {
-    adminService.updateUser($scope.users[index]).then(response => {
-      $scope.getUsers();
-    })
+    adminService.selectedUser = $scope.users[index]
+      $state.go('updateUser')
   }
 
 })

@@ -185,6 +185,7 @@ app.post('/auth/signup', (req, res) => {
             });
         }
         User.create(req.body, (err, result) => {
+          console.log(req.body);
             if (err) {
                 res.status(500).send({
                     message: err.message
@@ -279,7 +280,9 @@ app.get('/api/getoneuser/:id', adminEnsureAuthenticated, adminCtrl.show)
 app.put('/api/updateuser/:id', adminEnsureAuthenticated, adminCtrl.update)
 app.delete('/api/deleteuser/:id', adminEnsureAuthenticated, adminCtrl.destroy)
 
-app.post('/api/addvehicle/:userid', ensureAuthenticated, vehicleCtrl.create)
+// vehicle endpoints
+app.post('/api/addvehicle/:userid', adminEnsureAuthenticated, vehicleCtrl.create)
+app.get('/api/getvehicles', adminEnsureAuthenticated, vehicleCtrl.show)
 app.put('/api/updatevehicle/:id')
 
 

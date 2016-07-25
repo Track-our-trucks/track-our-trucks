@@ -10,7 +10,7 @@ module.exports = {
         res.status(500).json(err.message)
       }
       else {
-        User.findByIdAndUpdate(req.params.userid, {$push: {vehicles: req.body._id}}, (err, user) => {
+        User.findByIdAndUpdate(req.params.userid, {$push: {vehicles: vehicle._id}}, (err, user) => {
           if(err) {
             res.status(500).json(err.message)
           }
@@ -20,7 +20,19 @@ module.exports = {
         })
       }
     })
+  },
+
+  show: (req, res) => {
+    Vehicle.find({}, (err, vehicles) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(vehicles)
+      }
+    })
   }
+
 
 
 

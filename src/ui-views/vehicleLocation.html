@@ -4,7 +4,7 @@
     <section class="location-header">
         <datepicker date-format="EEE MM/dd/yyyy" selector="form-control">
        <div class="input-group">
-           <input class="form-control" placeholder="Choose a date"/>
+           <input class="form-control" placeholder="Choose a date" ng-model="theDate"/><button type="button" ng-click="fireFilter()">GO</button>
            <span class="input-group-addon" style="cursor: pointer">
            <i class="fa fa-lg fa-calendar"></i>
            </span>

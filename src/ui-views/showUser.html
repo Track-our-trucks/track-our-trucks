@@ -1,0 +1,15 @@
+<h1>{{selectedUser.name}}<br>
+  {{selectedUser.email}}
+</h1>
+<input type="text" ng-model="newVehicle.name" placeholder="Vehicle Name">
+<input type="text" ng-model="newVehicle.esn" placeholder="Vehicle ESN">
+
+<button type="button" ng-click="addVehicle(newVehicle)">Add Vehicle</button>
+  <ul ng-repeat="vehicle in vehicles">
+    <li ng-click="itemSelected($index)">{{vehicle.name}} <br>
+      {{vehicle.esn}}
+      <button type="button" ng-show="$index === selected" ng-click="deleteVehicle($index)">Delete Vehicle</button>
+      <button type="button" ng-show="$index === selected" ng-click="updateVehicle($index)">Update Vehicle</button>
+    </li>
+
+  </ul>
