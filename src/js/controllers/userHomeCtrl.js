@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService) => {
+angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
 
   var payload = () => {
     var payloadData = $auth.getPayload()
@@ -7,7 +7,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
   $scope.getUser = () => {
       userService.getUser(payload()).then(response => {
-        
+
         userService.currentUser = response.data;
       })
     }
@@ -48,7 +48,16 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
   }
 
+  $scope.fireFilter = vehicleService.fireFilter;
+
+  $scope.positionFilter = vehicleService.positionFilter;
+
+
   $scope.vehicleModal = () => {
+
+    $scope.fireFilter();
+
+    $scope.positionFilter();
 
     $scope.getUser();
 
