@@ -25,8 +25,13 @@
 
     </div>
     <div class="the-buttons">
+
       <div class="button-container">
-        <button class='pay-button' type="button" name="button"> Pay Now </button>
+        <button ui-sref="userHome.userInfo.info" type="button" name="button"> Profile </button>
+      </div>
+
+      <div class="button-container">
+        <button ui-sref="userHome.userInfo.payment" class='pay-button' type="button" name="button"> Pay Now </button>
 
       </div>
 
@@ -42,6 +47,8 @@
 
   <div class="content-right">
 
+    <ui-view></ui-view>
+<!--
     <div class="user-profile-list">
       <ul>
         <li>Name</li>
@@ -49,7 +56,7 @@
         <li>Phone</li>
         <li>Password</li>
       </ul>
-    </div>
+    </div> -->
 
   </div>
 
