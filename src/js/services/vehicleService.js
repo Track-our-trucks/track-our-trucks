@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').service('vehicleService', function($http, $q){
+angular.module('trackOurTruck').service('vehicleService', function($http, $q)  {
 
   this.currentUser;
   this.selectedUser;
