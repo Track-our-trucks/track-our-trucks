@@ -121,15 +121,22 @@ $stateProvider
 .state('userHome', {
   url: '/userhome',
   templateUrl: './ui-views/userHome.html',
-  controller: 'userHomeCtrl',
-  resolve: {
-    loginRequired: loginRequired
-  }
+  controller: 'userHomeCtrl'
 })
 .state('userHome.userInfo', {
   url: '/userInfo',
   templateUrl: './ui-views/userInfo.html',
   controller: 'userHomeCtrl'
+})
+.state('userHome.userInfo.info', {
+  url: '/profile',
+  templateUrl: './ui-views/userInfo-Info.html',
+  controller: 'userHomeCtrl'
+})
+.state('userHome.userInfo.payment', {
+  url: '/payment',
+  templateUrl: './ui-views/userInfo-Pay.html',
+  controller: 'userPaymentCtrl'
 })
 .state('userHome.vehicleInfo', {
   url: '/vehicle',
@@ -160,6 +167,11 @@ $stateProvider
   url: '/updateUser',
   templateUrl: './ui-views/updateUser.html',
   controller: 'updateUserCtrl'
+})
+.state('updateVehicle', {
+  url: '/updateVehicle',
+  templateUrl: './ui-views/updateVehicle.html',
+  controller: 'updateVehicleCtrl'
 })
 
 function skipIfLoggedIn($q, $auth, $state) {

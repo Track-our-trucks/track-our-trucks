@@ -32,28 +32,122 @@
 .user-info-bottom{
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
+  height: 535px;
+  width: 100%;
+  background: $white;
+
+
+.content-left{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   height: 100%;
+  width: 40%;
 
-  .user-icon{
-    color: $mteal;
-    font-size: 400px;
 
-    position: relative;
+    .user-icon{
+      color: $mteal;
+      font-size: 250px;
 
-    .icon-user{
-      font-size: 220px;
+      position: relative;
 
-      position: absolute;
+      .icon-user{
+        font-size: 135px;
 
-      top: 70px;
-      left: 90px;
+        position: absolute;
+
+        top: 47px;
+        left: 58px;
+      }
+    }
+    .the-buttons{
+      margin-bottom: 40px;
+    }
+    .button-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 65px;
+      width: 265px;
     }
 
-  }
+    button{
+      height: 50px;
+      width: 230px;
+      background-color: $mgrey;
+      transition: 0.3s;
+      font-size: 20px;
+      font-family: $font2;
+      cursor: pointer;
+      color: $white;
 
+
+    }
+    button:hover{
+      height: 55px;
+      width: 245px;
+      background-color: $red;
+      font-size: 23px;
+
+      transition: 0.3s;
+    }
+    .pay-button:hover{
+      height: 55px;
+      width: 245px;
+      background-color: $green;
+      font-size: 23px;
+
+      transition: 0.3s;
+
+    }
+}
+
+  .content-right{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+
+    height: 100%;
+    width: 60%;
+
+  .user-profile-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    ul{
+      height: 400px;
+      width: 400px;
+
+      li{
+        display: flex;
+        align-items: center;
+
+        height: 60px;
+        width: 100%;
+        margin-bottom: 55px;
+        font-size: 30px;
+        background: $dblue;
+        padding-left: 15px;
+
+        font-family: $font2;
+        color: $white;
+
+          }
+       }
+    }
+  }
 
 }
 

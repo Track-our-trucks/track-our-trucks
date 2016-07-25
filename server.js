@@ -192,7 +192,7 @@ app.post('/auth/signup', (req, res) => {
                 });
             }
             else {
-              Admin.findOneAndUpdate({email: 'tot@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
+              Admin.findOneAndUpdate({email: 'trackourtruck@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
 
                 if(err){
                   res.send(500).json(err.message)
@@ -282,8 +282,10 @@ app.delete('/api/deleteuser/:id', adminEnsureAuthenticated, adminCtrl.destroy)
 
 // vehicle endpoints
 app.post('/api/addvehicle/:userid', adminEnsureAuthenticated, vehicleCtrl.create)
-app.get('/api/getvehicles', adminEnsureAuthenticated, vehicleCtrl.show)
-app.put('/api/updatevehicle/:id')
+app.get('/api/getvehicles', adminEnsureAuthenticated, vehicleCtrl.index)
+app.get('/api/getonevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.show)
+app.put('/api/updatevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.update)
+app.delete('/api/deletevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.destroy)
 
 
 

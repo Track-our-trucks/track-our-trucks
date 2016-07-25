@@ -22,13 +22,47 @@ module.exports = {
     })
   },
 
-  show: (req, res) => {
+  index: (req, res) => {
     Vehicle.find({}, (err, vehicles) => {
       if (err) {
         res.status(500).json(err.message)
       }
       else {
         res.status(200).json(vehicles)
+      }
+    })
+  },
+
+  show: (req, res) => {
+    Vehicle.findById(req.params.id, (err, vehicle) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(vehicle)
+      }
+    })
+  },
+
+  update: (req, res) => {
+    Vehicle.findByIdAndUpdate(req.params.id, {$set: {name: req.body.name, esn: req.body.esn}}, (err, success) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(success)
+      }
+    })
+
+  },
+
+  destroy: (req, res) => {
+    Vehicle.findByIdAndRemove(req.params.id, (err, vehicle) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        res.status(200).json(vehicle)
       }
     })
   }

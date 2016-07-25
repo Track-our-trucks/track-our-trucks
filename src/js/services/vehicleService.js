@@ -39,22 +39,22 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
       }, 10000)
     }
 
-  this.vehicleTimer()
+  this.vehicleStopTimer = () => {
+    $interval.cancel(this.vehicleTime)
+    this.vehicleTime = undefined;
+  }
 
   $rootScope.$on('$stateChangeSuccess', () => {
      if (this.current.name === 'userHome.vehicleInfo.location') {
        this.vehicleTimer();
      } else {
-     this.stopVehicleTimer();
+     this.vehicleStopTimer();
    }
    })
 
 
-  this.vehicleStopTimer = () => {
-    $interval.cancel(this.vehicleTime)
-    this.vehicleTime = undefined;
-  }
-  
+
+
 
   this.getUserVehicle = () => {
     var payloadData = $auth.getPayload()
