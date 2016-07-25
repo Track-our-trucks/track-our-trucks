@@ -78,7 +78,7 @@ $stateProvider
 .state('contact.signup', {
   url: '/signup',
   templateUrl: './ui-views/signup.html',
-  controller: 'signupCtrl'
+  controller: 'signUpCtrl'
 })
 
 .state('privacy', {
@@ -94,7 +94,7 @@ $stateProvider
 .state('privacy.signup', {
   url: '/signup',
   templateUrl: './ui-views/signup.html',
-  controller: 'signupCtrl'
+  controller: 'signUpCtrl'
 })
 
 .state('terms', {
@@ -110,7 +110,7 @@ $stateProvider
 .state('terms.signup', {
   url: '/signup',
   templateUrl: './ui-views/signup.html',
-  controller: 'signupCtrl'
+  controller: 'signUpCtrl'
 })
 
 .state('admin', {

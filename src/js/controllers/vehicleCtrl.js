@@ -10,7 +10,22 @@ angular.module('trackOurTruck').controller('vehicleCtrl', function($scope, $stat
    };
 
    $scope.tracker = [
-     {"timeRecieved":1469227222185,"esn":"4542103060","updateTime":1469227221000,"fixTime":1469227221000,"lat":40.2208,"long":-111.6619,"alt":4416,"speed":1,"heading":354,"satellites":7},
+{"timeRecieved":1469227222185,"esn":"4542103060","updateTime":1469227221000,"fixTime":1469227221000,"lat":40.2208,"long":-111.6619,"alt":4416,"speed":1,"heading":354,"satellites":7},
+{"timeRecieved":1469227157245,"esn":"4542103060","updateTime":1469227154000,"fixTime":1469227154000,"lat":40.2176,"long":-111.6607,"alt":4442,"speed":14,"heading":39,"satellites":7},
+{"timeRecieved":1469227160206,"esn":"4542103060","updateTime":1469227159000,"fixTime":1469227159000,"lat":40.2177,"long":-111.6606,"alt":4440,"speed":4,"heading":42,"satellites":7},
+{"timeRecieved":1469227165206,"esn":"4542103060","updateTime":1469227164000,"fixTime":1469227164000,"lat":40.2178,"long":-111.6606,"alt":4437,"speed":4,"heading":42,"satellites":7},
+{"timeRecieved":1469227170206,"esn":"4542103060","updateTime":1469227169000,"fixTime":1469227169000,"lat":40.218,"long":-111.6604,"alt":4441,"speed":19,"heading":18,"satellites":7},
+{"timeRecieved":1469227179206,"esn":"4542103060","updateTime":1469227178000,"fixTime":1469227178000,"lat":40.2189,"long":-111.6604,"alt":4456,"speed":23,"heading":359,"satellites":7},
+{"timeRecieved":1469227183245,"esn":"4542103060","updateTime":1469227182000,"fixTime":1469227182000,"lat":40.2192,"long":-111.6605,"alt":4450,"speed":20,"heading":327,"satellites":7},
+{"timeRecieved":1469227185785,"esn":"4542103060","updateTime":1469227185000,"fixTime":1469227185000,"lat":40.2194,"long":-111.6607,"alt":4447,"speed":21,"heading":294,"satellites":7},
+{"timeRecieved":1469227190225,"esn":"4542103060","updateTime":1469227189000,"fixTime":1469227189000,"lat":40.2194,"long":-111.6612,"alt":4445,"speed":24,"heading":270,"satellites":7},
+{"timeRecieved":1469227195205,"esn":"4542103060","updateTime":1469227194000,"fixTime":1469227194000,"lat":40.2194,"long":-111.6617,"alt":4436,"speed":12,"heading":271,"satellites":6},
+{"timeRecieved":1469227200206,"esn":"4542103060","updateTime":1469227199000,"fixTime":1469227199000,"lat":40.2194,"long":-111.6618,"alt":4424,"speed":5,"heading":301,"satellites":6},
+{"timeRecieved":1469227202985,"esn":"4542103060","updateTime":1469227202000,"fixTime":1469227202000,"lat":40.2195,"long":-111.6619,"alt":4421,"speed":11,"heading":335,"satellites":6},
+{"timeRecieved":1469227207205,"esn":"4542103060","updateTime":1469227206000,"fixTime":1469227206000,"lat":40.2197,"long":-111.6619,"alt":4419,"speed":18,"heading":359,"satellites":6},
+{"timeRecieved":1469227212205,"esn":"4542103060","updateTime":1469227211000,"fixTime":1469227211000,"lat":40.2202,"long":-111.6619,"alt":4421,"speed":24,"heading":0,"satellites":7},
+{"timeRecieved":1469227217225,"esn":"4542103060","updateTime":1469227216000,"fixTime":1469227216000,"lat":40.2206,"long":-111.6619,"alt":4425,"speed":18,"heading":10,"satellites":7},
+{"timeRecieved":1469227222185,"esn":"4542103060","updateTime":1469227221000,"fixTime":1469227221000,"lat":40.2208,"long":-111.6619,"alt":4416,"speed":1,"heading":354,"satellites":7},
 {"timeRecieved":1469227225407,"esn":"4542103060","updateTime":1469227224000,"fixTime":1469227224000,"lat":40.2208,"long":-111.6619,"alt":4417,"speed":0,"heading":354,"satellites":7},
 {"timeRecieved":1469227306758,"esn":"4542103060","updateTime":1469227306000,"fixTime":1469227306000,"lat":40.2213,"long":-111.6622,"alt":4456,"speed":18,"heading":342,"satellites":7},
 {"timeRecieved":1469227311758,"esn":"4542103060","updateTime":1469227311000,"fixTime":1469227311000,"lat":40.2215,"long":-111.6623,"alt":4455,"speed":7,"heading":358,"satellites":7},
@@ -150,8 +165,9 @@ angular.module('trackOurTruck').controller('vehicleCtrl', function($scope, $stat
 {"timeRecieved":1469458587481,"esn":"4542103060","updateTime":1469458584000,"fixTime":1469458584000,"lat":40.227,"long":-111.6606,"alt":4474,"speed":14,"heading":135,"satellites":9},
 {"timeRecieved":1469458587482,"esn":"4542103060","updateTime":1469458586000,"fixTime":1469458586000,"lat":40.2269,"long":-111.6606,"alt":4467,"speed":16,"heading":177,"satellites":9},
 {"timeRecieved":1469458595540,"esn":"4542103060","updateTime":1469458595000,"fixTime":1469458595000,"lat":40.2263,"long":-111.6605,"alt":4480,"speed":9,"heading":136,"satellites":9},
-{"timeRecieved":1469458602960,"esn":"4542103060","updateTime":1469458602000,"fixTime":1469458602000,"lat":40.2263,"long":-111.6605,"alt":4482,"speed":0,"heading":110,"satellites":8}
-];
+{"timeRecieved":1469458602960,"esn":"4542103060","updateTime":1469458602000,"fixTime":1469458602000,"lat":40.2263,"long":-111.6605,"alt":4482,"speed":0,"heading":110,"satellites":8},
+{"timeRecieved":1469227995247,"esn":"4542103060","updateTime":1469227994000,"fixTime":1469227994000,"lat":40.226,"long":-111.6608,"alt":4437,"speed":6,"heading":304,"satellites":6}
+   ];
 
 
 
@@ -162,7 +178,7 @@ let theFilterer = (val) => {
     return (new Date(val.fixTime)).toDateString() === (new Date()).toDateString();
   }
   else {
-    
+
     return (new Date(val.fixTime)).toDateString() == new Date($scope.theDate).toDateString();
 
 
@@ -182,6 +198,9 @@ $scope.fireFilter();
 
 $scope.positionFilter = () => {
 
+  var compass = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  var newCompass;
+
   var newPos = [];
   for (let i = 0; i < $scope.theDayPins.length; i++) {
       var posObj = {
@@ -196,6 +215,13 @@ $scope.positionFilter = () => {
         newPos.push(addressWithTime);
 
       })
+
+      var val = Math.floor(($scope.tracker[i].heading / 22.5) + 0.5);
+      newCompass =  compass[(val % 16)];
+      console.log($scope.direction);
+
+      $scope.directions.push(newCompass);
+
 
   }
 

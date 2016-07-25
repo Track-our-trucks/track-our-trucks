@@ -9,6 +9,7 @@
     // flex-direction: row;
 }
 .logo-cont {
+    cursor: pointer;
     height: 163.4px;
     width: 245px;
     position: absolute;
@@ -24,6 +25,7 @@
     }
 }
 .welcome-menu {
+  cursor: pointer;
     display: flex;
     align-items: center;
     box-shadow: 0 0 125px 58px rgba(0,0,0,0.38);
