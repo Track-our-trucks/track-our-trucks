@@ -1,0 +1,14 @@
+{
+    "uid": "track",
+    "append": true,
+    "watch": true,
+    "watchDirectory": "./",
+    "script": "server.js",
+    "sourceDir": "./",
+    "logFile": "./foreverLog.log",
+    "outFile": "./foreverOutLog.log",
+    "errFile": "./foreverErrLog.log",
+    "minUptime": 2500,
+    "spinSleepTime": 3000,
+    "max": 3
+}
