@@ -13,8 +13,8 @@ const gulp = require('gulp'),
     plumber = require('gulp-plumber');
 
 // here are the gulp file paths
-const paths = {
-    jsSource: ['src/js/**/*.js'],
+let paths = {
+    jsSource: ['node_modules/angular/angular.js', './node_modules/angular-ui-router/release/angular-ui-router.js', './node_modules/satellizer/dist/satellizer.js', 'src/js/**/*.js'],
     sassSource: ['src/styles/**/*.scss'],
     HTMLSource: ['src/**/*.html'],
     ImageSource: ['src/img/*.*']
@@ -36,7 +36,7 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015'],
-            ignore: ['**/ng-map.js']
+            ignore: ['**/ng-map.js', '**/angular.js', '**/angular-ui-router.js', '**/satellizer.js']
         }))
         .pipe(annotate())
         .pipe(concat('bundle.js'))
