@@ -121,10 +121,7 @@ $stateProvider
 .state('userHome', {
   url: '/userhome',
   templateUrl: './ui-views/userHome.html',
-  controller: 'userHomeCtrl',
-  resolve: {
-    loginRequired: loginRequired
-  }
+  controller: 'userHomeCtrl'
 })
 .state('userHome.userInfo', {
   url: '/userInfo',
@@ -160,6 +157,11 @@ $stateProvider
   url: '/updateUser',
   templateUrl: './ui-views/updateUser.html',
   controller: 'updateUserCtrl'
+})
+.state('updateVehicle', {
+  url: '/updateVehicle',
+  templateUrl: './ui-views/updateVehicle.html',
+  controller: 'updateVehicleCtrl'
 })
 
 function skipIfLoggedIn($q, $auth, $state) {

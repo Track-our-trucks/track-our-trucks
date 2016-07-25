@@ -1,7 +1,7 @@
 angular.module('trackOurTruck').service('userService', function($http, $q){
 
   this.getUser = userId => {
-    console.log(userId);
+
     return $http({
       method: "GET",
       url: '/api/currentuser/' + userId
