@@ -1,13 +1,9 @@
 'use strict';
 
-// require a model and push things to the model directly using the esn as unique id
-// we'll keep the fs module for error logging so we can tell when something goes wrong
-
-const Vehicle = require('./models/vehicle')
-
 const dgram = require(`dgram`),
     fs = require(`fs`),
-    udpServer = dgram.createSocket(`udp4`);
+    udpServer = dgram.createSocket(`udp4`),
+    Vehicle = require(`./models/vehicle.js`);
 
 udpServer.on('listening', () => {
     const address = udpServer.address();
@@ -26,10 +22,11 @@ udpServer.on('message', (message, remote) => {
         cmSecToMPH = 0.0223694,
         cmToFeet = 0.0328084,
         secToMs = 1000;
-    let decoded;
+    let decoded,
+        esn;
     try {
+        esn = messageStr.substring(4, 14);
         decoded = {
-            esn: messageStr.substring(4, 14),
             fixTime: parseInt(messageStr.substring(34, 42), 16) / secToMs, //unix time in ms
             lat: +convert(messageStr.substring(42, 50)).toFixed(4),
             long: +convert(messageStr.substring(50, 58)).toFixed(4),
@@ -37,34 +34,24 @@ udpServer.on('message', (message, remote) => {
             heading: parseInt(messageStr.substring(74, 78), 16), //degrees from true north
             event: parseInt(messageStr.substring(100, 102), 16)
         };
-        Vehicle.findOneAndUpdate({esn: decoded.esn}, {$push: {timeDistanceProfiles: decoded}}, (err, success)=> {
-          if(err){
-            console.log(err);
-          }
-          else {
-          
-          }
-        })
     } catch (e) {
         console.log(`ERROR decoding data: ${e}`);
     }
-    // definitely remove the following two fs writes once live
-    fs.appendFile(`./public/rawLogFile.txt`, `{timeRecieved: ${Date.now()}, message: ${messageStr}}\n`, err => {
+
+    fs.appendFile(`./logs/rawLogFile.txt`, `{timeRecieved: ${Date.now()}, message: ${messageStr}}\n`, err => {
         if (err) console.log(`ERROR writing to raw logfile: ${err}`);
     });
-    fs.appendFile(`./public/decodedLogFile.txt`, `${JSON.stringify(decoded)}\n`, err => {
+    fs.appendFile(`./logs/decodedLogFile.txt`, `${JSON.stringify(decoded)}\n`, err => {
         if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
     });
 
-    /*
-      model.findOneAndUpdate({esn: decoded.esn}, {$push: {data: decoded}}, (err, user) => {
+    Vehicle.findOneAndUpdate({esn}, {$push: {timeDistanceProfiles: decoded}}, err => {
       if (err) {
-        fs.appendFile(`./loggingErrors.txt`, `{date: ${Date.now()}, error: ${err}, data: ${messageStr}}\n`, err => {
+        fs.appendFile(`./logs/mongoLogFile.txt`, `{TIME: ${Date.now()},JSON: ${JSON.stringify(decoded)}, ERR: ${err}}\n`, err => {
             if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
         });
       }
-      })
-    */
+    });
 
 });
 
