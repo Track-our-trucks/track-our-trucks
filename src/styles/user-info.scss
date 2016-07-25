@@ -32,7 +32,7 @@
 .user-info-bottom{
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   height: 535px;
@@ -52,18 +52,21 @@
 
     .user-icon{
       color: $mteal;
-      font-size: 200px;
+      font-size: 250px;
 
       position: relative;
 
       .icon-user{
-        font-size: 110px;
+        font-size: 135px;
 
         position: absolute;
 
-        top: 35px;
-        left: 45px;
+        top: 47px;
+        left: 58px;
       }
+    }
+    .the-buttons{
+      margin-bottom: 40px;
     }
     .button-container{
       display: flex;
@@ -82,6 +85,7 @@
       font-size: 20px;
       font-family: $font2;
       cursor: pointer;
+      color: $white;
 
 
     }
@@ -99,8 +103,7 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-end;
 
 
 
@@ -124,7 +127,7 @@
 
         height: 60px;
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 55px;
         font-size: 30px;
         background: $mgrey;
         padding-left: 15px;
