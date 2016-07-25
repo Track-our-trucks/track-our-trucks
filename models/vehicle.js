@@ -11,16 +11,8 @@ var headingSchema = require('./diagnosticSchema.js')
 
 var vehicleSchema = new Schema({
   name: {type: String},
-  truck: {type: Boolean, default: true},
-  esn: {type: String},
-  locations: [locationSchema],
-  speeds: [speedSchema],
-  headings: [headingSchema],
-  brakings: [brakeSchema],
-  turns: [turnSchema],
-  idlings: [idleSchema],
-  accelerations: [accelerationSchema],
-  diagnostics: [diagnosticSchema]
+  esn: {type: String, index: true},
+  timeDistanceProfiles: [{type: Object}]
 })
 
 module.exports = mongoose.model("Vehicle", vehicleSchema);
