@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehicleService) => {
+angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehicleService, $interval) => {
   $scope.tab = 0;
 
   $scope.setTab = newTab => {
@@ -10,10 +10,25 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehic
    };
 
 
+   $scope.vehicletime;
+
+   $scope.vehicletimer = () => {
+     $scope.vehicletime = $interval( () => {
+       $scope.getUser();
+     }, 10000)
+   }
+
+   $scope.vehicletimer()
+
+   $scope.vehicleStopTimer = () => {
+     $interval.cancel($scope.vehicletime)
+     $scope.vehicletime = undefined;
+   }
+
    $scope.getUser = () => {
      var payloadData = $auth.getPayload()
      userService.getUser(payloadData.sub).then(response => {
-        $scope.tracker = response.data.vehicles.timeDistanceProfiles;
+        $scope.tracker = response.data.vehicles[0].timeDistanceProfiles;
      })
    }
 
