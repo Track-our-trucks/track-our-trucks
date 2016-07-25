@@ -3,6 +3,8 @@
 // require a model and push things to the model directly using the esn as unique id
 // we'll keep the fs module for error logging so we can tell when something goes wrong
 
+const Vehicle = require('./models/vehicle')
+
 const dgram = require(`dgram`),
     fs = require(`fs`),
     udpServer = dgram.createSocket(`udp4`);
@@ -35,6 +37,14 @@ udpServer.on('message', (message, remote) => {
             heading: parseInt(messageStr.substring(74, 78), 16), //degrees from true north
             event: parseInt(messageStr.substring(100, 102), 16)
         };
+        Vehicle.findOneAndUpdate({esn: decoded.esn}, {$push: {timeDistanceProfiles: decoded}}, (err, success)=> {
+          if(err){
+            console.log(err);
+          }
+          else {
+          
+          }
+        })
     } catch (e) {
         console.log(`ERROR decoding data: ${e}`);
     }
