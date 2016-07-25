@@ -94,6 +94,8 @@
     transition: 0.3s;
 
     border-radius: 5px;
+
+    cursor: pointer;
   }
 
   button:focus {
@@ -127,6 +129,8 @@
       color: $teal;
 
       border-bottom:  $teal 2px solid;
+
+      cursor: pointer;
     }
   }
 
