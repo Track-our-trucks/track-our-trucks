@@ -1,5 +1,13 @@
+Search: <input type="text" ng-model="searched">
+<section ng-hide="newUserInputsHidden">
+  <input type="text" ng-model="newUser.name" placeholder="Name">
+  <input type="text" ng-model="newUser.email" placeholder="Email">
+  <input type="text" ng-model="newUser.phoneNumber" placeholder="Number">
+  <input type="text" ng-model="newUser.password" placeholder="Password">
+  <button type="button" ng-click="addUser(newUser)">Add User</button>
+</section>
 
-<ul ng-repeat="user in users track by $index">
+<ul ng-repeat="user in users | filter: searched track by $index">
 
   <li ng-click="itemSelected($index)">
       {{user.name}} <br>

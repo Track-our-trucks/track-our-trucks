@@ -151,6 +151,16 @@ $stateProvider
   templateUrl: './ui-views/adminSignup.html',
   controller: 'adminSignupCtrl'
 })
+.state('showUser', {
+  url: '/showUser',
+  templateUrl: './ui-views/showUser.html',
+  controller: 'showUserCtrl'
+})
+.state('updateUser', {
+  url: '/updateUser',
+  templateUrl: './ui-views/updateUser.html',
+  controller: 'updateUserCtrl'
+})
 
 function skipIfLoggedIn($q, $auth, $state) {
      var deferred = $q.defer();

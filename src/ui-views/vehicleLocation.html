@@ -7,14 +7,14 @@
 
         <datepicker date-format="EEE MM/dd/yyyy" selector="form-control">
 
-             <div class="input-group">
-                 <input class="form-control" placeholder="Choose a date"/>
-                 <span class="input-group-addon" style="cursor: pointer"><i class="fa fa-lg fa-calendar"></i></span>
-            </div>
-
-        </datepicker>
-
-        <div class="icon-caret-up-down"></div>
+       <div class="input-group">
+           <input class="form-control" placeholder="Choose a date" ng-model="theDate"/><button type="button" ng-click="fireFilter()">GO</button>
+           <span class="input-group-addon" style="cursor: pointer">
+           <i class="fa fa-lg fa-calendar"></i>
+           </span>
+    </datepicker>
+      </div>
+        <div class="icon-caret-up-down reverseBtn"></div>
 
     </section>
 
