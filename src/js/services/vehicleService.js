@@ -61,6 +61,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
     var payloadData = $auth.getPayload()
     userService.getUser(payloadData.sub).then(response => {
        this.tracker = response.data.vehicles[0].timeDistanceProfiles;
+       this.fireFilter();
     })
   }
 
