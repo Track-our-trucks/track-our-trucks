@@ -3,8 +3,6 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.currentUser;
   this.selectedUser;
 
-  this.tracker = [];
-
     this.theDate = new Date();
 
 
@@ -60,8 +58,9 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.getUserVehicle = () => {
     var payloadData = $auth.getPayload()
     userService.getUser(payloadData.sub).then(response => {
-       this.tracker = response.data.vehicles[0];
-       this.fireFilter();
+       let vehicleArr = response.data.vehicles;
+       let tracker = vehicleArr[0].timeDistanceProfiles;
+       this.fireFilter(tracker);
     })
   }
 
@@ -73,9 +72,9 @@ var theFilterer = (val) => {
 }
 
 
-this.fireFilter = () => {
+this.fireFilter = (tracker) => {
 
- this.theDayPins = this.tracker.filter(theFilterer);
+ this.theDayPins = tracker.filter(theFilterer);
 
 
 
