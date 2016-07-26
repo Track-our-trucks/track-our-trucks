@@ -72,7 +72,9 @@ var theFilterer = (val) => {
 }
 
 
-this.fireFilter = (tracker) => {
+this.fireFilter = tracker = [] => {
+
+
 
  this.theDayPins = tracker.filter(theFilterer);
 
