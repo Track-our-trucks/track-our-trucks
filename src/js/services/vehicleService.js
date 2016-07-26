@@ -60,7 +60,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.getUserVehicle = () => {
     var payloadData = $auth.getPayload()
     userService.getUser(payloadData.sub).then(response => {
-       this.tracker = response.data.vehicles[0][timeDistanceProfiles];
+       this.tracker = response.data.vehicles[0];
        this.fireFilter();
     })
   }
