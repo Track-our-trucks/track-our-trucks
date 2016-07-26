@@ -1,9 +1,17 @@
 'use strict';
 
-const dgram = require(`dgram`),
+const config = require(`./config.js`),
+    dgram = require(`dgram`),
     fs = require(`fs`),
+    mongoose = require('mongoose'),
     udpServer = dgram.createSocket(`udp4`),
-    Vehicle = require(`./models/vehicle.js`);
+    Vehicle = require(`./models/vehicle`);
+
+mongoose.connect(config.database);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => console.log(`Mongo connected to ${config.database}`));
 
 udpServer.on('listening', () => {
     const address = udpServer.address();
@@ -22,8 +30,7 @@ udpServer.on('message', (message, remote) => {
         cmSecToMPH = 0.0223694,
         cmToFeet = 0.0328084,
         secToMs = 1000;
-    let decoded,
-        esn;
+    let decoded, esn;
     try {
         esn = messageStr.substring(4, 14);
         decoded = {
@@ -38,20 +45,16 @@ udpServer.on('message', (message, remote) => {
         console.log(`ERROR decoding data: ${e}`);
     }
 
-    let logData = Object.assign(decoded, {esn});
-    fs.appendFile(`./logs/rawLogFile.txt`, `{timeRecieved: ${Date.now()}, message: ${messageStr}}\n`, err => {
+    fs.appendFile(`./public/rawLogFile.txt`, `{timeRecieved: ${Date.now()}, message: ${messageStr}}\n`, err => {
         if (err) console.log(`ERROR writing to raw logfile: ${err}`);
     });
-    fs.appendFile(`./logs/decodedLogFile.txt`, `${JSON.stringify(logData)}\n`, err => {
+    fs.appendFile(`./public/decodedLogFile.txt`, `${JSON.stringify(decoded)}\n`, err => {
         if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
     });
 
-    Vehicle.findOneAndUpdate({esn}, {$push: {timeDistanceProfiles: decoded}}, err => {
-      if (err) {
-        fs.appendFile(`./logs/mongoLogFile.txt`, `{TIME: ${Date.now()},JSON: ${JSON.stringify(decoded)}, ERR: ${err}}\n`, err => {
-            if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
-        });
-      }
+    Vehicle.findOneAndUpdate({esn}, {$push: {timeDistanceProfiles: decoded}}, (err, success) => {
+      if (err) console.log(`MONGO ERROR: ${err}`);
+      else console.log(`MONGO SUCCESS: ${success}`);
     });
 
 });

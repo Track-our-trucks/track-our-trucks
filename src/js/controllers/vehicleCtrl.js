@@ -11,6 +11,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehic
 
 $scope.fireFilter =  () => {
 
+
  vehicleService.theDate = $scope.theDate;
  vehicleService.fireFilter();
  $scope.directions = vehicleService.directions;
@@ -20,6 +21,7 @@ $scope.fireFilter =  () => {
 
  $scope.center = $scope.lines[0];
  }
+
 
 $scope.fireFilter();
 
