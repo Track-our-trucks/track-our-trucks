@@ -55,7 +55,7 @@ udpServer.on('message', (message, remote) => {
     Vehicle.findOneAndUpdate({esn}, {$push: {timeDistanceProfiles: decoded}}, (err, success) => {
       if (err) console.log(`MONGO ERROR: ${err}`);
       else console.log(`MONGO SUCCESS: ${success}`);
-    })
+    });
 
 });
 
