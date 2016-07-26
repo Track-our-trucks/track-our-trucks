@@ -1,10 +1,10 @@
-angular.module('trackOurTruck').service('vehicleService', function($http, $q, $interval, $auth, $rootScope, userService){
+angular.module('trackOurTruck').service('vehicleService', function($http, $q, $interval, $auth, $rootScope, userService, $state){
 
   this.currentUser;
   this.selectedUser;
 
-
     this.theDate = new Date();
+
 
 
   this.addVehicle = function(vehicle){
@@ -45,7 +45,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   }
 
   $rootScope.$on('$stateChangeSuccess', () => {
-     if (this.current.name === 'userHome.vehicleInfo.location') {
+     if ($state.current.name === 'userHome.vehicleInfo.location') {
        this.vehicleTimer();
      } else {
      this.vehicleStopTimer();
@@ -59,21 +59,25 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.getUserVehicle = () => {
     var payloadData = $auth.getPayload()
     userService.getUser(payloadData.sub).then(response => {
-       this.tracker = response.data.vehicles[0].timeDistanceProfiles;
+       let vehicleArr = response.data.vehicles;
+       let tracker = vehicleArr[0].timeDistanceProfiles;
+       filter(tracker);
     })
   }
 
 
 
 
-var theFilterer = (val) => {
+var theFilterer = val => {
    return (new Date(val.fixTime)).toDateString() === new Date(this.theDate).toDateString();
 }
 
 
-this.fireFilter = () => {
+var filter = tracker => {
 
- this.theDayPins = this.tracker.filter(theFilterer);
+
+
+ this.theDayPins = tracker.filter(theFilterer);
 
 
 
