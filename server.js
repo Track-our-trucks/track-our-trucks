@@ -5,7 +5,7 @@ const config = require('./config.js');
 mongoose.connect(config.database);
 const cors = require('cors');
 const app = express();
-const port = 9000;
+const port = 80;
 const jwt = require('jwt-simple');
 const moment = require('moment');
 const path = require('path');
