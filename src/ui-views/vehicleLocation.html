@@ -20,7 +20,8 @@
 
     <section class="vehicle-locations">
       <ul >
-        <li ng-repeat="address in addresses track by $index">
+        <!-- <li ng-repeat="address in addresses track by $index"> -->
+        <li ng-repeat="direction in directions track by $index">
 
           <div>
 
@@ -46,12 +47,12 @@
 
 
 
-  <ng-map zoom='15' center='{{lines}}[0]'>
+  <ng-map zoom='15' center='{{center}}'>
     <marker ng-repeat="pin in pins track by $index" position="{{pin}}">
       <marker>
 
         <shape name="polyline"
-          path='{{lines}}'
+          path='{{pins}}'
           geodesic="true"
           stroke-color="#ffa027"
           stroke-opacity="1.0"
