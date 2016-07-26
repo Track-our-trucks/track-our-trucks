@@ -68,12 +68,12 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
 
 
-var theFilterer = (val) => {
+var theFilterer = val => {
    return (new Date(val.fixTime)).toDateString() === new Date(this.theDate).toDateString();
 }
 
 
-var filter = (tracker) => {
+var filter = tracker => {
 
 
 
