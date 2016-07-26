@@ -14,7 +14,7 @@ $scope.fireFilter =  () => {
 vehicleService.getUserVehicle()
 
  vehicleService.theDate = $scope.theDate;
- vehicleService.fireFilter();
+ // vehicleService.fireFilter();
  $scope.directions = vehicleService.directions;
  $scope.pins = vehicleService.pins;
 
