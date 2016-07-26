@@ -10,19 +10,19 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehic
    };
 
 
-   $scope.vehicletime;
+   $scope.vehicleTime;
 
-   $scope.vehicletimer = () => {
-     $scope.vehicletime = $interval( () => {
+   $scope.vehicleTimer = () => {
+     $scope.vehicleTime = $interval( () => {
        $scope.getUserVehicle();
      }, 10000)
    }
 
-   $scope.vehicletimer()
+   $scope.vehicleTimer()
 
    $scope.vehicleStopTimer = () => {
-     $interval.cancel($scope.vehicletime)
-     $scope.vehicletime = undefined;
+     $interval.cancel($scope.vehicleTime)
+     $scope.vehicleTime = undefined;
    }
 
    $scope.getUserVehicle = () => {
