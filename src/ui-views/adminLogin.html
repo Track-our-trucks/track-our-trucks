@@ -1,5 +1,17 @@
-ADMIN LOGIN
 
-<input ng-model="admin.email" type="email" name="name"  placeholder="email">
-<input ng-model="admin.password" type="password" name="name"  placeholder="password">
-<button ng-click="login(admin)" type="button" name="button">Login</button>
+<section class="admin-login-header">
+  <h1>ADMIN LOGIN</h1>
+</section>
+<form ng-sumbit="login(admin)">
+
+<div class="">
+  <input ng-model="admin.email" type="email" name="name"  placeholder="email">
+  <input ng-model="admin.password" type="password" name="name"  placeholder="password">
+</div>
+
+<div class="">
+  <button type="submit" name="button">Login</button>
+
+</div>
+
+</form>
