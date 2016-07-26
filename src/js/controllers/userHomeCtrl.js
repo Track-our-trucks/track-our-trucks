@@ -55,7 +55,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
   $scope.vehicleModal = () => {
 
-    $scope.fireFilter();
+    
 
     $scope.positionFilter();
 
