@@ -5,7 +5,7 @@ var timeDistanceInfo = require('./timeDistanceInfoSchema.js')
 
 var vehicleSchema = new Schema({
   name: {type: String},
-  esn: {type: String, index: true},
+  esn: {type: String},
   timeDistanceProfiles: [timeDistanceInfo]
 })
 
