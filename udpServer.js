@@ -38,10 +38,11 @@ udpServer.on('message', (message, remote) => {
         console.log(`ERROR decoding data: ${e}`);
     }
 
+    let logData = Object.assign(decoded, {esn});
     fs.appendFile(`./logs/rawLogFile.txt`, `{timeRecieved: ${Date.now()}, message: ${messageStr}}\n`, err => {
         if (err) console.log(`ERROR writing to raw logfile: ${err}`);
     });
-    fs.appendFile(`./logs/decodedLogFile.txt`, `${JSON.stringify(decoded)}\n`, err => {
+    fs.appendFile(`./logs/decodedLogFile.txt`, `${JSON.stringify(logData)}\n`, err => {
         if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
     });
 
