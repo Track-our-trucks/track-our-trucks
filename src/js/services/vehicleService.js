@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').service('vehicleService', function($http, $q, $interval, $auth, $rootScope, userService){
+angular.module('trackOurTruck').service('vehicleService', function($http, $q, $interval, $auth, $rootScope, userService, $state){
 
   this.currentUser;
   this.selectedUser;
@@ -46,7 +46,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   }
 
   $rootScope.$on('$stateChangeSuccess', () => {
-     if (this.current.name === 'userHome.vehicleInfo.location') {
+     if ($state.current.name === 'userHome.vehicleInfo.location') {
        this.vehicleTimer();
      } else {
      this.vehicleStopTimer();
