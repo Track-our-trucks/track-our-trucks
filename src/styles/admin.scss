@@ -56,14 +56,19 @@ header{
  li{
    font-size: 20px;
    padding: 20px;
+   font-family: $font2;
 
    b{
      font-size: 25px;
+     font-family: $font3;
    }
    button{
      height: 25px;
      width: 70px;
      border-radius: 15px;
    }
+ }
+ .icon-truck{
+   font-size: 20px;
  }
 }
