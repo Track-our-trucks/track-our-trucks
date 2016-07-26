@@ -118,6 +118,11 @@ $stateProvider
   templateUrl: './ui-views/admin.html',
   controller: 'adminCtrl'
 })
+.state('admin.newUser', {
+  url: '/newUser',
+  templateUrl: './ui-views/adminNewUser.html',
+  controller: 'adminCtrl'
+})
 .state('userHome', {
   url: '/userhome',
   templateUrl: './ui-views/userHome.html',
