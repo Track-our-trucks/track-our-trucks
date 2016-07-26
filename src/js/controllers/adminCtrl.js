@@ -5,6 +5,26 @@ angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userSer
   // $scope.newUser = () => {
   //   $scope.newUserInputsHidden = false;
   // }
+  $scope.modalOff = () => {
+
+      $state.go('admin');
+
+      $scope.thinModalOn = false;
+      // body.style.overflow="";
+      // html.style.overflow="";
+
+  }
+
+  $scope.adminNewUserModal = () => {
+
+    $state.go('admin.newUser');
+
+    $scope.thinModalOn = true;
+
+    // body.style.overflow="hidden";
+    // html.style.overflow="hidden";
+
+  }
 
   $scope.addUser = (newUser) => {
     console.log(newUser);

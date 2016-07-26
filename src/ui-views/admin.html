@@ -1,20 +1,43 @@
-Search: <input type="text" ng-model="searched">
-<section ng-hide="newUserInputsHidden">
-  <input type="text" ng-model="newUser.name" placeholder="Name">
-  <input type="text" ng-model="newUser.email" placeholder="Email">
-  <input type="text" ng-model="newUser.phoneNumber" placeholder="Number">
-  <input type="text" ng-model="newUser.password" placeholder="Password">
-  <button type="button" ng-click="addUser(newUser)">Add User</button>
+<modal-dir></modal-dir>
+<header>
+  <div class="logo-cont">
+      <section  class="logo">
+      </section>
+  </div>
+</header>
+
+<section class="admin-body">
+
+<section class="top">
+  <button class="add-button" ng-click="adminNewUserModal()" type="button" >Add New User</button>
+  <input type="text" ng-model="searched" placeholder="search user...">
+
 </section>
 
-<ul ng-repeat="user in users | filter: searched track by $index">
+  <div class="admin-title">
+    <h1>Users</h1>
 
-  <li ng-click="itemSelected($index)">
-      {{user.name}} <br>
-      {{user.email}}
-      <button type="button" ng-show="$index === selected" ng-click="deleteUser($index)">Delete User</button>
-      <button type="button" ng-show="$index === selected" ng-click="showUser($index)">Show Vehicles</button>
-      <button type="button" ng-show="$index === selected" ng-click="updateUser($index)">Update User</button>
-  </li>
+  </div>
+
+<ul ng-repeat="user in users | filter: searched track by $index">
+  <div class="admin-user-list">
+    <div class="">
+      <li ng-click="itemSelected($index)">
+          <b>{{user.name}}</b>
+          <br>
+          {{user.email}}
+    </div>
+    <button type="button" ng-show="$index === selected" ng-click="deleteUser($index)">Delete User</button>
+    <button type="button" ng-show="$index === selected" ng-click="showUser($index)">Show Vehicles</button>
+    <button type="button" ng-show="$index === selected" ng-click="updateUser($index)">Update User</button>
+
+    <div class="icon-truck"> {{user.vehicles.length}} </div>
+
+    </li>
+
+  </div>
+
+
 
 </ul>
+</section>
