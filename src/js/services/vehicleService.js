@@ -6,6 +6,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
     this.theDate = new Date();
 
 
+
   this.addVehicle = function(vehicle){
     return $http({
       method: "POST",
@@ -60,7 +61,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
     userService.getUser(payloadData.sub).then(response => {
        let vehicleArr = response.data.vehicles;
        let tracker = vehicleArr[0].timeDistanceProfiles;
-       this.fireFilter(tracker);
+       filter(tracker);
     })
   }
 
@@ -72,7 +73,7 @@ var theFilterer = (val) => {
 }
 
 
-this.fireFilter = tracker = [] => {
+var filter = (tracker) => {
 
 
 
