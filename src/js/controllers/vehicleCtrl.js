@@ -11,6 +11,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehic
 
 $scope.fireFilter =  () => {
 
+vehicleService.getUserVehicle()
 
  vehicleService.theDate = $scope.theDate;
  vehicleService.fireFilter();

@@ -3,6 +3,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.currentUser;
   this.selectedUser;
 
+  this.tracker = [];
 
     this.theDate = new Date();
 
