@@ -1,4 +1,10 @@
-angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userService, vehicleService, adminService) => {
+angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userService, vehicleService, adminService, $auth) => {
+
+
+    var payload = () => {
+      var payloadData = $auth.getPayload()
+      return payloadData.sub
+    }
 
   // $scope.newUserInputsHidden = true;
   // let flag = false;
@@ -63,7 +69,7 @@ angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userSer
   }
 
   $scope.deleteUser = index => {
-    adminService.deleteUser($scope.users[index]).then(response => {
+    adminService.deleteUser($scope.users[index], payload()).then(response => {
       $scope.getUsers();
     })
   }

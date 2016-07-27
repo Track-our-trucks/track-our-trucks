@@ -50,10 +50,15 @@ module.exports = {
       if(err) {
         res.status(500).json(err.message)
       } else {
+        Admin.findByIdAndUpdate(req.params.adminid, {$pull: {users: req.params.userid}}, (err, response) => {
+          if(err){
+            res.status(500).json(err.message)
+          }
         res.status(200).json(user)
-      }
-    })
-  }
+      })
+    }
+  })
 
+}
 
 }
