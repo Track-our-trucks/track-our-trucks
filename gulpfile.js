@@ -57,7 +57,9 @@ gulp.task('sass', function() {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(gulpif(build, cleanCSS()))
+        .pipe(gulpif(build, cleanCSS({
+          'skip-import': true
+        })))
         .pipe(concat('bundle.css'))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
