@@ -99,17 +99,17 @@ var filter = tracker => {
 
 
 
- this.theDayPins = tracker;
+ let theDayPins = tracker;
 
  // .filter(theFilterer);
 
 
 
-   this.positionFilter();
+   this.positionFilter(theDayPins);
 
 }
 
-  this.positionFilter = () => {
+  this.positionFilter = theDayPins => {
 
 
 
@@ -117,10 +117,10 @@ var filter = tracker => {
     var newCompass;
     this.directions = [];
     var newPos = [];
-    for (let i = 0; i < this.theDayPins.length; i++) {
+    for (let i = 0; i < theDayPins.length; i++) {
 
         var posObj = {
-          pos:[this.theDayPins[i].lat, this.theDayPins[i].long]
+          pos:[theDayPins[i].lat, theDayPins[i].long]
         };
 
 
@@ -137,7 +137,7 @@ var filter = tracker => {
         // })
 
 
-        var val = Math.floor((this.theDayPins[i].heading / 22.5) + 0.5);
+        var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
         newCompass =  compass[(val % 16)];
 
 
@@ -152,14 +152,14 @@ var filter = tracker => {
 
     var newPin = [];
     var newLine = [];
-    for (let i = 0; i < this.theDayPins.length; i++) {
+    for (let i = 0; i < theDayPins.length; i++) {
 
         var pinObj = {
-          pos:[this.theDayPins[i].lat, this.theDayPins[i].long]
+          pos:[theDayPins[i].lat, theDayPins[i].long]
         };
           newPin.push(pinObj.pos);
 
-          newLine.push([this.theDayPins[i].lat, this.theDayPins[i].long]);
+          newLine.push([theDayPins[i].lat, theDayPins[i].long]);
 
 
 
