@@ -11,17 +11,17 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $root
 
 
 
-   var vehicleTime;
+   $scope.vehicleTime;
 
      var vehicleTimer = () => {
-       vehicleTime = $interval( () => {
+       $scope.vehicleTime = $interval( () => {
          $scope.fireFilter();
        }, 10000)
      }
 
    var vehicleStopTimer = () => {
-     $interval.cancel(vehicleTime)
-     vehicleTime = undefined;
+     $interval.cancel($scope.vehicleTime)
+     $scope.vehicleTime = undefined;
    }
 
    $rootScope.$on('$stateChangeSuccess', () => {
