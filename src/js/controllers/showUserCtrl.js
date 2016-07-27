@@ -31,9 +31,15 @@ $scope.itemSelected = index => {
 }
 
 $scope.deleteVehicle = index => {
-  vehicleService.deleteVehicle($scope.vehicles[index]._id).then(response => {
-    alert('user deleted successfully!');
-    $scope.getSelectedUser();
+  vehicleService.deleteVehicle($scope.vehicles[index]._id, $scope.selectedUser._id).then(response => {
+    if(response.status === 200){
+      alert('vehicle deleted successfully!');
+      $scope.getSelectedUser();
+    }
+    else {
+      alert('you\'re a poopface!');
+    }
+
   })
 }
 
