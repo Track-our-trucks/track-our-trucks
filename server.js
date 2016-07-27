@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const config = require('./config.js');
+const config = require('./theConfig.js');
 mongoose.connect(config.database);
 const cors = require('cors');
 const app = express();
-const port = 9000;
+const port = config.port;
 const jwt = require('jwt-simple');
 const moment = require('moment');
 const path = require('path');
