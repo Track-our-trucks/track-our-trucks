@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, vehicleService, $interval) => {
+angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $rootScope, vehicleService, $interval) => {
   $scope.tab = 0;
 
   $scope.setTab = newTab => {
