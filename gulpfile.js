@@ -58,7 +58,7 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(gulpif(build, cleanCSS({
-          'skip-import': true
+            processImportFrom: ['!fonts.googleapis.com']
         })))
         .pipe(concat('bundle.css'))
         .pipe(sourcemaps.write('./'))
@@ -90,11 +90,11 @@ gulp.task('watch', function() {
 });
 
 gulp.task('set-production', function() {
-  build = true;
+    build = true;
 });
 
 gulp.task('build', function(done) {
-  runSequence('set-production', ['js', 'sass', 'HTML', 'Image'], done);
+    runSequence('set-production', ['js', 'sass', 'HTML', 'Image'], done);
 });
 
 gulp.task('default', ['server', 'watch', 'js', 'sass', 'HTML', 'Image']);
