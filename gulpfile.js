@@ -57,10 +57,10 @@ gulp.task('sass', function() {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass())
+        .pipe(concat('bundle.css'))
         .pipe(gulpif(build, cleanCSS({
             processImportFrom: ['!fonts.googleapis.com']
         })))
-        .pipe(concat('bundle.css'))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
         .pipe(browserSync.stream({
