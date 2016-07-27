@@ -10,10 +10,10 @@ angular.module('trackOurTruck').service('adminService', function($http, $q) {
     })
   }
 
-  this.deleteUser = user => {
+  this.deleteUser = (user, adminId) => {
     return $http({
       method: "DELETE",
-      url: '/api/deleteuser/' + user._id
+      url: '/api/deleteuser/' + user._id + '/' + adminId
     })
   }
 
