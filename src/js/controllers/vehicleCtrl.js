@@ -43,7 +43,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
       userService.getUser(payloadData.sub).then(response => {
          let vehicleArr = response.data.vehicles;
          let tracker = vehicleArr[0].timeDistanceProfiles;
-         filter(tracker);
+         positionFilter(tracker);
       })
     }
 
@@ -55,21 +55,21 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
     }
 
 
-    var filter = tracker => {
+    // var filter = tracker => {
+    //
+    //
+    //
+    // let theDayPins = tracker;
+    //
+    // // .filter(theFilterer);
+    //
+    //
+    //
+    //  $scope.positionFilter(theDayPins);
+    //
+    // }
 
-
-
-    let theDayPins = tracker;
-
-    // .filter(theFilterer);
-
-
-
-     $scope.positionFilter(theDayPins);
-
-    }
-
-    $scope.positionFilter = theDayPins => {
+    var positionFilter = theDayPins => {
 
 
 
