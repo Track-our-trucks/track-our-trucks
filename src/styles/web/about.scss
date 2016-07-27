@@ -25,10 +25,10 @@
 
     }
     .title-bar {
-        background-color: $teal;
-        height: 4px;
-        width: 300px;
-        margin: 15px;
+      border-bottom: 4px solid $teal;
+      height: 4px;
+      width: 300px;
+      margin: 15px;
         position: relative;
     }
     p {
