@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $rootScope, vehicleService, $interval, userService) => {
+angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state, $rootScope, vehicleService, $interval, userService) => {
   $scope.tab = 0;
 
   $scope.theDate = new Date();
@@ -42,7 +42,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $root
       var payloadData = $auth.getPayload()
       userService.getUser(payloadData.sub).then(response => {
          let vehicleArr = response.data.vehicles;
-         let tracker = vehicleArr[1].timeDistanceProfiles;
+         let tracker = vehicleArr[0].timeDistanceProfiles;
          filter(tracker);
       })
     }
