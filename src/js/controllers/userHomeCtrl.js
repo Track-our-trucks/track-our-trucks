@@ -77,5 +77,8 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
     body.style.overflow="hidden";
 
   }
-
+    $scope.userLogOut = () => {
+      $auth.logout();
+      $state.go("welcome");
+    }
 })

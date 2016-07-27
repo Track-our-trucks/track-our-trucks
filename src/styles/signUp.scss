@@ -1,6 +1,6 @@
 @import "main";
 
-.login-cont{
+.signup-cont{
   height: 100%;
   width: 100%;
 
@@ -17,7 +17,7 @@
 
 }
 
-.login-top{
+.signup-top{
 
   height: 80%;
   width: 70%;
@@ -25,7 +25,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   h3{
     color: $dblue;
@@ -110,14 +109,12 @@
 
 }
 
-.login-bottom{
-
-
+.signup-bottom{
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  
   height: 15%;
   width: 100%;
 
