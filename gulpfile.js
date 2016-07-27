@@ -19,7 +19,7 @@ const gulp = require('gulp'),
 // here are the gulp file paths
 let paths = {
     jsSource: ['node_modules/angular/angular.js', './node_modules/angular-ui-router/release/angular-ui-router.js', './node_modules/satellizer/dist/satellizer.js', 'src/js/**/*.js'],
-    sassSource: ['src/styles/**/*.scss'],
+    sassSource: ['src/styles/web/reset.scss', 'src/styles/web/*.scss', 'src/styles/mobile/*.scss'],
     HTMLSource: ['src/**/*.html'],
     ImageSource: ['src/img/*.*']
 };
