@@ -43,46 +43,54 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
       userService.getUser(payloadData.sub).then(response => {
          let vehicleArr = response.data.vehicles;
          let tracker = vehicleArr[0].timeDistanceProfiles;
-         positionFilter(tracker);
+         filter(tracker);
       })
     }
 
 
 
 
-    var theFilterer = val => {
-     return (new Date(val.fixTime)).toDateString() === (new Date($scope.theDate)).toDateString();
+
+
+
+    var filter = tracker => {
+
+      var theFilterer = val => {
+       return (new Date(val.fixTime)).toDateString() === (new Date($scope.theDate)).toDateString();
+      }
+
+    let theDayPins = tracker.filter(theFilterer);
+
+
+
+
+     positionFilter(theDayPins);
+
     }
 
-
-    // var filter = tracker => {
-    //
-    //
-    //
-    // let theDayPins = tracker;
-    //
-    // // .filter(theFilterer);
-    //
-    //
-    //
-    //  $scope.positionFilter(theDayPins);
-    //
-    // }
-
     var positionFilter = theDayPins => {
-
-
 
       var compass = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
       var newCompass;
       $scope.directions = [];
       var newPos = [];
+      var newPin = [];
+      var newLine = [];
       for (let i = 0; i < theDayPins.length; i++) {
 
           var posObj = {
             pos:[theDayPins[i].lat, theDayPins[i].long]
           };
+          newPin.push(pinObj.pos);
 
+          newLine.push([theDayPins[i].lat, theDayPins[i].long]);
+
+
+          var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
+          newCompass =  compass[(val % 16)];
+
+
+          $scope.directions.push(newCompass);
 
 
           // $scope.getAddress(posObj).then(function(res){
@@ -95,71 +103,21 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
           //   newPos.push(addressWithTime);
           //
           // })
-
-
-          var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
-          newCompass =  compass[(val % 16)];
-
-
-          $scope.directions.push(newCompass);
-
-
+          //
       }
 
-
-
-      $scope.addresses = newPos;
-
-      var newPin = [];
-      var newLine = [];
-      for (let i = 0; i < theDayPins.length; i++) {
-
-          var pinObj = {
-            pos:[theDayPins[i].lat, theDayPins[i].long]
-          };
-            newPin.push(pinObj.pos);
-
-            newLine.push([theDayPins[i].lat, theDayPins[i].long]);
+            $scope.addresses = newPos;
 
 
 
-        }
+
+            $scope.pins = newPin;
 
 
-      $scope.pins = newPin;
-
-
-      $scope.lines = newLine;
-
+            $scope.lines = newLine;
 
 
     }
-
-
-//  $scope.fireFilter = () => {
-//
-//    vehicleService.theDate = $scope.theDate;
-//    // vehicleService.fireFilter();
-//    $scope.directions = vehicleService.directions;
-//    $scope.pins = vehicleService.pins;
-//
-//    $scope.lines = vehicleService.lines;
-//
-//    $scope.center = $scope.lines[0];
-//
-//
-//    vehicleService.getUserVehicle()
-//
-//  }
-// $scope.fireFilter();
-
-
-
-
-$scope.positionFilter = vehicleService.positionFilter;
-
-
-$scope.addresses = vehicleService.addresses;
 
 
 
