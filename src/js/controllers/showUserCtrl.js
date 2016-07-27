@@ -8,7 +8,7 @@ $scope.getSelectedUser = () => {
 }
 $scope.getSelectedUser();
 
-$scope.addVehicle = (vehicle) => {
+$scope.addVehicle = vehicle => {
   vehicleService.addVehicle(vehicle).then(response => {
     $scope.getSelectedUser();
 
@@ -17,7 +17,7 @@ $scope.addVehicle = (vehicle) => {
 
 $scope.selected = -1;
 let flag = false;
-$scope.itemSelected = (index) => {
+$scope.itemSelected = index => {
   if(!flag){
     $scope.selected = index;
 
