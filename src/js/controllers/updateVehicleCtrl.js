@@ -9,8 +9,14 @@ angular.module('trackOurTruck').controller('updateVehicleCtrl', ($scope, $state,
 
 $scope.submitChanges = newVehicle => {
   vehicleService.updateVehicle(newVehicle).then(response => {
-    alert("succesfully updated vehicle!")
-    $scope.getVehicle();
+    if(response.status === 200){
+      alert("succesfully updated vehicle!")
+      $scope.getVehicle();
+    }
+    else {
+      alert('you\'re a poopface!');
+    }
+
   })
 }
 

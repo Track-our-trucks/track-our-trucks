@@ -28,6 +28,29 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
     })
   }
 
+  this.getVehicle = () => {
+    return $http({
+      method: "GET",
+      url: '/api/getonevehicle/' + this.selectedUser._id
+    })
+  }
+
+  this.deleteVehicle = (vehicleId, userId) => {
+    return $http({
+      method: "DELETE",
+      url: '/api/deletevehicle/' + vehicleId + '/' + userId
+    })
+  }
+
+  this.updateVehicle = (vehicle, userId)  => {
+    return $http({
+      method: "PUT",
+      url: '/api/updatevehicle/' + this.currentVehicleId,
+      data: vehicle
+    })
+  }
+
+
 
   this.vehicleTime;
 
@@ -67,6 +90,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
 
 var theFilterer = val => {
+  console.log(this.theDate);
    return (new Date(val.fixTime)).toDateString() === (new Date(this.theDate)).toDateString();
 }
 
