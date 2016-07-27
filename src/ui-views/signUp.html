@@ -4,6 +4,8 @@
 
         <h3>SIGN UP</h3>
 
+        <form ng-submit="signUp(user)">
+
         <div class="signin-input">
             <div class="icon-user signin-user-icon"></div>
             <input ng-model="user.name" type="input" name="name" placeholder="name"></input>
@@ -26,8 +28,8 @@
         </div>
 
 
-        <button ng-click="signUp(user)" type="button" name="button">SIGN UP</button>
-
+        <button type="submit" name="button">SIGN UP</button>
+      </form>
     </section>
 
     <section class="signup-bottom">

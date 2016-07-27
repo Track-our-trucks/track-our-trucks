@@ -3,9 +3,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.currentUser;
   this.selectedUser;
 
-    this.theDate = new Date();
-
-
+  this.theDate = new Date();
 
   this.addVehicle = vehicle => {
     return $http({
@@ -69,7 +67,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
 
 var theFilterer = val => {
-   return (new Date(val.fixTime)).toDateString() === new Date(this.theDate).toDateString();
+   return (new Date(val.fixTime)).toDateString() === (new Date(this.theDate)).toDateString();
 }
 
 

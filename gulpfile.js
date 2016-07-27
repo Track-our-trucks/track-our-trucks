@@ -1,3 +1,5 @@
+"use strict";
+
 const gulp = require('gulp'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
@@ -55,8 +57,10 @@ gulp.task('sass', function() {
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(gulpif(build, cleanCSS()))
         .pipe(concat('bundle.css'))
+        .pipe(gulpif(build, cleanCSS({
+            processImportFrom: ['!fonts.googleapis.com']
+        })))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public'))
         .pipe(browserSync.stream({
@@ -86,11 +90,11 @@ gulp.task('watch', function() {
 });
 
 gulp.task('set-production', function() {
-  build = true;
+    build = true;
 });
 
 gulp.task('build', function(done) {
-  runSequence('set-production', ['js', 'sass', 'HTML', 'Image'], done);
+    runSequence('set-production', ['js', 'sass', 'HTML', 'Image'], done);
 });
 
 gulp.task('default', ['server', 'watch', 'js', 'sass', 'HTML', 'Image']);
