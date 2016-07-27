@@ -26,7 +26,7 @@ angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userSer
 
   }
 
-  $scope.addUser = (newUser) => {
+  $scope.addUser = newUser => {
     console.log(newUser);
     userService.signUp(newUser).then(response => {
 
@@ -62,19 +62,19 @@ angular.module('trackOurTruck').controller('adminCtrl', ($scope, $state, userSer
 
   }
 
-  $scope.deleteUser = (index) => {
+  $scope.deleteUser = index => {
     adminService.deleteUser($scope.users[index]).then(response => {
       $scope.getUsers();
     })
   }
 
-  $scope.showUser = (index) => {
+  $scope.showUser = index => {
     adminService.selectedUser = $scope.users[index]
       $state.go('showUser')
 
   }
 
-  $scope.updateUser = (index) => {
+  $scope.updateUser = index => {
     adminService.selectedUser = $scope.users[index]
       $state.go('updateUser')
   }

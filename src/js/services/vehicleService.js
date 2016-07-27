@@ -7,7 +7,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
 
 
-  this.addVehicle = function(vehicle){
+  this.addVehicle = vehicle => {
     return $http({
       method: "POST",
       url: '/api/addvehicle/' + this.selectedUser._id,
@@ -22,7 +22,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
     })
   }
 
-  this.getAddress = (pos) => {
+  this.getAddress = pos => {
     return $http({
       method: 'GET',
       skipAuthorization: true,
@@ -68,12 +68,12 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
 
 
-var theFilterer = (val) => {
+var theFilterer = val => {
    return (new Date(val.fixTime)).toDateString() === new Date(this.theDate).toDateString();
 }
 
 
-var filter = (tracker) => {
+var filter = tracker => {
 
 
 
