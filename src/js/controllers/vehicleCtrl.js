@@ -15,7 +15,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $root
 
      var vehicleTimer = () => {
        $scope.vehicleTime = $interval( () => {
-         $scope.fireFilter();
+         $state.reload();
        }, 10000)
      }
 
