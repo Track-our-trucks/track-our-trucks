@@ -52,26 +52,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
 
 
-  this.vehicleTime;
-
-    this.vehicleTimer = () => {
-      this.vehicleTime = $interval( () => {
-        this.getUserVehicle();
-      }, 10000)
-    }
-
-  this.vehicleStopTimer = () => {
-    $interval.cancel(this.vehicleTime)
-    this.vehicleTime = undefined;
-  }
-
-  $rootScope.$on('$stateChangeSuccess', () => {
-     if ($state.current.name === 'userHome.vehicleInfo.location') {
-       this.vehicleTimer();
-     } else {
-     this.vehicleStopTimer();
-   }
-   })
+  
 
 
 
