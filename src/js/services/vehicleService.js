@@ -80,34 +80,35 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
   this.getUserVehicle = () => {
     var payloadData = $auth.getPayload()
     userService.getUser(payloadData.sub).then(response => {
-       let vehicleArr = response.data.vehicles;
-       let tracker = vehicleArr[1].timeDistanceProfiles;
-       filter(tracker);
+       var vehicleArr = response.data.vehicles;
+       this.tracker = vehicleArr[1].timeDistanceProfiles;
+       this.positionFilter();
+      //  filter(tracker);
     })
   }
 
 
 
 
-var theFilterer = val => {
-  console.log(this.theDate);
-   return (new Date(val.fixTime)).toDateString() === (new Date(this.theDate)).toDateString();
-}
+// var theFilterer = val => {
+//   console.log(this.theDate);
+//    return (new Date(val.fixTime)).toDateString() === (new Date(this.theDate)).toDateString();
+// }
 
 
-var filter = tracker => {
+// var filter = tracker => {
 
 
 
- this.theDayPins = tracker;
+ this.theDayPins = this.tracker;
 
  // .filter(theFilterer);
 
 
 
-   this.positionFilter();
-
-}
+//    this.positionFilter();
+//
+// }
 
   this.positionFilter = () => {
 
