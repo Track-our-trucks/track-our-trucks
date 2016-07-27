@@ -15,6 +15,8 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $root
 
    $scope.vehicleTime;
 
+
+
      var vehicleTimer = () => {
        $scope.vehicleTime = $interval( () => {
          $scope.getUserVehicle();
@@ -26,12 +28,14 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $state, $root
      $scope.vehicleTime = undefined;
    }
 
+   vehicleTimer()
+
    $rootScope.$on('$stateChangeSuccess', () => {
       if ($state.current.name === 'userHome.vehicleInfo.location') {
         vehicleTimer();
       } else {
       vehicleStopTimer();
-    }
+      }
     })
 
     $scope.getUserVehicle = () => {

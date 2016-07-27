@@ -50,8 +50,6 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
   $scope.vehicleModal = () => {
 
-    vehicleService.getUserVehicle();
-
     $scope.getUser();
 
     $state.go('userHome.vehicleInfo.location');
