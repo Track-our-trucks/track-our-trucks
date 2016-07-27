@@ -1,6 +1,6 @@
 @import "main";
 
-.terms-background {
+.privacy-background {
     height: 100vh;
     width: 100vw;
     background-image: url("./car-tire-min.jpg");
@@ -8,16 +8,7 @@
     background-repeat: no-repeat;
 }
 
-.title-bar {
-    background: $teal;
-    height: 4px;
-    width: 300px;
-    margin: 15px;
-
-}
-
-
-.terms-container {
+.privacy-container {
 
     height: 60vh;
     overflow-y: scroll;
@@ -43,15 +34,18 @@
         color: $white;
         font-size: 40px;
         font-family: $font3;
+        text-align: center;
+        // border-bottom: 3px solid $teal;
+
 
     }
 
-    h2 {
-        color: $white;
-        font-size: 20px;
-        font-family: $font3;
-
-        padding: 20px;
+    .title-bar {
+        // background-color: $teal;
+        border-bottom: 4px solid $teal;
+        height: 4px;
+        width: 300px;
+        margin: 15px;
 
     }
 
@@ -62,7 +56,7 @@
       text-align: left;
     }
 
-    ol li {
+    ul li {
       color: $white;
       font-size: 16px;
       font-family: $font3;

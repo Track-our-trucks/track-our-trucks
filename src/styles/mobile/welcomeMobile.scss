@@ -1,0 +1,23 @@
+@import '../web/main';
+
+@media (max-width: 680px) {
+
+
+
+  .welcome-container {
+
+      h1 {
+          color: $orange;
+      }
+
+      h3 {
+          font-family: $font1;
+          font-size: 25px;
+          color: $orange;
+          margin-bottom: 30px;
+      }
+
+
+
+  }
+}
