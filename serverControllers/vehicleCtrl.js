@@ -57,12 +57,20 @@ module.exports = {
   },
 
   destroy: (req, res) => {
-    Vehicle.findByIdAndRemove(req.params.id, (err, vehicle) => {
+    Vehicle.findByIdAndRemove(req.params.vehicleid, (err, vehicle) => {
       if (err) {
         res.status(500).json(err.message)
       }
       else {
-        res.status(200).json(vehicle)
+        User.findByIdAndUpdate(req.params.userid, {$pull: {vehicles: req.params.vehicleid}}, (err, response) => {
+          if(err){
+            res.status(500).json(err.message)
+          }
+          else {
+            res.status(200).json(response)
+          }
+        })
+
       }
     })
   }

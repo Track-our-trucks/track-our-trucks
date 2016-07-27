@@ -2,7 +2,7 @@
 <section class="admin-login-header">
   <h1>ADMIN LOGIN</h1>
 </section>
-<form ng-sumbit="login(admin)">
+<form >
 
 <div class="">
   <input ng-model="admin.email" type="email" name="name"  placeholder="email">
@@ -10,7 +10,7 @@
 </div>
 
 <div class="">
-  <button type="submit" name="button">Login</button>
+  <button type="submit" name="button" ng-click="login(admin)">Login</button>
 
 </div>
 
