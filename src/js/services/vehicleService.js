@@ -99,7 +99,9 @@ var filter = tracker => {
 
 
 
- this.theDayPins = tracker.filter(theFilterer);
+ this.theDayPins = tracker;
+
+ // .filter(theFilterer);
 
 
 
