@@ -79,7 +79,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
       var newPos = [];
       var newPin = [];
       var newLine = [];
-      $scope.center = [theDayPins[theDayPins.lenght - 1].lat, theDayPins[theDayPins.lenght - 1].long]
+      $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
       for (let i = 0; i < theDayPins.length; i++) {
 
           var posObj = {
