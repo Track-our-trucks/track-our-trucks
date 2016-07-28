@@ -97,7 +97,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
           $scope.directions.push(newCompass);
 
 
-          $scope.getAddress(posObj).then(function(res){
+          vehicleService.getAddress(posObj).then(function(res){
 
             var addressWithTime = {
               address: res.data.results[0].formatted_address,
