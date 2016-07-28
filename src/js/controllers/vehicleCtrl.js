@@ -100,8 +100,8 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
           vehicleService.getAddress(posObj).then(function(res){
 
             var addressWithTime = {
-              address: res.data.results[i].formatted_address,
-              time: new Date($scope.theDayPins[i].fixTime)
+              address: res.data.results[0].formatted_address,
+              time: new Date(theDayPins[i].fixTime)
             }
 
             newPos.push(addressWithTime);
