@@ -148,26 +148,7 @@ var adminCreateJWT = (user) => {
  | User Log in with Email
  |--------------------------------------------------------------------------
  */
-app.post('/auth/login', (req, res) => {
-    User.findOne({email: req.body.email}).populate('vehicles').exec( (err, user) => {
-        if (!user) {
-            return res.status(401).send({
-                message: 'Invalid email'
-            });
-        }
-        user.comparePassword(req.body.password, user.password, (err, isMatch) => {
-            if (!isMatch) {
-                return res.status(401).send({
-                    message: 'Invalid email and/or password'
-                });
-            }
-            res.send({
-                token: createJWT(user),
-                user: user
-            });
-        });
-    });
-});
+app.post('/auth/login', userCtrl.login);
 
 /*
  |--------------------------------------------------------------------------
@@ -175,41 +156,7 @@ app.post('/auth/login', (req, res) => {
  |--------------------------------------------------------------------------
  */
 
-app.post('/auth/signup', (req, res) => {
-    User.findOne({
-        email: req.body.email
-    }, (err, existingUser) => {
-        if (existingUser) {
-            return res.status(409).send({
-                message: 'Email is already taken'
-            });
-        }
-        User.create(req.body, (err, result) => {
-          console.log(req.body);
-            if (err) {
-                res.status(500).send({
-                    message: err.message
-                });
-            }
-            else {
-              Admin.findOneAndUpdate({email: 'trackourtruck@gmail.com'}, {$push: {users: result._id}}, (err, user) => {
-
-                if(err){
-                  res.send(500).json(err.message)
-                }
-                else {
-                  res.send({
-                      token: createJWT(result),
-                      user: result
-                  });
-                }
-              })
-
-            }
-
-        });
-    });
-});
+app.post('/auth/signup', userCtrl.create);
 
 /*
  |--------------------------------------------------------------------------
@@ -224,7 +171,7 @@ app.post('/auth/adminlogin', (req, res) => {
 
         if (!admin) {
             return res.status(401).send({
-                message: 'Invalid email'
+                message: 'Invalid email and/or password'
             });
         }
         admin.comparePassword(req.body.password, admin.password, (err, isMatch) => {
