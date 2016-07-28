@@ -46,6 +46,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
          filter(tracker);
       })
     }
+    $scope.getUserVehicle();
 
 
 
@@ -78,6 +79,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
       var newPos = [];
       var newPin = [];
       var newLine = [];
+      $scope.center = [theDayPins[theDayPins.lenght - 1].lat, theDayPins[theDayPins.lenght - 1].long]
       for (let i = 0; i < theDayPins.length; i++) {
 
           var posObj = {
@@ -95,17 +97,17 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
           $scope.directions.push(newCompass);
 
 
-          // $scope.getAddress(posObj).then(function(res){
-          //
-          //   var addressWithTime = {
-          //     address: res.data.results[0].formatted_address,
-          //     time: new Date($scope.theDayPins[i].fixTime)
-          //   }
-          //
-          //   newPos.push(addressWithTime);
-          //
-          // })
-          //
+          $scope.getAddress(posObj).then(function(res){
+
+            var addressWithTime = {
+              address: res.data.results[0].formatted_address,
+              time: new Date($scope.theDayPins[i].fixTime)
+            }
+
+            newPos.push(addressWithTime);
+
+          })
+
       }
 
             $scope.addresses = newPos;
