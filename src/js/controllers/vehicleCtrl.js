@@ -69,50 +69,40 @@ var fakeData = [
       var newPos = [];
       var newPin = [];
       var newLine = [];
-      $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
-      for (let i = 0; i < theDayPins.length; i++) {
+      if (theDayPins.length >= 1) {
+        $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
+        for (let i = 0; i < theDayPins.length; i++) {
 
-          var posObj = {
-            pos:[theDayPins[i].lat, theDayPins[i].long]
-          };
-          newPin.push(posObj.pos);
+            var posObj = {
+              pos:[theDayPins[i].lat, theDayPins[i].long]
+            };
+            newPin.push(posObj.pos);
 
-          newLine.push([theDayPins[i].lat, theDayPins[i].long]);
+            newLine.push([theDayPins[i].lat, theDayPins[i].long]);
 
+            var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
+            newCompass =  compass[(val % 16)];
 
-          var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
-          newCompass =  compass[(val % 16)];
+            $scope.directions.push(newCompass);
 
+              var addressWithTime = {
+                  address: theDayPins[i].address,
+                  time: new Date(theDayPins[i].fixTime)
+              }
 
-          $scope.directions.push(newCompass);
+              newPos.push(addressWithTime);
 
+        }
+              $scope.addresses = newPos;
 
+              $scope.pins = newPin;
 
-
-            var addressWithTime = {
-              address: theDayPins[i].address,
-              time: new Date(theDayPins[i].fixTime)
-            }
-
-            newPos.push(addressWithTime);
-
-
-
+              $scope.lines = newLine;
       }
-
-            $scope.addresses = newPos;
-
-
-
-
-            $scope.pins = newPin;
-
-
-            $scope.lines = newLine;
-
-
+      else {
+        alert('no driving data for selected day')
+      }
     }
-
 
     var filter = tracker => {
 
@@ -135,6 +125,7 @@ var fakeData = [
 
     var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
+      $scope.addresses = [];
       // var payloadData = $auth.getPayload() //REAL DATA
       // userService.getUser(payloadData.sub).then(response => { //REAL DATA
       //    let vehicleArr = response.data.vehicles; //REAL DATA
@@ -146,18 +137,5 @@ var fakeData = [
 
     }
     $scope.getUserVehicle();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
