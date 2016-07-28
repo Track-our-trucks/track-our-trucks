@@ -10,6 +10,7 @@
   height: 100vh;
   width: 25vw;
   background-color: $dblue;
+  min-width: 275px;
 }
 .side-menu-top{
   display: flex;
@@ -18,15 +19,16 @@
 
   padding: 20px;
 
+
 img{
-
-width: 80%;
+  cursor: pointer;
+  width: 80%;
 }
-
 }
 .side-menu-options{
 
   margin-top: 40px;
+
 
   ul{
     display: flex;
@@ -36,6 +38,7 @@ width: 80%;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
 
       padding: 10px;
       // border-bottom: 1px $lgrey solid;
@@ -124,7 +127,7 @@ width: 80%;
     width: 75vw;
   }
 
-}
+
 
 .user-top-menu{
   display: flex;
@@ -138,6 +141,8 @@ width: 80%;
   background-color: $mteal;
   color: $white;
   font-family: $font1;
+  cursor: default;
+
 
 
 
@@ -152,10 +157,14 @@ width: 80%;
     align-items: center;
     justify-content: space-around;
     position: relative;
+    cursor: pointer;
+
+    height: 10vh;
+
 
     .username{
       position: absolute;
-      bottom: -20px;
+      bottom: 20px;
       right: 100px;
 
     }
@@ -178,6 +187,7 @@ width: 80%;
       }
     }
 
+      }
+    }
   }
-}
 }

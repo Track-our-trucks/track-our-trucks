@@ -8,7 +8,7 @@
         <datepicker date-format="EEE MM/dd/yyyy" selector="form-control">
 
        <div class="input-group">
-           <input class="form-control" placeholder="Choose a date" ng-model="theDate"/><button type="button" ng-click="getUserVehicle()">GO</button>
+           <input class="form-control" placeholder="Choose a date" ng-model="theDate" ng-change="getUserVehicle()" />
            <span class="input-group-addon" style="cursor: pointer">
            <i class="fa fa-lg fa-calendar"></i>
            </span>
@@ -48,8 +48,11 @@
 
 
   <ng-map zoom='15' center='{{center}}'>
-    <marker ng-repeat="pin in pins track by $index" position="{{pin}}">
-      <marker>
+    <custom-marker ng-repeat="pin in pins track by $index" position="{{pin}}">
+        <div>
+          These are Car info
+        </div>
+    </custom-marker>
 
         <shape name="polyline"
           path='{{pins}}'

@@ -13,18 +13,21 @@
 
         <div class="signin-input">
             <div class="icon-call-phone signin-user-icon"></div>
-            <input ng-model="user.phoneNumber" type="input" name="name" placeholder="number"></input>
+            <input ng-model="user.phoneNumber" type="number" name="name" placeholder="number"></input>
+            <div>{{notANumber}}</div>
         </div>
 
         <div class="signin-input">
             <div class="icon-mail signin-user-icon"></div>
             <input ng-model="user.email" type="email" name="name" placeholder="email"></input>
+            <div>{{conflict}}</div>
         </div>
 
 
         <div class="signin-input">
             <div class="icon-key signin-key-icon"></div>
             <input ng-model="user.password" type="password" name="name" placeholder="password"></input>
+            <div>{{notANumber}}</div>
         </div>
 
 

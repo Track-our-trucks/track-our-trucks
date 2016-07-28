@@ -23,7 +23,7 @@ var fakeData = [
 
 
 
-  $scope.tab = 0;
+  $scope.tab = 1;
 
   $scope.theDate = new Date();
 
@@ -61,57 +61,47 @@ var fakeData = [
     })
 
     var positionFilter = theDayPins => {
-      
+
       var compass = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
       var newCompass;
       $scope.directions = [];
       var newPos = [];
       var newPin = [];
       var newLine = [];
-      $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
-      for (let i = 0; i < theDayPins.length; i++) {
+      if (theDayPins.length >= 1) {
+        $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
+        for (let i = 0; i < theDayPins.length; i++) {
 
-          var posObj = {
-            pos:[theDayPins[i].lat, theDayPins[i].long]
-          };
-          newPin.push(posObj.pos);
+            var posObj = {
+              pos:[theDayPins[i].lat, theDayPins[i].long]
+            };
+            newPin.push(posObj.pos);
 
-          newLine.push([theDayPins[i].lat, theDayPins[i].long]);
+            newLine.push([theDayPins[i].lat, theDayPins[i].long]);
 
+            var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
+            newCompass =  compass[(val % 16)];
 
-          var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
-          newCompass =  compass[(val % 16)];
+            $scope.directions.push(newCompass);
 
+              var addressWithTime = {
+                  address: theDayPins[i].address,
+                  time: new Date(theDayPins[i].fixTime)
+              }
 
-          $scope.directions.push(newCompass);
+              newPos.push(addressWithTime);
 
+        }
+              $scope.addresses = newPos;
 
+              $scope.pins = newPin;
 
-
-            var addressWithTime = {
-              address: theDayPins[i].address,
-              time: new Date(theDayPins[i].fixTime)
-            }
-
-            newPos.push(addressWithTime);
-
-
-
+              $scope.lines = newLine;
       }
-
-            $scope.addresses = newPos;
-
-
-
-
-            $scope.pins = newPin;
-
-
-            $scope.lines = newLine;
-
-
+      else {
+        alert('no driving data for selected day')
+      }
     }
-
 
     var filter = tracker => {
 
@@ -130,9 +120,11 @@ var fakeData = [
 
     }
 
+    $scope.selectedVehicle = vehicleService.selectedVehicle;
 
     var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
+
       if((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()){
         vehicleStopTimer();
       }
@@ -141,28 +133,17 @@ var fakeData = [
         vehicleTimer();
       }
 
+      $scope.addresses = [];
       // var payloadData = $auth.getPayload() //REAL DATA
       // userService.getUser(payloadData.sub).then(response => { //REAL DATA
       //    let vehicleArr = response.data.vehicles; //REAL DATA
-      //    let tracker = vehicleArr[0].timeDistanceProfiles; //REAL DATA
+      //    let tracker = vehicleArr[$scope.selectedVehicle].timeDistanceProfiles; //REAL DATA
       //    filter(tracker);
       // })
       fakeDataDisplay = fakeData.slice(0, testcounter++)//FAKE DATA
       filter(fakeDataDisplay)//FAKE DATA
+
     }
     $scope.getUserVehicle();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
