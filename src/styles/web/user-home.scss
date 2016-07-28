@@ -17,10 +17,14 @@
   justify-content:flex-start;;
 
   padding: 20px;
+  .dash{
+    cursor: copy;
+
+  }
 
 img{
-
-width: 80%;
+  cursor: pointer;
+  width: 80%;
 }
 
 }
@@ -36,6 +40,7 @@ width: 80%;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
 
       padding: 10px;
       // border-bottom: 1px $lgrey solid;
