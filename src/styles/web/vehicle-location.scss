@@ -59,7 +59,8 @@
         overflow-y: scroll;
         ul {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
+
             li {
                 height: 80px;
 
