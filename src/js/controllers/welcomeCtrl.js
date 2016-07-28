@@ -2,6 +2,8 @@ angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $docu
 
   let body = $document.find('body')[0];
   let html = $document.find('html')[0];
+  
+  html.style.overflow="scroll";
 
   $scope.modalOff = () => {
 
