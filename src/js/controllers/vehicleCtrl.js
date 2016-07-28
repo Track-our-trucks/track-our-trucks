@@ -89,41 +89,27 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
           newLine.push([theDayPins[i].lat, theDayPins[i].long]);
 
-
           var val = Math.floor((theDayPins[i].heading / 22.5) + 0.5);
           newCompass =  compass[(val % 16)];
 
-
           $scope.directions.push(newCompass);
 
-
-          vehicleService.getAddress(posObj).then(function(res){
-
-            var addressWithTime = {
-              address: res.data.results[0].formatted_address,
-              time: new Date(theDayPins[i].fixTime)
-            }
-
-            newPos.push(addressWithTime);
-
-          })
+          // vehicleService.getAddress(posObj).then(function(res){
+          //
+          //   var addressWithTime = {
+          //     address: res.data.results[0].formatted_address,
+          //     time: new Date(theDayPins[i].fixTime)
+          //   }
+          //
+          //   newPos.push(addressWithTime);
+          //
+          // })
 
       }
-
             $scope.addresses = newPos;
-
-
-
 
             $scope.pins = newPin;
 
-
             $scope.lines = newLine;
-
-
     }
-
-
-
-
 })
