@@ -37,6 +37,20 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
   }
   })
 
+
+  //getting the list of vehicles to show on the userHome page
+
+  $scope.getVehicleList = () => {
+    var payloadData = $auth.getPayload()
+    userService.getUser(payloadData.sub).then(response => {
+       $scope.vehicleArr = response.data.vehicles;
+       console.log($scope.vehicleArr);
+    })
+  }
+  $scope.getVehicleList();
+
+
+
   $scope.modalOff = () => {
 
       $scope.getUser();
