@@ -1,4 +1,27 @@
 angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state, $rootScope, vehicleService, $interval, userService) => {
+
+
+//FAKE DATE
+var fakeData = [
+
+
+  {"fixTime":1469734913000,"lat":40.2271,"long":-111.659,"speed":18,"heading":234,"event":9,"address":"2-48 W 500 S, Provo, UT 84601, USA"},
+  {"fixTime":1469734928000,"lat":40.2269,"long":-111.6606,"speed":13,"heading":193,"event":9,"address":"522 S 100 W St, Provo, UT 84601, USA"},
+  {"fixTime":1469734949000,"lat":40.2258,"long":-111.6607,"speed":11,"heading":260,"event":9,"address":"108 600 S, Provo, UT 84601, USA"},
+  {"fixTime":1469734948000,"lat":40.2258,"long":-111.6606,"speed":8,"heading":219,"event":9,"address":"108 600 S, Provo, UT 84601, USA"},
+  {"fixTime":1469734952000,"lat":40.2258,"long":-111.6609,"speed":8,"heading":301,"event":9,"address":"108 600 S, Provo, UT 84601, USA"},
+  {"fixTime":1469734968000,"lat":40.2259,"long":-111.6609,"speed":0,"heading":315,"event":12,"address":"108 600 S, Provo, UT 84601, USA"}
+]
+
+
+
+
+
+
+
+
+
+
   $scope.tab = 0;
 
   $scope.theDate = new Date();
@@ -38,39 +61,6 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
       }
     })
 
-    $scope.getUserVehicle = () => {
-      var payloadData = $auth.getPayload()
-      userService.getUser(payloadData.sub).then(response => {
-         let vehicleArr = response.data.vehicles;
-         let tracker = vehicleArr[0].timeDistanceProfiles;
-         filter(tracker);
-      })
-    }
-    $scope.getUserVehicle();
-
-
-
-
-
-
-
-    var filter = tracker => {
-
-      var theFilterer = val => {
-        var test1 = (new Date(val.fixTime)).toDateString();
-        var test2 = (new Date($scope.theDate)).toDateString();
-       return  test1 === test2;
-      }
-
-    let theDayPins = tracker.filter(theFilterer);
-
-
-
-
-     positionFilter(theDayPins);
-
-    }
-
     var positionFilter = theDayPins => {
 
       var compass = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
@@ -97,16 +87,16 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
           $scope.directions.push(newCompass);
 
 
-          vehicleService.getAddress(posObj).then(function(res){
+
 
             var addressWithTime = {
-              address: res.data.results[0].formatted_address,
+              address: theDayPins[i].address,
               time: new Date(theDayPins[i].fixTime)
             }
 
             newPos.push(addressWithTime);
 
-          })
+
 
       }
 
@@ -122,6 +112,48 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
 
     }
+
+
+    var filter = tracker => {
+
+      var theFilterer = val => {
+        var test1 = (new Date(val.fixTime)).toDateString();
+        var test2 = (new Date($scope.theDate)).toDateString();
+       return  test1 === test2;
+      }
+
+    let theDayPins = tracker.filter(theFilterer);
+
+
+
+
+     positionFilter(theDayPins);
+
+    }
+
+
+    var testcounter = 1; //FAKE DATA
+    $scope.getUserVehicle = () => {
+      // var payloadData = $auth.getPayload() //REAL DATA
+      // userService.getUser(payloadData.sub).then(response => { //REAL DATA
+      //    let vehicleArr = response.data.vehicles; //REAL DATA
+      //    let tracker = vehicleArr[0].timeDistanceProfiles; //REAL DATA
+      //    filter(tracker);
+      // })
+      fakeDataDisplay = fakeData.slice(0, testcounter++)//FAKE DATA
+      filter(fakeDataDisplay)//FAKE DATA
+    }
+    $scope.getUserVehicle();
+
+
+
+
+
+
+
+
+
+
 
 
 
