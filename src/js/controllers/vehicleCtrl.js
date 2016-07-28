@@ -56,7 +56,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
     var filter = tracker => {
 
       var theFilterer = val => {
-        var test1 = (new Date(val.fixTime * 1000)).toDateString();
+        var test1 = (new Date(val.fixTime)).toDateString();
         var test2 = (new Date($scope.theDate)).toDateString();
        return  test1 === test2;
       }
