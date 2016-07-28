@@ -7,7 +7,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
   $scope.getUser = () => {
       userService.getUser(payload()).then(response => {
-
+        $scope.theUser = response.data;
         userService.currentUser = response.data;
       })
     }
