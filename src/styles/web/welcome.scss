@@ -18,6 +18,7 @@
         font-family: $font1;
         font-size: 50px;
         color: $white;
+        cursor: default;
     }
     .title-bar {
         background-color: $teal;
@@ -30,6 +31,8 @@
         font-size: 25px;
         color: $white;
         margin-bottom: 30px;
+        cursor: default;
+
     }
     .welcome-button-container {
 
@@ -104,6 +107,8 @@
     flex-direction: column;
     align-items: center;
     padding-top: 20vh;
+    cursor: default;
+
     // padding-bottom: 20vh;
 
     position: absolute;
@@ -116,6 +121,8 @@
         font-size: 40px;
         color: $white;
         margin-bottom: 40px;
+        cursor: default;
+
 
     }
     .slope-content-lower{
@@ -246,6 +253,7 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 100px 100px 100px;
+    cursor: default;
 
 
     background-image: url('./road-min.jpeg');

@@ -2,6 +2,7 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
 
   this.currentUser;
   this.selectedUser;
+  this.selectedVehicle;
 
   this.addVehicle = vehicle => {
     return $http({
@@ -47,7 +48,6 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
       data: vehicle
     })
   }
-
 
 
 

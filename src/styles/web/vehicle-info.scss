@@ -6,12 +6,15 @@
     align-items: flex-start;
     background: $dteal;
     height: auto;
+    cursor: default;
+
 
     .vehicle-name-tab {
 
       width: 100%;
       background: $dblue;
       text-align: left;
+
 
       h4{
         font-family: $font2;
@@ -41,6 +44,8 @@
       flex-direction: row;
       justify-content: flex-start;
       width: 50%;
+      cursor: pointer;
+
 
       div.active{
         background: $orange;

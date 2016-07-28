@@ -22,7 +22,7 @@ var fakeData = [
 
 
 
-  $scope.tab = 0;
+  $scope.tab = 1;
 
   $scope.theDate = new Date();
 
@@ -121,6 +121,7 @@ var fakeData = [
 
     }
 
+    $scope.selectedVehicle = vehicleService.selectedVehicle;
 
     var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
@@ -128,11 +129,12 @@ var fakeData = [
       // var payloadData = $auth.getPayload() //REAL DATA
       // userService.getUser(payloadData.sub).then(response => { //REAL DATA
       //    let vehicleArr = response.data.vehicles; //REAL DATA
-      //    let tracker = vehicleArr[0].timeDistanceProfiles; //REAL DATA
+      //    let tracker = vehicleArr[$scope.selectedVehicle].timeDistanceProfiles; //REAL DATA
       //    filter(tracker);
       // })
       fakeDataDisplay = fakeData.slice(0, testcounter++)//FAKE DATA
       filter(fakeDataDisplay)//FAKE DATA
+
     }
     $scope.getUserVehicle();
 

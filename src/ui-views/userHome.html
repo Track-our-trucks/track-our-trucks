@@ -9,11 +9,11 @@
    <div class="side-menu-options">
      <ul>
 
-       <li ng-click="vehicleModal()" ng-repeat="vehicle in vehicleArr">
+       <li ng-click="vehicleModal($index)" ng-repeat="vehicle in vehicleArr track by $index">
          <div class="truck-user-list">
-           <div class="icon-truck"></div>
+           <div class="icon-car"></div>
            <p>
-             {{vehicle}}
+             {{vehicle.name}}
            </p>
          </div>
          <div class="side-menu-end">
@@ -58,7 +58,12 @@
 
   </section>
 
-  <ng-map zoom='15' center='[40.226209, -111.660947]'></ng-map>
+  <ng-map zoom='15' center='[40.226209, -111.660947]'>
+    <custom-marker ng-repeat="location in currentLocations track by $index" position="location"></custom-marker>
+
+
+
+  </ng-map>
 
 </section>
 
