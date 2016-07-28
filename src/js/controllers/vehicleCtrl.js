@@ -56,7 +56,9 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
     var filter = tracker => {
 
       var theFilterer = val => {
-       return (new Date(val.fixTime)).toDateString() === (new Date($scope.theDate)).toDateString();
+        var test1 = (new Date(val.fixTime)).toDateString();
+        var test2 = (new Date($scope.theDate)).toDateString();
+       return  test1 === test2;
       }
 
     let theDayPins = tracker.filter(theFilterer);
