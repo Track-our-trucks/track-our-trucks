@@ -2,6 +2,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
 
 //FAKE DATE
+
 var fakeData = [
 
 
@@ -54,11 +55,9 @@ var fakeData = [
    vehicleTimer()
 
    $rootScope.$on('$stateChangeSuccess', () => {
-      if ($state.current.name === 'userHome.vehicleInfo.location') {
-        vehicleTimer();
-      } else {
+
       vehicleStopTimer();
-      }
+
     })
 
     var positionFilter = theDayPins => {
@@ -125,6 +124,15 @@ var fakeData = [
 
     var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
+
+      if((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()){
+        vehicleStopTimer();
+      }
+      else {
+        vehicleStopTimer();
+        vehicleTimer();
+      }
+
       $scope.addresses = [];
       // var payloadData = $auth.getPayload() //REAL DATA
       // userService.getUser(payloadData.sub).then(response => { //REAL DATA
