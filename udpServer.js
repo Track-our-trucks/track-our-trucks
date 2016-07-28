@@ -34,7 +34,7 @@ udpServer.on('message', (message, remote) => {
     try {
         esn = messageStr.substring(4, 14);
         decoded = {
-            fixTime: parseInt(messageStr.substring(34, 42), 16) / secToMs, //unix time in ms
+            fixTime: parseInt(messageStr.substring(34, 42), 16) * secToMs, //unix time in ms
             lat: +convert(messageStr.substring(42, 50)).toFixed(4),
             long: +convert(messageStr.substring(50, 58)).toFixed(4),
             speed: Math.round(parseInt(messageStr.substring(66, 74), 16) * cmSecToMPH), //speed in mph
