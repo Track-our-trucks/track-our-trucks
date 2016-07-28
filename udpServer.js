@@ -1,5 +1,7 @@
 'use strict';
 
+const axios = require('axios');
+
 const config = require(`./config.js`),
     dgram = require(`dgram`),
     fs = require(`fs`),
@@ -26,6 +28,7 @@ let convert = hex => {
 };
 
 udpServer.on('message', (message, remote) => {
+
     const messageStr = message.toString('hex'),
         cmSecToMPH = 0.0223694,
         cmToFeet = 0.0328084,
@@ -48,14 +51,22 @@ udpServer.on('message', (message, remote) => {
     fs.appendFile(`./public/rawLogFile.txt`, `{timeRecieved: ${Date.now()}, message: ${messageStr}}\n`, err => {
         if (err) console.log(`ERROR writing to raw logfile: ${err}`);
     });
-    fs.appendFile(`./public/decodedLogFile.txt`, `${JSON.stringify(decoded)}\n`, err => {
-        if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
-    });
 
-    Vehicle.findOneAndUpdate({esn}, {$push: {timeDistanceProfiles: decoded}}, (err, success) => {
-      if (err) console.log(`MONGO ERROR: ${err}`);
-      else console.log(`MONGO SUCCESS: ${success}`);
-    });
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+decoded.lat +','+ decoded.long +'&key=AIzaSyCE-IsoxmgBiFRKXn0ZgZcYlLZ1FSvpJns').then(response => {
+      decoded.address = response.data.results[0].formatted_address;
+      console.log(decoded);
+
+      fs.appendFile(`./public/decodedLogFile.txt`, `${JSON.stringify(decoded)}\n`, err => {
+          if (err) console.log(`ERROR writing to decoded logfile: ${err}`);
+      });
+
+      Vehicle.findOneAndUpdate({esn}, {$push: {timeDistanceProfiles: decoded}}, (err, success) => {
+        if (err) console.log(`MONGO ERROR: ${err}`);
+        else console.log(`MONGO SUCCESS: ${success}`);
+      });
+    })
+
+
 
 });
 
