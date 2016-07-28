@@ -22,7 +22,7 @@ var fakeData = [
 
 
 
-  $scope.tab = 0;
+  $scope.tab = 1;
 
   $scope.theDate = new Date();
 

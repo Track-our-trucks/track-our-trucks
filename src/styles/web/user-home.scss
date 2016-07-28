@@ -17,10 +17,7 @@
   justify-content:flex-start;;
 
   padding: 20px;
-  .dash{
-    cursor: copy;
 
-  }
 
 img{
   cursor: pointer;
@@ -143,6 +140,8 @@ img{
   background-color: $mteal;
   color: $white;
   font-family: $font1;
+  cursor: default;
+
 
 
 
@@ -157,6 +156,9 @@ img{
     align-items: center;
     justify-content: space-around;
     position: relative;
+    
+    cursor: pointer;
+
 
     .username{
       position: absolute;
