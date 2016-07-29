@@ -146,7 +146,7 @@ $stateProvider
 .state('userHome.vehicleInfo', {
   url: '/vehicle',
   templateUrl: './ui-views/vehicleInfo.html',
-  // controller: 'vehicleCtrl'
+  controller: 'vehicleInfoCtrl'
 })
 .state('userHome.vehicleInfo.location', {
   url: '/location',
@@ -177,6 +177,11 @@ $stateProvider
   url: '/updateVehicle',
   templateUrl: './ui-views/updateVehicle.html',
   controller: 'updateVehicleCtrl'
+})
+.state('help', {
+  url: '/help',
+  templateUrl: './ui-views/help.html',
+  controller: 'helpCtrl'
 })
 
 var skipIfLoggedIn = ($q, $auth, $state) => {
