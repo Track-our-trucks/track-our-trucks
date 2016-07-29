@@ -17,6 +17,8 @@
         flex-direction: row;
         justify-content: space-between;
         background: $mteal;
+        cursor: default;
+
 
         // .icon-calender {
         //     font-size: 20px;
@@ -29,10 +31,16 @@
             color: $white;
             font-size: 20px;
             text-align: center;
+            cursor: pointer;
+
         }
         input:focus {
             outline: none;
             border: none;
+        }
+        button{
+          cursor: pointer;
+
         }
         ::-webkit-input-placeholder {
             color: $white;
@@ -51,6 +59,8 @@
         .icon-caret-up-down {
             font-size: 20px;
             color: $white;
+            cursor: pointer;
+
         }
     }
     .vehicle-locations {
@@ -74,6 +84,8 @@
                 color: $mgrey;
                 font-family: $font1;
                 border-bottom: 1px $lgrey solid;
+                cursor: pointer;
+
             }
             li:hover {
                 background: $orange;

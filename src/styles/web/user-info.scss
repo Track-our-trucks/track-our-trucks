@@ -1,6 +1,7 @@
 @import "main";
 
 .user-info{
+  cursor: default;
 
 .user-info-header {
     display: flex;
@@ -135,7 +136,7 @@
         align-items: center;
 
         height: 60px;
-        width: 100%;
+        width: 40vw;
         margin-bottom: 55px;
         font-size: 30px;
         background: $dblue;
