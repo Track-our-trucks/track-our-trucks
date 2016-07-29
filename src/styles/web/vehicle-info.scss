@@ -8,12 +8,21 @@
     height: auto;
     cursor: default;
 
-
-    .vehicle-name-tab {
-
+    .vehicle-tab-header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
       width: 100%;
       background: $dblue;
       text-align: left;
+
+
+    .vehicle-name-tab {
+
+      // width: 100%;
+      // background: $dblue;
+      // text-align: left;
 
 
       h4{
@@ -25,8 +34,22 @@
 
 
       }
-
     }
+      .vehicle-name-help-tab{
+
+        h3{
+          font-family: $font2;
+          color: $white;
+          font-size: 20px;
+          padding: 24px 62px 11px 0px;
+          cursor: pointer;
+
+
+        }
+      }
+
+  }
+
 
     p {
         font-family: $font2;
