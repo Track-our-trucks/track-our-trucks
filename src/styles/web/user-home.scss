@@ -182,9 +182,6 @@ img{
   cursor: default;
 
 
-
-
-
   .dash{
     font-size: 22px;
     margin-left: 20px;
@@ -194,26 +191,30 @@ img{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    position: relative;
+    // position: relative;
     cursor: pointer;
-
-    height: 10vh;
+    // border: 3px solid black;
+    // height: 10vh;
 
 
     .username{
       position: absolute;
-      bottom: 20px;
+      // bottom: 20px;
       right: 100px;
+      p{
+
+      }
 
     }
     .user-icon{
-      position: relative;
+      position: absolute;
+      right: 1px;
 
 
     .icon-circle-thin{
       position: absolute;
       font-size: 55px;
-      right: 15px;
+      right: 40px;
       bottom: -35px;
 
       .icon-user{
