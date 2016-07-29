@@ -120,29 +120,32 @@ img{
 #foot{
     position: absolute;
     bottom: 0;
+    width: 100%;
+
 
 
   .userhome-footer{
-    width: 41vw;
-    height: 100px;
+    width: 25vw;
+    height: 70px;
     background-color: $dgrey;
     // border-top: 5px $orange solid;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: default;
+    cursor: pointer;
     position: absolute;
     bottom: 0px;
+    min-width: 275px;
 
 
 
     opacity: 0.99;
 
     p{
-    font-size: 40px;
+    font-size: 30px;
     color: $white;
-    font-family: $font3;
+    font-family: $font2;
     }
   }
 }
