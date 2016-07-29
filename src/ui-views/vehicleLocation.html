@@ -12,6 +12,7 @@
            <input placeholder="Time From" ng-model="timeFrom" type="time" />
            <input placeholder="Time To" ng-model="timeTo" type="time" />
            <button ng-click="getUserVehicle()" type="button" ng-hide='showHidden'>Show Locations</button><button ng-click="resetTime()" type="button" ng-hide="resetHidden">Reset Locations</button>
+           <div>{{noData}}</div>
            <span class="input-group-addon" style="cursor: pointer">
            <i class="fa fa-lg fa-calendar"></i>
            </span>
