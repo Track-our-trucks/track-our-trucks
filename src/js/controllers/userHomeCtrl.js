@@ -19,6 +19,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
   $scope.timer = () => {
     $scope.time = $interval( () => {
       $scope.getUser();
+      $scope.getVehicleList();
     }, 10000)
   }
 
@@ -92,6 +93,8 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
   }
 
   $scope.vehicleModal = selectedVehicle => {
+
+    vehicleService.theSelectedVehicle = $scope.vehicleArr[selectedVehicle]
 
     vehicleService.selectedVehicle = selectedVehicle;
 

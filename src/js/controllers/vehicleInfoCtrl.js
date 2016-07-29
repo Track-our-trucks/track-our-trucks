@@ -1,4 +1,8 @@
-angular.module('trackOurTruck').controller('vehicleInfoCtrl', function($scope, $state, userService, vehicleService) {
+
+angular.module('trackOurTruck').controller('vehicleInfoCtrl', function($scope, $state, vehicleService) {
+
+  $scope.vehicle = vehicleService.theSelectedVehicle
+
 
   $scope.tab = 1;
 
@@ -11,6 +15,7 @@ angular.module('trackOurTruck').controller('vehicleInfoCtrl', function($scope, $
    $scope.isSet = tabNum => {
      return $scope.tab === tabNum;
    };
+
 
 
 })

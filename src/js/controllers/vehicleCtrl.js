@@ -57,7 +57,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
     //     }
     // ]
 
-
+    
 
 
 
