@@ -116,8 +116,8 @@ var fakeData = [
 
     let theDayPins = tracker.filter(theFilterer);
 
-
-
+    $scope.dayLocations = theDayPins;
+    console.log($scope.dayLocations);
 
      positionFilter(theDayPins);
 
@@ -141,6 +141,75 @@ var fakeData = [
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  $scope.showDesc = (index, pin, pins) => {
+
+    console.log("index is " + index);
+
+    console.log("pin is " + pin);
+
+    console.log("pins is " + pins);
+
+    $scope.choiceInfo = $scope.dayLocations[index];
+
+    console.log($scope.choiceInfo);
+
+    }
 
 
 

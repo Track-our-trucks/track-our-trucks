@@ -48,9 +48,11 @@
 
 
   <ng-map zoom='15' center='{{center}}'>
-    <custom-marker ng-repeat="pin in pins track by $index" position="{{pin}}">
-        <div>
-          These are Car info
+    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc($index, pin, pins)"></marker>
+
+    <custom-marker class="vehicle-info-marker"position="">
+        <div class="marker-desc">
+          {{choiceInfo}}
         </div>
     </custom-marker>
 
