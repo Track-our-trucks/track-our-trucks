@@ -65,13 +65,12 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
 
 
-    $scope.showHidden = false;
-    $scope.resetHidden = true;
+
 
 
     $scope.tab = 1;
 
-    $scope.theDate = new Date();
+    $scope.theDate = (new Date()).toDateString();
 
     $scope.setTab = newTab => {
         $scope.tab = newTab;
@@ -189,10 +188,10 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
     }
 
     $scope.resetTime = () => {
+      $scope.timeTo = '';
+      $scope.timeFrom = '';
         $scope.showHidden = false;
         $scope.resetHidden = true;
-        $scope.timeTo = '';
-        $scope.timeFrom = '';
         $scope.getUserVehicle();
     }
 
