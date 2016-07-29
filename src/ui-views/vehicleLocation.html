@@ -3,14 +3,24 @@
 
     <section class="location-header">
 
-        <!-- <div class="icon-calender"></div> -->
+        <div class="icon-calendar"></div>
 
         <datepicker date-format='EEE MMMM d y' selector="form-control">
 
        <div class="input-group">
+
            <input class="form-control" placeholder="Choose a date" ng-model="theDate" ng-change="getUserVehicle()" /><br>
            <!-- <div class="icon-caret-up-down reverseBtn"></div> -->
                       <span class="input-group-addon" style="cursor: pointer">
+           <!-- <input class="form-control"  ng-model="theDate" ng-change="getUserVehicle()" />
+
+        <div class="icon-clock-o"></div>
+           <input placeholder="Time From" ng-model="timeFrom" type="time" />
+           <input placeholder="Time To" ng-model="timeTo" type="time" />
+           <button ng-click="getUserVehicle()" type="button" ng-hide='showHidden'>Show Locations</button><button ng-click="resetTime()" type="button" ng-hide="resetHidden">Reset Locations</button>
+           <div>{{noData}}</div>
+           <span class="input-group-addon" style="cursor: pointer"> -->
+
            <i class="fa fa-lg fa-calendar"></i>
            </span>
            <center>Filter Location By Time</center> <br>
@@ -56,20 +66,34 @@
 
 
   <ng-map zoom='15' center='{{center}}' on-click="choiceOff()">
-    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc($index, pin, dayLocations)"></marker>
+    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc(event, $index, pin, dayLocations)" icon="./map-marker.png"></marker>
 
     <custom-marker class="vehicle-info-marker"position="{{choiceCenter}}" ng-if="choiceOn">
+
+      <div class="marker-cont">
+
         <div class="marker-desc">
-          {{choiceInfo.address}}
-          {{choiceInfo.speed}} MPH
-          {{choiceHeading}}
+          <p>{{choiceInfo.address}}</p>
+          <p>Speed: {{choiceInfo.speed}} MPH </p>
+          <p>
+            Heading:{{choiceHeading}}
+          </p>
         </div>
+
+
+        <div class="marker-tri">
+
+        </div>
+
+
+      </div>
+
     </custom-marker>
 
         <shape name="polyline"
           path='{{pins}}'
           geodesic="true"
-          stroke-color="#ffa027"
+          stroke-color="#4ca64c"
           stroke-opacity="1.0"
           stroke-weight="2">
         </shape>

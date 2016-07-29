@@ -128,6 +128,36 @@
         height: 72vh;
         width: 100%;
 
+        .marker-cont{
+          height: 130px;
+          background: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+        .marker-desc{
+          font-family: sans-serif;
+
+          color: $white;
+          padding: 10px;
+          text-align: center;
+          background: $dblue;
+          border-radius: 10px;
+          z-index: 10;
+
+        }
+
+        .marker-tri{
+          margin-top: -10px;
+          height: 15px;
+          width: 15px;
+          transform: rotate(45deg);
+          background: $dblue;
+          z-index: 0;
+
+        }
+      }
 
 
     }

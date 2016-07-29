@@ -65,7 +65,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
 
 
-  
+
 
 
     $scope.tab = 1;
@@ -115,6 +115,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         var newPin = [];
         var newLine = [];
         if (theDayPins.length >= 1) {
+            $scope.noData = '';
             $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
             for (let i = 0; i < theDayPins.length; i++) {
 
