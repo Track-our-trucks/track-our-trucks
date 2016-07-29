@@ -11,6 +11,7 @@
   width: 25vw;
   background-color: $dblue;
   min-width: 275px;
+
 }
 .side-menu-top{
   display: flex;
@@ -115,6 +116,37 @@ img{
     }
   }
 }
+
+#foot{
+    position: absolute;
+    bottom: 0;
+
+
+  .userhome-footer{
+    width: 41vw;
+    height: 100px;
+    background-color: $dgrey;
+    // border-top: 5px $orange solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    position: absolute;
+    bottom: 0px;
+
+
+
+    opacity: 0.99;
+
+    p{
+    font-size: 40px;
+    color: $white;
+    font-family: $font3;
+    }
+  }
+}
+
 
 
 
