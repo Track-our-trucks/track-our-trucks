@@ -16,7 +16,7 @@
     justify-content: center;
     h1 {
         font-family: $font1;
-        font-size: 50px;
+        font-size: 60px;
         color: $white;
         cursor: default;
     }
@@ -69,8 +69,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 131px 58px rgba(0,0,0,0.4);
-    background: rgba(0,0,0,0.35);
+    box-shadow: 0 0 131px 58px rgba(0,0,0,0.28);
+    background: rgba(0,0,0,0.25);
 }
 .welcome-footer {
     height: 10vh;
