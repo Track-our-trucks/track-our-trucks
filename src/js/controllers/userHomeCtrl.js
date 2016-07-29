@@ -71,7 +71,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
     for (var i = 0; i < $scope.vehicleArr.length; i++) {
 
-      tmpArr.push({pos:[$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles-1].lat,$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles-1].lat]})
+      tmpArr.push({pos:[$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].lat,$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].long]})
 
 
     }
