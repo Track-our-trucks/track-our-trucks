@@ -51,20 +51,34 @@
 
 
   <ng-map zoom='15' center='{{center}}' on-click="choiceOff()">
-    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc($index, pin, dayLocations)"></marker>
+    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc(event, $index, pin, dayLocations)" icon="./map-marker.png"></marker>
 
     <custom-marker class="vehicle-info-marker"position="{{choiceCenter}}" ng-if="choiceOn">
+
+      <div class="marker-cont">
+
         <div class="marker-desc">
-          {{choiceInfo.address}}
-          {{choiceInfo.speed}} MPH
-          {{choiceHeading}}
+          <p>{{choiceInfo.address}}</p>
+          <p>Speed: {{choiceInfo.speed}} MPH </p>
+          <p>
+            Heading:{{choiceHeading}}
+          </p>
         </div>
+
+
+        <div class="marker-tri">
+
+        </div>
+
+
+      </div>
+
     </custom-marker>
 
         <shape name="polyline"
           path='{{pins}}'
           geodesic="true"
-          stroke-color="#ffa027"
+          stroke-color="#4ca64c"
           stroke-opacity="1.0"
           stroke-weight="2">
         </shape>
