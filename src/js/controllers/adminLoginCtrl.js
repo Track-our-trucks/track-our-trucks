@@ -1,11 +1,18 @@
 angular.module('trackOurTruck').controller('adminLoginCtrl', ($auth, $scope, $state, adminService) => {
 
   $scope.login = admin => {
-    adminService.adminLogin(admin).then(response => {
-      $auth.setToken(response);
-      $state.go('admin');
-
-    })
+    adminService.adminLogin(admin).then(
+      response => {
+        if (response.status === 200) {
+          $auth.setToken(response);
+          $state.go('admin')
+        }
+      },
+      response => {
+        if (response.status === 401) {
+          alert(response.data.message)
+        }
+      })
   }
 
 })
