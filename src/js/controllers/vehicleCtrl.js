@@ -64,6 +64,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
 
 
+
     $scope.showHidden = false;
     $scope.resetHidden = true;
 
@@ -97,6 +98,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         $scope.vehicleTime = undefined;
     }
 
+
     vehicleTimer()
 
     $rootScope.$on('$stateChangeSuccess', () => {
@@ -129,17 +131,10 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
                 $scope.directions.push(newCompass);
 
-                if (!$scope.timeTo && !$scope.timeFrom && theDayPins[i].event === 12) {
                     var addressWithTime = {
                         address: theDayPins[i].address,
                         time: new Date(theDayPins[i].fixTime)
                     }
-                } else {
-                    var addressWithTime = {
-                        address: theDayPins[i].address,
-                        time: new Date(theDayPins[i].fixTime)
-                    }
-                }
 
                 newPos.push(addressWithTime);
             }
@@ -149,12 +144,13 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
             $scope.pins = newPin;
 
             $scope.lines = newLine;
-        } else {
-            alert('no driving data for selected day')
-        }
 
-        $scope.dayLocations = theDayPins;
+            $scope.dayLocations = theDayPins;
 
+      }
+      else {
+        $scope.noData = 'no driving data for selected day';
+      }
     }
 
     var filter = tracker => {
@@ -166,23 +162,25 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         }
 
         var timeFilter = val => {
-            return (new Date(val.fixTime)).getHours() + (new Date(val.fixTime)).getMinutes() >= (new Date($scope.timeFrom)).getHours() + (new Date($scope.timeFrom)).getMinutes() && (new Date(val.fixTime)).getHours() + (new Date(val.fixTime)).getMinutes() <= (new Date($scope.timeTo)).getHours() + (new Date($scope.timeTo)).getMinutes()
+            let arrayVal = ((new Date(val.fixTime)).getHours()*60) + (new Date(val.fixTime)).getMinutes()
+            let fromTime = ((new Date($scope.timeFrom)).getHours()*60) + (new Date($scope.timeFrom)).getMinutes()
+            let toTime = ((new Date($scope.timeTo)).getHours()*60) + (new Date($scope.timeTo)).getMinutes()
+            return arrayVal >= fromTime  && arrayVal <= toTime
         }
-
 
         let dateFilteredArray = tracker.filter(dateFilter);
 
-        if ($scope.timeFrom && $scope.timeTo) {
-            $scope.showHidden = true;
-            $scope.resetHidden = false;
-            vehicleStopTimer();
-            var theDayPins = dateFilteredArray.filter(timeFilter)
-        } else {
-            vehicleStopTimer();
-            vehicleTimer();
-            var theDayPins = dateFilteredArray;
-        }
+        var theDayPins = dateFilteredArray;
 
+        if ($scope.timeFrom && $scope.timeTo) {
+          $scope.showHidden = true;
+          $scope.resetHidden = false;
+          vehicleStopTimer();
+          var theDayPins = dateFilteredArray.filter(timeFilter)
+        }
+        else if ((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()){
+          vehicleStopTimer();
+        }
 
 
         positionFilter(theDayPins);
@@ -201,7 +199,6 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     // var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
-
         if ((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()) {
             vehicleStopTimer();
         } else {
@@ -226,7 +223,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     $scope.showDesc = (event, index, pin, dayLocations) => {
 
-      $scope.choiceOn = true;
+       $scope.choiceOn = true;
 
        $scope.choiceInfo = dayLocations[index];
        $scope.choiceCenter = pin;
