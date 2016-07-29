@@ -11,13 +11,43 @@
         height: 72vh;
         background: $white;
     }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20vh;
+      align-items: center;
+      font-size: 2vh;
+
+
+        b {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width:17vw;
+          font-size: 1.5vh;
+          padding-left: 1.5vh;
+          padding-right: 1.5vh;
+        }
+
+        button {
+          border-radius: 5px;
+          background-color: white;
+          border-style: outset;
+          color: $mteal;
+        }
+    }
     .location-header {
         padding: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-content: space-between;
         background: $mteal;
         cursor: default;
+        color: $white;
+        height: 35vh;
 
 
         // .icon-calender {
