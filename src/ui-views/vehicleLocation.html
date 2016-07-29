@@ -50,8 +50,8 @@
 
 
 
-  <ng-map zoom='15' center='{{center}}'>
-    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc($index, pin, pins)"></marker>
+  <ng-map zoom='15' center='{{center}}' >
+    <marker  ng-repeat="pin in pins track by $index" position="{{pin}}" on-click="showDesc($index, pin)"></marker>
 
     <custom-marker class="vehicle-info-marker"position="">
         <div class="marker-desc">
