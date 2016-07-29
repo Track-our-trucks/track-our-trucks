@@ -5,17 +5,17 @@
 
 .user-info-header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
-    background: $mteal;
+    background: $dteal;
     height: auto;
 
     .user-name-tab {
 
-      width: 100%;
-      background: $dteal;
-      text-align: left;
+      // width: 100%;
+      // background: $dteal;
+      // text-align: left;
 
       h4{
         font-family: $font2;
@@ -27,6 +27,19 @@
 
       }
 
+
+    }
+    .user-name-help-tab{
+
+      h3{
+        font-family: $font2;
+        color: $white;
+        font-size: 20px;
+        padding: 24px 62px 11px 0px;
+        cursor: pointer;
+
+
+      }
     }
 }
 
