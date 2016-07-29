@@ -5,7 +5,7 @@ angular.module('trackOurTruck').controller('adminLoginCtrl', ($auth, $scope, $st
       response => {
         if (response.status === 200) {
           $auth.setToken(response);
-          $state.go('userHome')
+          $state.go('admin')
         }
       },
       response => {

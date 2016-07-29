@@ -126,6 +126,7 @@ var fakeData = [
     var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
       $scope.addresses = [];
+      $scope.pins = [];
       // var payloadData = $auth.getPayload() //REAL DATA
       // userService.getUser(payloadData.sub).then(response => { //REAL DATA
       //    let vehicleArr = response.data.vehicles; //REAL DATA
