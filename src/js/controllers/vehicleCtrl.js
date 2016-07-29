@@ -3,59 +3,59 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     //FAKE DATE
 
-    // var fakeData = [
-    //
-    //
-    //     {
-    //         "fixTime": 1469734913000,
-    //         "lat": 40.2271,
-    //         "long": -111.659,
-    //         "speed": 18,
-    //         "heading": 234,
-    //         "event": 9,
-    //         "address": "2-48 W 500 S, Provo, UT 84601, USA"
-    //     }, {
-    //         "fixTime": 1469734928000,
-    //         "lat": 40.2269,
-    //         "long": -111.6606,
-    //         "speed": 13,
-    //         "heading": 193,
-    //         "event": 9,
-    //         "address": "522 S 100 W St, Provo, UT 84601, USA"
-    //     }, {
-    //         "fixTime": 1469734949000,
-    //         "lat": 40.2258,
-    //         "long": -111.6607,
-    //         "speed": 11,
-    //         "heading": 260,
-    //         "event": 9,
-    //         "address": "108 600 S, Provo, UT 84601, USA"
-    //     }, {
-    //         "fixTime": 1469734948000,
-    //         "lat": 40.2258,
-    //         "long": -111.6606,
-    //         "speed": 8,
-    //         "heading": 219,
-    //         "event": 9,
-    //         "address": "108 600 S, Provo, UT 84601, USA"
-    //     }, {
-    //         "fixTime": 1469734952000,
-    //         "lat": 40.2258,
-    //         "long": -111.6609,
-    //         "speed": 8,
-    //         "heading": 301,
-    //         "event": 9,
-    //         "address": "108 600 S, Provo, UT 84601, USA"
-    //     }, {
-    //         "fixTime": 1469734968000,
-    //         "lat": 40.2259,
-    //         "long": -111.6609,
-    //         "speed": 0,
-    //         "heading": 315,
-    //         "event": 12,
-    //         "address": "108 600 S, Provo, UT 84601, USA"
-    //     }
-    // ]
+    var fakeData = [
+
+
+        {
+            "fixTime": 1469734913000,
+            "lat": 40.2271,
+            "long": -111.659,
+            "speed": 18,
+            "heading": 234,
+            "event": 9,
+            "address": "2-48 W 500 S, Provo, UT 84601, USA"
+        }, {
+            "fixTime": 1469734928000,
+            "lat": 40.2269,
+            "long": -111.6606,
+            "speed": 13,
+            "heading": 193,
+            "event": 9,
+            "address": "522 S 100 W St, Provo, UT 84601, USA"
+        }, {
+            "fixTime": 1469734949000,
+            "lat": 40.2258,
+            "long": -111.6607,
+            "speed": 11,
+            "heading": 260,
+            "event": 9,
+            "address": "108 600 S, Provo, UT 84601, USA"
+        }, {
+            "fixTime": 1469734948000,
+            "lat": 40.2258,
+            "long": -111.6606,
+            "speed": 8,
+            "heading": 219,
+            "event": 9,
+            "address": "108 600 S, Provo, UT 84601, USA"
+        }, {
+            "fixTime": 1469734952000,
+            "lat": 40.2258,
+            "long": -111.6609,
+            "speed": 8,
+            "heading": 301,
+            "event": 9,
+            "address": "108 600 S, Provo, UT 84601, USA"
+        }, {
+            "fixTime": 1469734968000,
+            "lat": 40.2259,
+            "long": -111.6609,
+            "speed": 0,
+            "heading": 315,
+            "event": 12,
+            "address": "108 600 S, Provo, UT 84601, USA"
+        }
+    ]
 
 
 
@@ -116,6 +116,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         var newPin = [];
         var newLine = [];
         if (theDayPins.length >= 1) {
+            $scope.noData = '';
             $scope.center = [theDayPins[theDayPins.length - 1].lat, theDayPins[theDayPins.length - 1].long]
             for (let i = 0; i < theDayPins.length; i++) {
 
@@ -197,7 +198,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     $scope.selectedVehicle = vehicleService.selectedVehicle;
 
-    // var testcounter = 1; //FAKE DATA
+    var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
         if ((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()) {
             vehicleStopTimer();
@@ -207,14 +208,14 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         }
         $scope.addresses = [];
         $scope.pins = [];
-        var payloadData = $auth.getPayload() //REAL DATA
-        userService.getUser(payloadData.sub).then(response => { //REAL DATA
-           let vehicleArr = response.data.vehicles; //REAL DATA
-           let tracker = vehicleArr[$scope.selectedVehicle].timeDistanceProfiles; //REAL DATA
-           filter(tracker); //real data
-        }) //real data
-        // fakeDataDisplay = fakeData.slice(0, testcounter++) //FAKE DATA
-        // filter(fakeDataDisplay) //FAKE DATA
+        // var payloadData = $auth.getPayload() //REAL DATA
+        // userService.getUser(payloadData.sub).then(response => { //REAL DATA
+        //    let vehicleArr = response.data.vehicles; //REAL DATA
+        //    let tracker = vehicleArr[$scope.selectedVehicle].timeDistanceProfiles; //REAL DATA
+        //    filter(tracker); //real data
+        // }) //real data
+        fakeDataDisplay = fakeData.slice(0, testcounter++) //FAKE DATA
+        filter(fakeDataDisplay) //FAKE DATA
     }
     $scope.getUserVehicle();
 
