@@ -19,6 +19,8 @@
         font-size: 60px;
         color: $white;
         cursor: default;
+        text-shadow: 2px 2px $dgrey;
+
     }
     .title-bar {
         background-color: $teal;
@@ -27,11 +29,12 @@
         margin: 15px;
     }
     h3 {
-        font-family: $font1;
-        font-size: 25px;
+        font-family: $font2;
+        font-size: 33px;
         color: $white;
         margin-bottom: 30px;
         cursor: default;
+        text-shadow: 2px 2px $dgrey;
 
     }
     .welcome-button-container {
@@ -47,7 +50,7 @@
         background: $teal;
         color: $white;
         padding: 10px;
-        font-size: 15px;
+        font-size: 17px;
         width: 200px;
         transition: 0.3s;
 
@@ -55,7 +58,7 @@
 
     button:hover {
         width: 220px;
-        font-size: 17px;
+        font-size: 19px;
         transition: 0.3s;
         background: $orange;
     }

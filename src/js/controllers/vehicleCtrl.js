@@ -3,59 +3,60 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     //FAKE DATE
 
-    var fakeData = [
+    // var fakeData = [
+    //
+    //
+    //     {
+    //         "fixTime": 1469734913000,
+    //         "lat": 40.2271,
+    //         "long": -111.659,
+    //         "speed": 18,
+    //         "heading": 234,
+    //         "event": 9,
+    //         "address": "2-48 W 500 S, Provo, UT 84601, USA"
+    //     }, {
+    //         "fixTime": 1469734928000,
+    //         "lat": 40.2269,
+    //         "long": -111.6606,
+    //         "speed": 13,
+    //         "heading": 193,
+    //         "event": 9,
+    //         "address": "522 S 100 W St, Provo, UT 84601, USA"
+    //     }, {
+    //         "fixTime": 1469734949000,
+    //         "lat": 40.2258,
+    //         "long": -111.6607,
+    //         "speed": 11,
+    //         "heading": 260,
+    //         "event": 9,
+    //         "address": "108 600 S, Provo, UT 84601, USA"
+    //     }, {
+    //         "fixTime": 1469734948000,
+    //         "lat": 40.2258,
+    //         "long": -111.6606,
+    //         "speed": 8,
+    //         "heading": 219,
+    //         "event": 9,
+    //         "address": "108 600 S, Provo, UT 84601, USA"
+    //     }, {
+    //         "fixTime": 1469734952000,
+    //         "lat": 40.2258,
+    //         "long": -111.6609,
+    //         "speed": 8,
+    //         "heading": 301,
+    //         "event": 9,
+    //         "address": "108 600 S, Provo, UT 84601, USA"
+    //     }, {
+    //         "fixTime": 1469734968000,
+    //         "lat": 40.2259,
+    //         "long": -111.6609,
+    //         "speed": 0,
+    //         "heading": 315,
+    //         "event": 12,
+    //         "address": "108 600 S, Provo, UT 84601, USA"
+    //     }
+    // ]
 
-
-        {
-            "fixTime": 1469734913000,
-            "lat": 40.2271,
-            "long": -111.659,
-            "speed": 18,
-            "heading": 234,
-            "event": 9,
-            "address": "2-48 W 500 S, Provo, UT 84601, USA"
-        }, {
-            "fixTime": 1469734928000,
-            "lat": 40.2269,
-            "long": -111.6606,
-            "speed": 13,
-            "heading": 193,
-            "event": 9,
-            "address": "522 S 100 W St, Provo, UT 84601, USA"
-        }, {
-            "fixTime": 1469734949000,
-            "lat": 40.2258,
-            "long": -111.6607,
-            "speed": 11,
-            "heading": 260,
-            "event": 9,
-            "address": "108 600 S, Provo, UT 84601, USA"
-        }, {
-            "fixTime": 1469734948000,
-            "lat": 40.2258,
-            "long": -111.6606,
-            "speed": 8,
-            "heading": 219,
-            "event": 9,
-            "address": "108 600 S, Provo, UT 84601, USA"
-        }, {
-            "fixTime": 1469734952000,
-            "lat": 40.2258,
-            "long": -111.6609,
-            "speed": 8,
-            "heading": 301,
-            "event": 9,
-            "address": "108 600 S, Provo, UT 84601, USA"
-        }, {
-            "fixTime": 1469734968000,
-            "lat": 40.2259,
-            "long": -111.6609,
-            "speed": 0,
-            "heading": 315,
-            "event": 12,
-            "address": "108 600 S, Provo, UT 84601, USA"
-        }
-    ]
 
 
 
@@ -97,6 +98,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         $scope.vehicleTime = undefined;
     }
 
+
     vehicleTimer()
 
     $rootScope.$on('$stateChangeSuccess', () => {
@@ -129,17 +131,10 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
                 $scope.directions.push(newCompass);
 
-                if (!$scope.timeTo && !$scope.timeFrom && theDayPins[i].event === 12) {
                     var addressWithTime = {
                         address: theDayPins[i].address,
                         time: new Date(theDayPins[i].fixTime)
                     }
-                } else {
-                    var addressWithTime = {
-                        address: theDayPins[i].address,
-                        time: new Date(theDayPins[i].fixTime)
-                    }
-                }
 
                 newPos.push(addressWithTime);
             }
@@ -149,12 +144,13 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
             $scope.pins = newPin;
 
             $scope.lines = newLine;
-        } else {
-            alert('no driving data for selected day')
-        }
 
-        $scope.dayLocations = theDayPins;
+            $scope.dayLocations = theDayPins;
 
+      }
+      else {
+        $scope.noData = 'no driving data for selected day';
+      }
     }
 
     var filter = tracker => {
@@ -166,23 +162,25 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         }
 
         var timeFilter = val => {
-            return (new Date(val.fixTime)).getHours() + (new Date(val.fixTime)).getMinutes() >= (new Date($scope.timeFrom)).getHours() + (new Date($scope.timeFrom)).getMinutes() && (new Date(val.fixTime)).getHours() + (new Date(val.fixTime)).getMinutes() <= (new Date($scope.timeTo)).getHours() + (new Date($scope.timeTo)).getMinutes()
+            let arrayVal = ((new Date(val.fixTime)).getHours()*60) + (new Date(val.fixTime)).getMinutes()
+            let fromTime = ((new Date($scope.timeFrom)).getHours()*60) + (new Date($scope.timeFrom)).getMinutes()
+            let toTime = ((new Date($scope.timeTo)).getHours()*60) + (new Date($scope.timeTo)).getMinutes()
+            return arrayVal >= fromTime  && arrayVal <= toTime
         }
-
 
         let dateFilteredArray = tracker.filter(dateFilter);
 
-        if ($scope.timeFrom && $scope.timeTo) {
-            $scope.showHidden = true;
-            $scope.resetHidden = false;
-            vehicleStopTimer();
-            var theDayPins = dateFilteredArray.filter(timeFilter)
-        } else {
-            vehicleStopTimer();
-            vehicleTimer();
-            var theDayPins = dateFilteredArray;
-        }
+        var theDayPins = dateFilteredArray;
 
+        if ($scope.timeFrom && $scope.timeTo) {
+          $scope.showHidden = true;
+          $scope.resetHidden = false;
+          vehicleStopTimer();
+          var theDayPins = dateFilteredArray.filter(timeFilter)
+        }
+        else if ((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()){
+          vehicleStopTimer();
+        }
 
 
         positionFilter(theDayPins);
@@ -199,9 +197,8 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     $scope.selectedVehicle = vehicleService.selectedVehicle;
 
-    var testcounter = 1; //FAKE DATA
+    // var testcounter = 1; //FAKE DATA
     $scope.getUserVehicle = () => {
-
         if ((new Date($scope.theDate)).toDateString() !== (new Date()).toDateString()) {
             vehicleStopTimer();
         } else {
@@ -210,14 +207,14 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
         }
         $scope.addresses = [];
         $scope.pins = [];
-        // var payloadData = $auth.getPayload() //REAL DATA
-        // userService.getUser(payloadData.sub).then(response => { //REAL DATA
-        //    let vehicleArr = response.data.vehicles; //REAL DATA
-        //    let tracker = vehicleArr[$scope.selectedVehicle].timeDistanceProfiles; //REAL DATA
-        //    filter(tracker); //real data
-        // }) //real data
-        fakeDataDisplay = fakeData.slice(0, testcounter++) //FAKE DATA
-        filter(fakeDataDisplay) //FAKE DATA
+        var payloadData = $auth.getPayload() //REAL DATA
+        userService.getUser(payloadData.sub).then(response => { //REAL DATA
+           let vehicleArr = response.data.vehicles; //REAL DATA
+           let tracker = vehicleArr[$scope.selectedVehicle].timeDistanceProfiles; //REAL DATA
+           filter(tracker); //real data
+        }) //real data
+        // fakeDataDisplay = fakeData.slice(0, testcounter++) //FAKE DATA
+        // filter(fakeDataDisplay) //FAKE DATA
     }
     $scope.getUserVehicle();
 
@@ -226,7 +223,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
     $scope.showDesc = (event, index, pin, dayLocations) => {
 
-      $scope.choiceOn = true;
+       $scope.choiceOn = true;
 
        $scope.choiceInfo = dayLocations[index];
        $scope.choiceCenter = pin;
