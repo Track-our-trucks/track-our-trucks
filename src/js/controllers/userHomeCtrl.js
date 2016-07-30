@@ -5,8 +5,8 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
     return payloadData.sub
   }
 
-  $scope.on = true;
-  $scope.off = true;
+  $scope.vehicleOn = true;
+  $scope.vehicleOff = true;
 
   $scope.getUser = () => {
       userService.getUser(payload()).then(response => {
@@ -14,12 +14,12 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
         userService.currentUser = response.data;
         for (var i = 0; i < response.data.vehicles.length; i++){
           if($scope.theUser.vehicles[i].timeDistanceProfiles[timeDistanceProfiles.length - 1].event === 12){
-            $scope.on = true;
-            $scope.off = false;
+            $scope.vehicleOn = true;
+            $scope.vehicleOff = false;
           }
           else {
-            $scope.on = false;
-            $scope.off = true;
+            $scope.vehicleOn = false;
+            $scope.vehicleOff = true;
           }
         }
       })
