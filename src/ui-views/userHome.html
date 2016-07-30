@@ -66,7 +66,8 @@
   </section>
 
   <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="true" >
-    <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ng-init="showName($index, location)"></marker>
+    <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ></marker>
+    <!-- ng-init="showName($index, location)" -->
 
     <custom-marker class="vehicle-info-marker" position="{{choiceCenter}}">
 
