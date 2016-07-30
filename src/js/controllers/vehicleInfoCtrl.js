@@ -15,6 +15,7 @@ angular.module('trackOurTruck').controller('vehicleInfoCtrl', function($scope, $
     vehicleService.updateVehicleByUser($scope.vehicle._id, newName).then(response => {
       vehicleService.theSelectedVehicle = response.data;
       $scope.vehicle = vehicleService.theSelectedVehicle;
+      $scope.getVehicleList();
     })
     $scope.inputHidden = true;
     $scope.vehicleNameHidden = false;
