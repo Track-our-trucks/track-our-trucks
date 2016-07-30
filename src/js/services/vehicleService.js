@@ -50,6 +50,14 @@ angular.module('trackOurTruck').service('vehicleService', function($http, $q, $i
     })
   }
 
+  this.updateVehicleByUser = (vehicleId, newName) => {
+    return $http({
+      method: "PUT",
+      url: '/api/updatevehiclename/' + vehicleId,
+      data: {name: newName}
+    })
+  }
+
 
 
 })

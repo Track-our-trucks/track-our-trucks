@@ -1,0 +1,12 @@
+@import "main";
+
+.behaviorSections {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 57vh;
+  width: 100%;
+  padding: 2vh;
+  font-family: $font3;
+}

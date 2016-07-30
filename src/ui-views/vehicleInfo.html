@@ -4,7 +4,9 @@
 
   <div class="vehicle-name-tab">
 <h4>
-  {{vehicle.name}}
+  <input ng-hide="inputHidden"style="color: black"type="text" name="name" placeholder="{{vehicle.name}}" value="{{vehicle.name}}"ng-model="newVehicleName"><b ng-hide="vehicleNameHidden">{{vehicle.name}}</b> &nbsp; <button ng-hide="inputHidden"type="button" ng-click="submit(newVehicleName)">Submit Change</button>&nbsp;<button ng-hide="inputHidden"type="button" ng-click="cancel()">Cancel</button> <div ng-hide="vehicleNameHidden"ng-click="showInput()"class="icon-pencil-square-o"></div>
+
+
 </h4>
   </div>
   <div ui-sref="help" class="vehicle-name-help-tab">
@@ -20,13 +22,13 @@
 
   <div ui-sref="userHome.vehicleInfo.location" ng-click="setTab(1)" ng-class="{active: isSet(1) }">
     <p ng-click="goToLocation()">
-      Location
+      Locations
     </p>
   </div>
 
   <div  ng-click="setTab(2)" ng-class="{active: isSet(2)}">
 <p ng-click="goToBehaviors()">
-  Behavior
+  Behaviors
 </p>
   </div>
 </section>

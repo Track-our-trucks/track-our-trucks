@@ -233,6 +233,7 @@ app.get('/api/getvehicles', adminEnsureAuthenticated, vehicleCtrl.index)
 app.get('/api/getonevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.show)
 app.put('/api/updatevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.update)
 app.delete('/api/deletevehicle/:vehicleid/:userid', adminEnsureAuthenticated, vehicleCtrl.destroy)
+app.put('/api/updatevehiclename/:id', ensureAuthenticated, vehicleCtrl.showOne)
 
 
 

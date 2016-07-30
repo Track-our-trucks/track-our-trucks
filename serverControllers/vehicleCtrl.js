@@ -73,6 +73,24 @@ module.exports = {
 
       }
     })
+  },
+
+  showOne: (req, res) => {
+    Vehicle.findByIdAndUpdate(req.params.id, {$set: {name: req.body.name}}, (err, success) => {
+      if (err) {
+        res.status(500).json(err.message)
+      }
+      else {
+        Vehicle.findById(req.params.id, (err, vehicle) => {
+          if (err) {
+            res.status(500).json(err.message)
+          }
+          else {
+            res.status(200).json(vehicle)
+          }
+        })
+      }
+    })
   }
 
 

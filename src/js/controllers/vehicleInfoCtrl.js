@@ -3,6 +3,28 @@ angular.module('trackOurTruck').controller('vehicleInfoCtrl', function($scope, $
 
   $scope.vehicle = vehicleService.theSelectedVehicle
 
+  $scope.inputHidden = true;
+  $scope.vehicleNameHidden = false;
+
+  $scope.showInput = () => {
+    $scope.inputHidden = false;
+    $scope.vehicleNameHidden = true;
+  }
+
+  $scope.submit = (newName) => {
+    vehicleService.updateVehicleByUser($scope.vehicle._id, newName).then(response => {
+      vehicleService.theSelectedVehicle = response.data;
+      $scope.vehicle = vehicleService.theSelectedVehicle;
+    })
+    $scope.inputHidden = true;
+    $scope.vehicleNameHidden = false;
+  }
+
+  $scope.cancel = () => {
+    $scope.inputHidden = true;
+    $scope.vehicleNameHidden = false;
+    $scope.newVehicleName = "";
+  }
 
   $scope.tab = 1;
 
