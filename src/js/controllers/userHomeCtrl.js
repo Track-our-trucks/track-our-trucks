@@ -5,6 +5,9 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
     return payloadData.sub
   }
 
+  $scope.on = true;
+  $scope.off = true;
+
   $scope.getUser = () => {
       userService.getUser(payload()).then(response => {
         $scope.theUser = response.data;
