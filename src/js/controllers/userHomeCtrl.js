@@ -125,9 +125,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
       $state.go("welcome");
     }
 
-    $scope.showName = (event, index, location) => {
-
-       $scope.choiceOn = true;
+    $scope.showName = (index, location) => {
 
        $scope.choiceName = $scope.vehicleArr[index].name;
        $scope.choiceCenter = location;
