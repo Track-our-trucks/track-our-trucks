@@ -9,6 +9,16 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
       userService.getUser(payload()).then(response => {
         $scope.theUser = response.data;
         userService.currentUser = response.data;
+        for (var i = 0; i < $scope.theUser.vehicles.length; i++){
+          if($scope.theUser.vehicles[i].timeDistanceProfiles[timeDistanceProfiles.length - 1].event === 12){
+            $scope.on = true;
+            $scope.off = false;
+          }
+          else {
+            $scope.on = false;
+            $scope.off = true;
+          }
+        }
       })
     }
 
