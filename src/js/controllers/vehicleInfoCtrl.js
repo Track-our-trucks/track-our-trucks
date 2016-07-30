@@ -21,6 +21,6 @@ angular.module('trackOurTruck').controller('vehicleInfoCtrl', function($scope, $
    }
 
    $scope.goToBehaviors = function() {
-     $state.go('userHome.behaviors')
+     $state.go('userHome.vehicleInfo.behaviors')
    }
 })
