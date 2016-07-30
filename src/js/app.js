@@ -183,10 +183,70 @@ $stateProvider
   templateUrl: './ui-views/help.html',
   controller: 'helpCtrl'
 })
-.state('userHome.behaviors', {
+.state('userHome.vehicleInfo.behaviors', {
   url: '/behaviors',
   templateUrl: "./ui-views/behaviors.html",
   controller: 'behaviorsCtrl'
+})
+.state('userHome.vehicleInfo.speeding', {
+  url: '/speeding',
+  templateUrl: "./ui-views/speeding.html",
+  controller: 'speedingCtrl'
+})
+.state('userHome.vehicleInfo.acceleration', {
+  url: '/acceleration',
+  templateUrl: "./ui-views/acceleration.html",
+  controller: 'accelerationCtrl'
+})
+.state('userHome.vehicleInfo.hardStops', {
+  url: '/hardStops',
+  templateUrl: "./ui-views/hardStops.html",
+  controller: 'hardStopsCtrl'
+})
+.state('userHome.vehicleInfo.hardTurns', {
+  url: '/hardTurns',
+  templateUrl: "./ui-views/hardTurns.html",
+  controller: 'hardTurnsCtrl'
+})
+.state('userHome.vehicleInfo.mileage', {
+  url: '/mileage',
+  templateUrl: "./ui-views/mileage.html",
+  controller: 'mileageCtrl'
+})
+.state('userHome.vehicleInfo.stops', {
+  url: '/stops',
+  templateUrl: "./ui-views/stops.html",
+  controller: 'stopsCtrl'
+})
+.state('userHome.vehicleInfo.idlings', {
+  url: '/idlings',
+  templateUrl: "./ui-views/idlings.html",
+  controller: 'idlingsCtrl'
+})
+.state('userHome.vehicleInfo.maintenance', {
+  url: '/maintenance',
+  templateUrl: "./ui-views/maintenance.html",
+  controller: 'maintenanceCtrl'
+})
+.state('userHome.vehicleInfo.registration', {
+  url: '/registration',
+  templateUrl: "./ui-views/registration.html",
+  controller: 'registrationCtrl'
+})
+.state('userHome.vehicleInfo.lowBattery', {
+  url: '/lowBattery',
+  templateUrl: "./ui-views/lowBattery.html",
+  controller: 'lowBatteryCtrl'
+})
+.state('userHome.vehicleInfo.inspection', {
+  url: '/inspection',
+  templateUrl: "./ui-views/inspection.html",
+  controller: 'inspectionCtrl'
+})
+.state('userHome.vehicleInfo.diagnostics', {
+  url: '/diagnostics',
+  templateUrl: "./ui-views/diagnostics.html",
+  controller: 'diagnosticsCtrl'
 })
 
 var skipIfLoggedIn = ($q, $auth, $state) => {
