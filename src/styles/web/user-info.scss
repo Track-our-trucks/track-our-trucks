@@ -139,6 +139,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    margin-left: -12vw;
 
     ul{
       height: 400px;
@@ -147,7 +148,7 @@
       li{
         display: flex;
         align-items: center;
-
+        justify-content: space-between;
         height: 60px;
         width: 40vw;
         margin-bottom: 55px;
