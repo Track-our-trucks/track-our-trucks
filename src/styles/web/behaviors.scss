@@ -1,0 +1,29 @@
+@import "main";
+
+.behaviorSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+  .behaviorBox {
+    height: 15vh;
+    width: 18vw;
+    background-color: white;
+    font-family: $font3;
+    color: black;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 10vh;
+      width:10vh;
+    }
+  }
+}
