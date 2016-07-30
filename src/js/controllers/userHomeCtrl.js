@@ -124,4 +124,22 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
       $auth.logout();
       $state.go("welcome");
     }
+
+    $scope.showName = (event, index, location) => {
+
+       $scope.choiceOn = true;
+
+       $scope.choiceName = $scope.vehicleArr[index].name;
+       $scope.choiceCenter = location;
+
+
+
+
+
+    }
+
+    $scope.choiceOff= () => {
+
+      $scope.choiceOn = false;
+    }
 })
