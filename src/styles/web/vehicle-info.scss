@@ -18,6 +18,13 @@
       text-align: left;
 
 
+      button {
+        border-radius: 5px;
+        background-color: white;
+        border-style: outset;
+        color: $mteal;
+      }
+
     .vehicle-name-tab {
 
       // width: 100%;
@@ -31,8 +38,15 @@
         font-size: 35px;
 
         padding: 24px 0px 11px 42px;
+        display: flex;
+        flex-direction: row;
 
 
+          input {
+            font-family: $font2;
+            color: black;
+            font-size: 30px;
+          }
       }
     }
       .vehicle-name-help-tab{
@@ -64,9 +78,9 @@
 
     .vehicle-tabs {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      width: 50%;
+
+      justify-content: space-around;
+      width: 100%;
       cursor: pointer;
       // max-width: 530px;
       min-width: 530px;
