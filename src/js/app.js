@@ -183,6 +183,11 @@ $stateProvider
   templateUrl: './ui-views/help.html',
   controller: 'helpCtrl'
 })
+.state('userHome.behaviors', {
+  url: '/behaviors',
+  templateUrl: "./ui-views/behaviors.html",
+  controller: 'behaviorsCtrl'
+})
 
 var skipIfLoggedIn = ($q, $auth, $state) => {
      var deferred = $q.defer();
