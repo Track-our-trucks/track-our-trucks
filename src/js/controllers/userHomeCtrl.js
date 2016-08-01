@@ -22,6 +22,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
             $scope.vehicleOff = true;
           }
         }
+        $scope.getCurrentLocations();
       })
     }
 
