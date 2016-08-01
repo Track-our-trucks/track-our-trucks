@@ -7,6 +7,8 @@
 
 <form ng-submit="login(user)" class="loginMOD">
 
+    <div class='error-message'>{{errorMessage}}</div>
+
     <div class="signin-input">
         <div class="icon-user signin-user-icon"></div>
         <input ng-model="user.email" type="email" name="name"  placeholder="Email"></input>
