@@ -7,6 +7,7 @@ var timeDistanceInfo = new Schema({
   lat: {type: Number},
   long: {type: Number},
   speed: {type: Number},
+  speedLimit: {type: String},
   heading: {type: Number},
   event: {type: Number}
 })
