@@ -1,5 +1,7 @@
-angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap', '720kb.datepicker'])
-.config( ($stateProvider, $urlRouterProvider) => {
+
+angular.module('trackOurTruck', ['ui.router', 'satellizer', 'ngMap', 'angular-stripe', '720kb.datepicker'])
+.config( ($stateProvider, $urlRouterProvider, stripeProvider) => {
+stripeProvider.setPublishableKey('pk_test_Tn3IiCqUvP8odDyXFcsutg1d');
 
 $urlRouterProvider.otherwise('/welcome');
 
