@@ -13,7 +13,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
         $scope.theUser = response.data;
         userService.currentUser = response.data;
         for (var i = 0; i < response.data.vehicles.length; i++){
-          if($scope.theUser.vehicles[i].timeDistanceProfiles[timeDistanceProfiles.length - 1].event === 12){
+          if($scope.theUser.vehicles[i].timeDistanceProfiles[$scope.theUser.vehicles[i].timeDistanceProfiles.length - 1].event === 12){
             $scope.vehicleOn = true;
             $scope.vehicleOff = false;
           }
@@ -142,6 +142,9 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
     }
 
     $scope.showName = (index, location) => {
+
+      console.log(index);
+      console.log(location);
 
        $scope.choiceName = $scope.vehicleArr[index].name;
        $scope.choiceCenter = location;
