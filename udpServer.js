@@ -52,7 +52,7 @@ udpServer.on('message', (message, remote) => {
         if (err) console.log(`ERROR writing to raw logfile: ${err}`);
     });
 
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+decoded.lat +','+ decoded.long +'&key=AIzaSyAhLCAAyP4IVHjWK3kf6Ts_kGII2jtX5qI').then(response => {
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${decoded.lat},${decoded.long}&key=AIzaSyAhLCAAyP4IVHjWK3kf6Ts_kGII2jtX5qI`).then(response => {
       decoded.address = response.data.results[0].formatted_address;
       // axios.get('https://roads.googleapis.com/v1/speedLimits?path=' + decoded.lat +','+ decoded.long +'&key=AIzaSyAhLCAAyP4IVHjWK3kf6Ts_kGII2jtX5qI').then(nextResponse => {
       //   console.log(nextResponse.data);
@@ -67,6 +67,7 @@ udpServer.on('message', (message, remote) => {
           else console.log(`MONGO SUCCESS: ${success}`);
         });
       // })
+      // .catch(e => console.log(e))
 
 
     })
