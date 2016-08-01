@@ -3,8 +3,27 @@
 @media (max-width: 680px) {
 
   .logo-cont{
-    height: 70px;
-    width: 105px;
+    height: 90px;
+    width: 135px;
     left: 20px;
   }
+
+  .welcome-menu {
+    display:none;
+  }
+
+  .icon-bars {
+    display: block;
+    position: absolute;
+    font-size: 60px;
+    color: $white;
+    top: 30px;
+    right: 20px;
+
+    box-shadow: 0 0 125px 58px rgba(0,0,0,0.28);
+    background: rgba(0,0,0,0.25);
+
+  }
+
+
 }
