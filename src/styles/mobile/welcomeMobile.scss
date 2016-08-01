@@ -1,23 +1,122 @@
 @import '../web/main';
-
 @media (max-width: 680px) {
+    .welcome-container {
+        h1 {
+            font-size: 25px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+    .welcome-sloped-cont {
+        .slope-content {
+            h3 {
+                font-size: 25px;
+            }
+            .slope-content-lower {
+                .slope-content-lower-left {
+                    padding-left: 20px;
+                    p {
+                        font-size: 14px;
+                    }
+                }
+                .slope-content-lower-right {
+                    .welcome-circle {
+                        height: 75px;
+                        width: 75px;
+                        .icon-map {
+                            font-size: 37.5px;
+                            top: 20px;
+                            left: 20px;
+                            .icon-map-marker {
+                                font-size: 15px;
+                            }
+                            .marker-one {
+                                position: absolute;
+                                top: 10px;
+                                left: 23px;
+                            }
+                            .marker-two {
+                                position: absolute;
+                                top: 7px;
+                                left: 1px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .welcome-driving {
+
+      padding: 0px;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      height: 600px;
+
+      .driving-content-view{
+
+        width: 80%;
 
 
+        .driving-content-header{
 
-  .welcome-container {
+          h3{
+            font-size: 20px;
 
-      h1 {
-          color: $orange;
+          }
+
+        }
+
+        p{
+          font-size: 14px;
+        }
+
       }
 
-      h3 {
-          font-family: $font1;
-          font-size: 25px;
-          color: $orange;
-          margin-bottom: 30px;
+      ul{
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100vw;
+
+        li{
+
+          margin: 10px;
+
+          div{
+            font-size: 20px;
+          }
+
+          p{
+            font-size: 12px;
+          }
+        }
       }
 
+    }
 
+.welcome-sloped-cont{
+  .slope-content{
+    .slope-content-lower{
+      .slope-content-lower-right{
+        .welcome-circle{
+          .icon-line-chart{
+            font-size: 37.5px;
+            top: 20px;
+            left: 20px;
+          }
+        }
+      }
 
+    }
   }
+}
+
+
 }
