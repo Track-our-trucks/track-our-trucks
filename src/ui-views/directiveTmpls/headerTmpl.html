@@ -19,10 +19,20 @@
       </ul>
     </section>
 
-    <section class="icon-bars">
-
-      
+    <section class="icon-bars" ng-click = "menuOn()">
 
     </section>
+
+  <div class="hamburger-menu" ng-if = (hamMenu === true)>
+
+    <ul>
+        <li ui-sref = "welcome">Home</li>
+        <li ui-sref = "about">About</li>
+        <li ng-click ='loginModal()' >Login</li>
+        <li ng-click ='signupModal()'>Signup</li>
+    </ul>
+
+  </div>
+
 
 </section>

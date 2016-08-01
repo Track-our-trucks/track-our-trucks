@@ -25,5 +25,28 @@
 
   }
 
+  .hamburger-menu{
+
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    height: 250px;
+    width: 200px;
+    border-radius: 3px;
+    background: $dblue;
+
+    ul{
+
+      li{
+        font-size: 35px;
+        font-family: $font1;
+        padding: 13px;
+        color: white;
+        text-align: center;
+      }
+    }
+
+  }
+
 
 }

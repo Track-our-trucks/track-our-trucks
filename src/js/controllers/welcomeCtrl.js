@@ -2,8 +2,18 @@ angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $docu
 
   let body = $document.find('body')[0];
   let html = $document.find('html')[0];
-  
+
   html.style.overflow="scroll";
+
+  $scope.hamMenu = false;
+
+  $scope.menuOn = () => {
+
+    if ($scope.hamMenu === false) $scope.hamMenu = true
+    else if ($scope.hamMenu === true) $scope.hamMenu = false;
+
+
+  }
 
   $scope.modalOff = () => {
 
