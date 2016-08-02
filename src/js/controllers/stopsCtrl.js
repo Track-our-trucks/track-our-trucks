@@ -9,38 +9,43 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
   }
 
 
-  $scope.dateFilter = () => {
-    var filteredByDate = [];
-    for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
-      if((new Date($scope.vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
-        filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
-      }
 
-    }
-    $scope.getStops(filteredByDate);
-  }
-
-  $scope.getStopTime = (val) => {
-    for(var i = 0; i < val.length; i++){
-      if(val[i].event === 12 && val[i + 1].event === 11){
-        val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
-      }
-
-  }
-}
-
-
-  $scope.getStops = (val) => {
+  var getStops = (val) => {
     var stopsArr = [];
     for(var i = 0; i < val.length; i++){
       if(val[i].event === 12){
         stopsArr.push(val[i]);
       }
-
     }
-    $scope.getStopTime(val);
-    $scope.theStopsArray = stopsArr; 
+    $scope.theStopsArray = stopsArr;
 }
+
+  var getStopTime = (val) => {
+    for(var i = 0; i < val.length; i++){
+      if(val[i].event === 12 && val[i + 1].event === 11){
+        val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
+      }
+  }
+  getStops()
+}
+
+
+  var dateFilter = () => {
+    var filteredByDate = [];
+    for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
+      if((new Date($scope.vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
+        filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
+      }
+    }
+    getStopTime(filteredByDate);
+  }
+
+
+
+
+
   $scope.dateFilter();
+
+
 
 })
