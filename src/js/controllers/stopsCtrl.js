@@ -29,7 +29,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
         return;
       }
       else if(val[i].event === 12 && val[i + 1].event === 11){
-        val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
+        val[i].stopTime = parseInt(val[i + 1].fixTime - val[i].fixTime)
         // $scope.stillThere = false;
         // $scope.showTime = true;
       }
