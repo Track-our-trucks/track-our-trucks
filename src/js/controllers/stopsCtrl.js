@@ -24,6 +24,9 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
     for(var i = 0; i < val.length; i++){
       if(val[i].event === 12 && !val[i + 1]){
         getStops(val);
+        $scope.stillThere = true;
+        $scope.showTime = false;
+        return;
       }
       else if(val[i].event === 12 && val[i + 1].event === 11){
         val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
