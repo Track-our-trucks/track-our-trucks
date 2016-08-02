@@ -17,11 +17,10 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
             $scope.vehicleOn = true;
             $scope.vehicleOff = false;
           }
-          else {
+        }
             $scope.vehicleOn = false;
             $scope.vehicleOff = true;
-          }
-        }
+
         $scope.getVehicleList();
       })
     }
@@ -33,7 +32,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
   $scope.timer = () => {
     $scope.time = $interval( () => {
       $scope.getUser();
-      $scope.getVehicleList();
+
     }, 10000)
   }
 
