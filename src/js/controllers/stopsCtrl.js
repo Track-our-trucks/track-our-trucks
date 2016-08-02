@@ -39,7 +39,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
 
     }
   }
-
+}
   $scope.dateFilter();
 
 })
