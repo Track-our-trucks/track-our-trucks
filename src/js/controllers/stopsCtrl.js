@@ -22,14 +22,14 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
 
   var getStopTime = val => {
     for(var i = 0; i < val.length; i++){
-      if(val[i].event === 12 && !val[i + 1].event){
+      if(val[i].event === 12 && !val[i + 1]){
         getStops(val);
       }
       else if(val[i].event === 12 && val[i + 1].event === 11){
         val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
       }
   }
-  getStops(val);   
+  getStops(val);
 }
 
 
