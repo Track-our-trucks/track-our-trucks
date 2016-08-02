@@ -9,7 +9,7 @@
 
      <ul ng-repeat="stop in theStopsArray">
        <li>Address: {{stop.address}}<br>
-         Stop Time: {{stop.fixTime | date: 'shortTime'}}
+         Stop Time: {{stop.fixTime | date: 'shortTime'}}<br>
          Time at Stop: {{stop.stopTime | date: 'h:mm:ss'}}
        </li>
      </ul>

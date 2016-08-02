@@ -20,6 +20,15 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
     $scope.getStops(filteredByDate);
   }
 
+  $scope.getStopTime = (val) => {
+    for(var i = 0; i < val.length; i++){
+      if(val[i].event === 12 && val[i + 1].event === 11){
+        val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
+      }
+
+  }
+}
+
 
   $scope.getStops = (val) => {
     var stopsArr = [];
@@ -29,16 +38,8 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
       }
 
     }
-    $scope.theStopsArray = stopsArr;
-
-    $scope.getStopTime = (val) => {
-      for(var i = 0; i < val.length; i++){
-        if(val[i].event === 12 && val[i + 1].event === 11){
-          val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
-        }
-
-    }
-  }
+    $scope.getStopTime(val);
+    $scope.theStopsArray = stopsArr; 
 }
   $scope.dateFilter();
 
