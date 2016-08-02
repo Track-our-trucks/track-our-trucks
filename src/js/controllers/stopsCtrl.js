@@ -30,6 +30,8 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
       }
       else if(val[i].event === 12 && val[i + 1].event === 11){
         val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
+        $scope.stillThere = false;
+        $scope.showTime = true;
       }
   }
   getStops(val);
