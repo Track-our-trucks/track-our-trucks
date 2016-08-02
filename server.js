@@ -12,6 +12,7 @@ const path = require('path');
 const qs = require('querystring');
 const request = require('request');
 const bcrypt = require('bcryptjs');
+const stripe = require('stripe')(config.STRIPE_SECRET);
 
 const corsOptions = {
     origin: 'http://localhost:9000'
@@ -114,6 +115,28 @@ app.get('/api/getonevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.show)
 app.put('/api/updatevehicle/:id', adminEnsureAuthenticated, vehicleCtrl.update)
 app.delete('/api/deletevehicle/:vehicleid/:userid', adminEnsureAuthenticated, vehicleCtrl.destroy)
 app.put('/api/updatevehiclename/:id', ensureAuthenticated, vehicleCtrl.showOne)
+
+
+
+// payment
+app.post('/api/payment', function(req, res, next){
+  console.log(req.body);
+  var charge = stripe.charges.create({
+  amount: 1000, // amount in cents, again
+  currency: 'usd',
+  source: req.body.token,
+  description: 'Example charge'
+}, function(err, charge) {
+     res.sendStatus(200);
+  // if (err && err.type === 'StripeCardError') {
+  //   // The card has been declined
+  // }
+});
+});
+
+
+
+
 
 
 app.listen(port, () => {
