@@ -26,7 +26,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
         val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
       }
   }
-  getStops()
+  getStops(val);
 }
 
 
