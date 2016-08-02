@@ -1,10 +1,13 @@
 <section class="behaviorSections">
   <center>Stops</center>
 
-  
+
 
      <input placeholder="Choose a date" type="date" ng-model="theDate" ng-change="dateFilter()" />
 
+     <ul ng-repeat="stop in theStopsArray">
+       <li>{{stop.address}}</li>
+     </ul>
 
 
 

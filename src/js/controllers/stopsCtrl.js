@@ -13,7 +13,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
     var filteredByDate = [];
     for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
       if((new Date($scope.vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
-        $scope.filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
+        filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
       }
 
     }
