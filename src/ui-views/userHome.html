@@ -68,7 +68,7 @@
 
   </section>
 
-  <ng-map zoom="11" zoom-to-include-markers="true" >
+  <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
     <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ></marker>
     <!-- ng-init="showName($index, location)" -->
 
