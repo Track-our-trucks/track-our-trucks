@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('userHomeCtrl', ($timeout, $auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
+angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
 
 
 
@@ -75,7 +75,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($timeout, $auth, $sc
 
   $scope.getCurrentLocations = () => {
 
-    $timeout(function(){
+
       var tmpArr = [];
 
       for (var i = 0; i < $scope.vehicleArr.length; i++) {
@@ -86,7 +86,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($timeout, $auth, $sc
       }
 
       $scope.currentLocations = tmpArr;
-    }, 3000)
+
 
 
   }
