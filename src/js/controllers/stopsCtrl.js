@@ -10,7 +10,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
 
 
 
-  var getStops = (val) => {
+  var getStops = val => {
     var stopsArr = [];
     for(var i = 0; i < val.length; i++){
       if(val[i].event === 12){
@@ -20,13 +20,16 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
     $scope.theStopsArray = stopsArr;
 }
 
-  var getStopTime = (val) => {
+  var getStopTime = val => {
     for(var i = 0; i < val.length; i++){
-      if(val[i].event === 12 && val[i + 1].event === 11){
+      if(val[i].event === 12 && !val[i + 1].event){
+        getStops(val);
+      }
+      else if(val[i].event === 12 && val[i + 1].event === 11){
         val[i].stopTime = val[i + 1].fixTime - val[i].fixTime
       }
   }
-  getStops(val);
+  getStops(val);   
 }
 
 
