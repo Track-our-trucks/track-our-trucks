@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
+angular.module('trackOurTruck').controller('userHomeCtrl', ($timeout, $auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
 
 
 
