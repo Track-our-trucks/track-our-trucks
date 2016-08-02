@@ -26,8 +26,9 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
       if($scope.filteredByDate[i].event === 12){
         stopsArr.push($scope.filteredByDate[i]);
       }
+      $scope.theStopsArray = stopsArr;
     }
-    $scope.theStopsArray = stopsArr;
+
   }
   $scope.getStops();
 
