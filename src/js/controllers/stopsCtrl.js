@@ -1,6 +1,6 @@
 angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope, vehicleService){
 
-  $scope.theDate = (new Date()).toDateString()
+  $scope.theDate = new Date()
   $scope.vehicle = vehicleService.theSelectedVehicle
 
   $scope.back = () => {

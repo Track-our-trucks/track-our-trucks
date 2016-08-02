@@ -1,12 +1,16 @@
+<center>Stops</center>
+<input placeholder="Choose a date" type="date" ng-model="theDate" ng-change="dateFilter()" />
+
 <section class="behaviorSections">
-  <center>Stops</center>
 
 
 
-     <input placeholder="Choose a date" type="date" ng-model="theDate" ng-change="dateFilter()" />
+
 
      <ul ng-repeat="stop in theStopsArray">
-       <li>{{stop.address}}</li>
+       <li>Address: {{stop.address}}<br>
+         Time: {{stop.fixTime | date: 'shortTime'}}
+       </li>
      </ul>
 
 
