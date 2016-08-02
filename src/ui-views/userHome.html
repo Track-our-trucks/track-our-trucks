@@ -17,12 +17,12 @@
          </div>
          <div class="side-menu-end">
          <section class="car-status">
-           <p id="car-active">
+           <!-- <p id="car-active">
              Active
            </p>
            <p id="car-off">
              Off
-           </p>
+           </p> -->
          </section>
         <div class="icon-right-open"></div>
         </div>
@@ -68,7 +68,7 @@
 
   </section>
 
-  <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="true" >
+  <ng-map zoom="11" zoom-to-include-markers="true" >
     <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ></marker>
     <!-- ng-init="showName($index, location)" -->
 
