@@ -6,20 +6,21 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
   }
 
   $scope.vehicleOn = true;
-  $scope.vehicleOff = true;
+  $scope.vehicleOff = false;
 
   $scope.getUser = () => {
       userService.getUser(payload()).then(response => {
         $scope.theUser = response.data;
         userService.currentUser = response.data;
         for (var i = 0; i < response.data.vehicles.length; i++){
-          if($scope.theUser.vehicles[i].timeDistanceProfiles[$scope.theUser.vehicles[i].timeDistanceProfiles.length - 1].event === 12){
-            $scope.vehicleOn = true;
-            $scope.vehicleOff = false;
-          }
-        }
+          if($scope.theUser.vehicles[i].timeDistanceProfiles[$scope.theUser.vehicles[i].timeDistanceProfiles.length - 1].event !== 12){
+            var tester = $scope.theUser.vehicles[i].timeDistanceProfiles[$scope.theUser.vehicles[i].timeDistanceProfiles.length - 1].event;
+            console.log(tester);
             $scope.vehicleOn = false;
             $scope.vehicleOff = true;
+          }
+        }
+
 
         $scope.getVehicleList();
       })
