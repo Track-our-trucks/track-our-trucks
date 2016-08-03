@@ -54,7 +54,19 @@
 
     }
 }
+.hamburger-menu {
+
+    ul {
+
+        li:hover {
+          cursor: pointer;
+        }
+    }
+}
 
 .icon-bars{
   display: none;
+}
+.icon-bars:hover {
+  cursor: pointer;
 }
