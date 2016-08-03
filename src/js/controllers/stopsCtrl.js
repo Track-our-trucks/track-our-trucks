@@ -17,7 +17,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
         stopsArr.push(val[i]);
       }
     }
-    $scope.theStopsArray = stopsArr;
+    $scope.stops = stopsArr;
 }
 
   var getStopTime = val => {
