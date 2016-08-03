@@ -8,10 +8,13 @@
         <datepicker date-format='EEE MMMM d y' selector="form-control">
 
        <div class="input-group">
-
-           <input class="form-control" placeholder="Choose a date" ng-model="theDate" ng-change="getUserVehicle()" />
+         <div class="icon-calendar">
+         </div>
+           <input id="calender" class="form-control " placeholder="Choose a date" ng-model="theDate" ng-change="getUserVehicle()">
+         </input>
+         </div>
            <br>
-           <!-- <div class="icon-caret-up-down reverseBtn"></div> -->
+
                       <span class="input-group-addon" style="cursor: pointer">
 <!-- =======
            <input class="form-control"  ng-model="theDate" ng-change="getUserVehicle()" />

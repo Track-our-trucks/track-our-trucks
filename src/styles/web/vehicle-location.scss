@@ -17,17 +17,28 @@
         padding: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-content: space-between;
-        background: $mteal;
+        justify-content: space-around;
+        align-content: center;
+        background: $mgrey;
         cursor: default;
         color: $white;
-        height: 35vh;
+        height: 39vh;
 
-        .icon-calender {
-            font-size: 20px;
-            color: $white;
+        .input-group{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+
+        #calender{
+          margin-bottom: 3px;
         }
+        .icon-calender {
+            font-size: 25px;
+            color: $white;
+            
+        }
+      }
         .time-from-to{
           display: flex;
           flex-direction: column;
@@ -40,6 +51,7 @@
             font-size: 20px;
             text-align: center;
             cursor: pointer;
+
 
         }
         input:focus {
@@ -55,7 +67,7 @@
           button{
             height:35px;
             width: 110px;
-            background-color: $mgrey;
+            background-color: $orange;
             color: $white;
             font-family: $font3;
             font-size: 12px;
