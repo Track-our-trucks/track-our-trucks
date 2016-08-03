@@ -1,4 +1,141 @@
 @import '../web/main';
+
+@media (max-width: 1140px) {
+
+  .welcome-container {
+      h1 {
+          font-size: 40px;
+          text-align: center;
+      }
+      h3 {
+          font-size: 25px;
+          text-align: center;
+      }
+  }
+
+  .welcome-driving {
+
+    padding: 100px 10px;
+
+
+    .driving-content-view{
+
+
+
+      .driving-content-header{
+
+        h3{
+
+          font-size: 23px;
+
+        }
+
+      }
+
+      p{
+
+        font-size: 15px;
+
+      }
+
+    }
+
+    ul{
+
+
+
+      li{
+
+
+
+        div{
+
+        }
+
+        p{
+          font-size: 23px;
+
+        }
+      }
+    }
+
+  }
+
+
+
+
+}
+
+@media (max-width: 855px) {
+
+  .welcome-container {
+      h1 {
+          font-size: 25px;
+          text-align: center;
+      }
+      h3 {
+          font-size: 20px;
+          text-align: center;
+      }
+  }
+
+  .welcome-driving {
+
+    padding: 0px;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+
+    .driving-content-view{
+
+      width: 80%;
+
+
+      .driving-content-header{
+
+        h3{
+          font-size: 20px;
+
+        }
+
+      }
+
+      p{
+        font-size: 14px;
+      }
+
+    }
+
+    ul{
+
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100vw;
+
+      li{
+
+        margin: 10px;
+
+        div{
+          font-size: 20px;
+        }
+
+        p{
+          font-size: 18px;
+        }
+      }
+    }
+
+  }
+
+
+
+
+}
+
+
 @media (max-width: 680px) {
     .welcome-container {
         h1 {
