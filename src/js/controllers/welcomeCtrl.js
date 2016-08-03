@@ -12,6 +12,9 @@ angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $docu
     if ($scope.hamMenu === false) $scope.hamMenu = true
     else if ($scope.hamMenu === true) $scope.hamMenu = false;
 
+  $scope.menuOn = () => {
+    $scope.hamMenu = !$scope.hamMenu;
+  }
 
   }
 
