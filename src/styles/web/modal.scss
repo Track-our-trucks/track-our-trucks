@@ -3,7 +3,7 @@
 .modalCurtain{
 
   cursor: pointer;
-  
+
   width: 100vw;
   height: 100vh;
 
@@ -17,61 +17,71 @@
   opacity: 0.8;
 }
 
-.wide-modal-box{
-
-  background: #fff;
-  opacity: 0.99;
-  width: 85%;
-  height: auto;
-  min-height: 80vh;
-
-  border-radius: 5px;
-
+.modal-cont{
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  top: 7.5%;
-  left: 7.5%;
-  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wide-modal-box{
+
+    background: #fff;
+    opacity: 0.99;
+    width: 85%;
+    height: auto;
+    min-height: 80vh;
+
+    border-radius: 5px;
+
+    // position: fixed;
+    // top: 7.5%;
+    // left: 7.5%;
+    z-index: 1000;
 
 
-}
+  }
 
-.modal-nav{
-  position: relative;
-}
+  .modal-nav{
+    position: relative;
+  }
 
-.close-mod-blue{
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 10px;
+  .close-mod-blue{
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 10px;
 
-  color: $dblue;
-  font-size: 30px;
-}
+    color: $dblue;
+    font-size: 30px;
+  }
 
-.close-mod-white{
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 10px;
+  .close-mod-white{
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 10px;
 
-  color: $white;
-  font-size: 30px;
-}
+    color: $white;
+    font-size: 30px;
+  }
 
-.thin-modal-box{
+  .thin-modal-box{
 
-  background: #fff;
-  opacity: 0.99;
-  width: 390px;
-  height: 520px;
+    background: #fff;
+    opacity: 0.99;
+    width: 390px;
+    height: 520px;
 
-  border-radius: 3px;
+    border-radius: 3px;
 
-  position: fixed;
-  top: 15%;
-  left: 35%;
-  z-index: 1000;
+    // position: fixed;
+    // top: 15%;
+    // left: 35%;
+    z-index: 1000;
 
 
+  }
 }
