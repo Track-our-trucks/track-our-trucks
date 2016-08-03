@@ -1,4 +1,4 @@
-angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state, $rootScope, vehicleService, $interval, userService) => {
+angular.module('trackOurTruck').controller('vehicleCtrl', ($filter, $scope, $auth, $state, $rootScope, vehicleService, $interval, userService) => {
 
 
     //FAKE DATE
