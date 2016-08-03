@@ -1,7 +1,7 @@
 angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope, vehicleService){
 
   $scope.theDate = new Date()
-  $scope.vehicle = vehicleService.theSelectedVehicle
+  var vehicle = vehicleService.theSelectedVehicle
 
   $scope.back = () => {
     $state.go('userHome.vehicleInfo.behaviors');
@@ -27,28 +27,28 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
 
   var dateFilter = () => {
     var filteredByDate = [];
-    for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
-      if((new Date($scope.vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
-        filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
+    for(var i = 0; i < vehicle.timeDistanceProfiles.length; i++){
+      if((new Date(vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
+        filteredByDate.push(vehicle.timeDistanceProfiles[i]);
       }
     }
     getStops(filteredByDate);
   }
 
 
-  $scope.getStopTime = val => {
+  $scope.getStopTime = () => {
 
-    for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
-      if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
-        getStops(val);
-        // $scope.stillThere = true;
-        // $scope.showTime = false;
-        // return;
-      }
-      else if($scope.vehicle.timeDistanceProfiles[i].event === 12 && $scope.vehicle.timeDistanceProfiles[i + 1].event === 11){
+    for(var i = 0; i < vehicle.timeDistanceProfiles.length; i++){
+      // if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
+      //   getStops(val);
+      //   // $scope.stillThere = true;
+      //   // $scope.showTime = false;
+      //   // return;
+      // }
+      if(vehicle.timeDistanceProfiles[i].event === 12 && vehicle.timeDistanceProfiles[i + 1].event === 11){
 
-        var diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
-        $scope.vehicle.timeDistanceProfiles[i].stopTime = diff;
+        var diff = Math.abs(vehicle.timeDistanceProfiles[i + 1].fixTime - vehicle.timeDistanceProfiles[i].fixTime)
+        vehicle.timeDistanceProfiles[i].stopTime = diff;
         // $scope.stillThere = false;
         // $scope.showTime = true;
       }
