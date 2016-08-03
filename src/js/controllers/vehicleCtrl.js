@@ -225,7 +225,8 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
 
        $scope.choiceOn = true;
        $scope.choiceInfo = dayLocations[index];
-       $scope.theTime = new Date(dayLocations[index].fixTime)
+       $scope.theTime = (new Date(dayLocations[index].fixTime))
+       console.log($scope.theTime);
        $scope.choiceCenter = pin;
 
       var compass = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
