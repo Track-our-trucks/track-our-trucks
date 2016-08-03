@@ -12,32 +12,7 @@
         background: $white;
     }
 
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 25vh;
-      align-items: center;
-      font-size: 2vh;
 
-
-        b {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width:17vw;
-          font-size: 1.5vh;
-          padding-left: 1.5vh;
-          padding-right: 1.5vh;
-        }
-
-        button {
-          border-radius: 5px;
-          background-color: white;
-          border-style: outset;
-          color: $mteal;
-        }
-    }
     .location-header {
         padding: 10px;
         display: flex;
@@ -47,14 +22,17 @@
         background: $mteal;
         cursor: default;
         color: $white;
-        height: 45vh;
+        height: 35vh;
 
-
-        // .icon-calender {
-        //     font-size: 20px;
-        //     color: $white;
-        // }
-
+        .icon-calender {
+            font-size: 20px;
+            color: $white;
+        }
+        .time-from-to{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
         input {
             border: none;
             background: none;
@@ -68,10 +46,25 @@
             outline: none;
             border: none;
         }
-        button{
-          cursor: pointer;
+        bsb{
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding-top: 10px;
 
+          button{
+            height:35px;
+            width: 110px;
+            background-color: $mgrey;
+            color: $white;
+            font-family: $font3;
+            font-size: 12px;
+            border-radius: 2px;
+            cursor: pointer;
+
+          }
         }
+
         ::-webkit-input-placeholder {
             color: $white;
         }
