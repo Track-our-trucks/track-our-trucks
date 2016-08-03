@@ -7,14 +7,14 @@
 
 
 
-     <ul ng-repeat="stop in stops">
+     <ol ng-repeat="stop in stops">
        <li>Address: {{stop.address}}<br>
          Stop Time: {{stop.fixTime | date: 'shortTime'}}<br>
-         Time at Stop: <b>{{stop.stopTime | date: 'h:mm'}}</b>
+         Time at Stop: <b>{{stop.stopTime | 'hh:mm'}}</b>
          <!-- Time at Stop: <b ng-show="showTime">{{stop.stopTime | date: 'h:mm:ss'}}</b> -->
          <!-- <b ng-show="stillThere">Still at this location</b> -->
        </li>
-     </ul>
+     </ol>
 
 
 
