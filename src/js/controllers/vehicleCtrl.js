@@ -224,7 +224,6 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($scope, $auth, $state
     $scope.showDesc = (event, index, pin, dayLocations) => {
 
        $scope.choiceOn = true;
-       dayLocations[index].fixTime = new Date(fixTime);
        $scope.choiceInfo = dayLocations[index];
        $scope.choiceCenter = pin;
 
