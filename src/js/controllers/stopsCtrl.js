@@ -17,6 +17,11 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
         stopsArr.push(val[i]);
       }
     }
+    for(let i = 0; i < stopsArr.length; i++){
+      var hours = Math.floor(stopsArr[i].stopTime/1000/60/60)
+      var minutes = Math.floor((stopsArr[i].stopTime/1000/60) - ($scope.hours * 60))
+      stopsArr[i].stopTime = hours + ':' + minutes;
+    }
     $scope.stops = stopsArr;
 }
 
