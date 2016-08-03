@@ -75,7 +75,7 @@
 
         <div class="marker-desc">
           <p>{{choiceInfo.address}}</p><br>
-
+          <p>{{choiceInfo.fixTime | date: 'shortTime'}}</p><br>
           <p>Speed: {{choiceInfo.speed}} MPH </p><br>
           <p>
             Heading:{{choiceHeading}}
@@ -91,7 +91,7 @@
       </div>
 
     </custom-marker>
-    <p>{{theTime | date: 'shortTime'}}</p><br>
+
 
         <shape name="polyline"
           path='{{pins}}'
