@@ -75,7 +75,7 @@
 
         <div class="marker-desc">
           <p>{{choiceInfo.address}}</p>
-          <p>{{choiceInfo.fixTime}}</p>
+          <p>{{new Date(choiceInfo.fixTime) | date: 'shortTime'}}</p>
           <p>Speed: {{choiceInfo.speed}} MPH </p>
           <p>
             Heading:{{choiceHeading}}
