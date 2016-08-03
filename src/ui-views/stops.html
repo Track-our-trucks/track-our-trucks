@@ -1,5 +1,22 @@
+
+
 <section class="behaviorSections">
   <center>Stops</center>
-  <center><button type="button" name="button" ng-click="back()">Back</button></center>
+  Choose Stops Date: <input placeholder="Choose a date" type="date" ng-model="theDate" ng-change="dateFilter()" />
+
+
+
+
+     <ul ng-repeat="stop in theStopsArray">
+       <li>Address: {{stop.address}}<br>
+         Stop Time: {{stop.fixTime | date: 'shortTime'}}<br>
+         Time at Stop: <b>{{(stop.stopTime/1000)/60}}</b>
+         <!-- Time at Stop: <b ng-show="showTime">{{stop.stopTime | date: 'h:mm:ss'}}</b> -->
+         <!-- <b ng-show="stillThere">Still at this location</b> -->
+       </li>
+     </ul>
+
+
 
 </section>
+<center><button type="button" name="button" ng-click="back()">Back</button></center>

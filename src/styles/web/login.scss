@@ -40,6 +40,12 @@
   form{
     display: block;
 
+  .error-message {
+    color: red;
+    height: 15px;
+    font-family: $font2;
+  }
+
 .signin-input{
 
   display: flex;

@@ -1,27 +1,21 @@
 angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
 
+
+
+
+
   var payload = () => {
     var payloadData = $auth.getPayload()
     return payloadData.sub
   }
 
-  $scope.vehicleOn = true;
-  $scope.vehicleOff = true;
+
 
   $scope.getUser = () => {
       userService.getUser(payload()).then(response => {
         $scope.theUser = response.data;
         userService.currentUser = response.data;
-        for (var i = 0; i < response.data.vehicles.length; i++){
-          if($scope.theUser.vehicles[i].timeDistanceProfiles[timeDistanceProfiles.length - 1].event === 12){
-            $scope.vehicleOn = true;
-            $scope.vehicleOff = false;
-          }
-          else {
-            $scope.vehicleOn = false;
-            $scope.vehicleOff = true;
-          }
-        }
+        $scope.getVehicleList();
       })
     }
 
@@ -32,7 +26,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
   $scope.timer = () => {
     $scope.time = $interval( () => {
       $scope.getUser();
-      $scope.getVehicleList();
+
     }, 10000)
   }
 
@@ -81,16 +75,19 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
   $scope.getCurrentLocations = () => {
 
-    var tmpArr = [];
 
-    for (var i = 0; i < $scope.vehicleArr.length; i++) {
+      var tmpArr = [];
 
-      tmpArr.push([$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].lat,$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].long])
+      for (var i = 0; i < $scope.vehicleArr.length; i++) {
+
+        tmpArr.push([$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].lat,$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].long])
 
 
-    }
+      }
 
-    $scope.currentLocations = tmpArr;
+      $scope.currentLocations = tmpArr;
+
+
 
   }
 
@@ -142,6 +139,9 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
     }
 
     $scope.showName = (index, location) => {
+
+      console.log(index);
+      console.log(location);
 
        $scope.choiceName = $scope.vehicleArr[index].name;
        $scope.choiceCenter = location;

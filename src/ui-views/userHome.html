@@ -17,12 +17,12 @@
          </div>
          <div class="side-menu-end">
          <section class="car-status">
-           <p ng-hide="vehicleOn"id="car-active">
+           <!-- <p id="car-active">
              Active
            </p>
-           <p ng-hide="vehicleOff"id="car-off">
+           <p id="car-off">
              Off
-           </p>
+           </p> -->
          </section>
         <div class="icon-right-open"></div>
         </div>
@@ -68,28 +68,9 @@
 
   </section>
 
-  <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="true" >
+  <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
     <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ></marker>
-    <!-- ng-init="showName($index, location)" -->
-
-    <!-- <custom-marker class="vehicle-info-marker" position="{{choiceCenter}}">
-
-      <div class="marker-cont">
-
-        <div class="marker-desc">
-          <p>{{choiceName}}</p>
-
-        </div>
-
-
-        <div class="marker-tri">
-
-        </div>
-
-
-      </div>
-
-    </custom-marker> -->
+  
 
 
   </ng-map>
