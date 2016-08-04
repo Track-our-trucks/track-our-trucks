@@ -53,6 +53,9 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
         // $scope.stillThere = false;
         // $scope.showTime = true;
       }
+      else if($scope.vehicle.timeDistanceProfiles[i].event === 12){
+        $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
+      }
   }
   dateFilter(theVehicleArr);
 }
