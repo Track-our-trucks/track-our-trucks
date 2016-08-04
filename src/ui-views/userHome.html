@@ -70,7 +70,29 @@
 
   <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
     <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ></marker>
-  
+
+    <custom-marker class="vehicle-info-marker"position="{{choiceCenter}}" ng-if="choiceOn">
+
+      <div class="marker-cont">
+
+        <div class="marker-desc">
+          <p>{{choiceInfo.address}}</p><br>
+          <p>{{theTime}}</p><br>
+          <p>Speed: {{choiceInfo.speed}} MPH </p><br>
+          <p>
+            Heading:{{choiceHeading}}
+          </p>
+        </div>
+
+
+        <div class="marker-tri">
+
+        </div>
+
+
+      </div>
+
+    </custom-marker>
 
 
   </ng-map>
