@@ -1,10 +1,42 @@
 @import '../web/main';
 
+@media (max-width: 1100px) {
+
+.modal-cont{
+
+.wide-modal-box{
+
+    width: 90%;
+    height: 90vh;
+
+
+}
+
+}
+
+@media (max-width: 900px) {
+
+.modal-cont{
+
+.wide-modal-box{
+
+    width: 97%;
+    height: 97vh;
+
+
+}
+
+}
+
+}
+
 @media (max-width: 600px) {
 
 .thin-modal-box{
   width: 90%;
 
+
+}
 
 }
 
