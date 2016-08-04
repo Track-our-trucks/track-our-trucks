@@ -37,19 +37,19 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
 
 
   $scope.getStopTime = () => {
-    var theVehicleArr = []
+    $scope.theVehicleArr = []
     for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
-      // if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
-      //   getStops(val);
-      //   // $scope.stillThere = true;
-      //   // $scope.showTime = false;
-      //   // return;
-      // }
+      if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
+        dateFilter($scope.theVehicleArr)
+        // $scope.stillThere = true;
+        // $scope.showTime = false;
+        return;
+      }
       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && $scope.vehicle.timeDistanceProfiles[i + 1].event === 11){
 
-        var diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
+        diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
         $scope.vehicle.timeDistanceProfiles[i].stopTime = diff;
-        theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
+        $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
         // $scope.stillThere = false;
         // $scope.showTime = true;
       }
