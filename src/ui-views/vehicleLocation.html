@@ -8,9 +8,13 @@
         <datepicker date-format='EEE MMMM d y' selector="form-control">
 
        <div class="input-group">
+         <div class="icon-calendar">
+         </div>
+           <input id="calender" class="form-control " placeholder="Choose a date" ng-model="theDate" ng-change="getUserVehicle()">
+         </input>
+         </div>
+           <br>
 
-           <input class="form-control" placeholder="Choose a date" ng-model="theDate" ng-change="getUserVehicle()" /><br>
-           <!-- <div class="icon-caret-up-down reverseBtn"></div> -->
                       <span class="input-group-addon" style="cursor: pointer">
 <!-- =======
            <input class="form-control"  ng-model="theDate" ng-change="getUserVehicle()" />
@@ -25,9 +29,25 @@
            <i class="fa fa-lg fa-calendar"></i>
            </span>
            <center>Filter Location By Time</center> <br>
-           <b>From: <input placeholder="Time From" ng-model="timeFrom" type="time" /></b><br>
-           <b>To: <input placeholder="Time To" ng-model="timeTo" type="time" /></b><br>
-           <bsb><button ng-click="resetTime()" type="button" >Reset Locations</button>&nbsp;<button ng-click="getUserVehicle()" type="button" >Show Locations</button></bsb>
+
+           <div class="time-from-to">
+             <b>From: <input placeholder="Time From" ng-model="timeFrom" type="time" />
+             </b>
+
+             <b>To: <input placeholder="Time To" ng-model="timeTo" type="time" />
+             </b>
+           </div>
+
+           <bsb>
+             <button ng-click="resetTime()" type="button" >
+               Reset Locations
+             </button>&nbsp;
+             <button ng-click="getUserVehicle()" type="button" >
+               Show Locations
+             </button>
+           </bsb>
+
+
     </datepicker>
 
 
