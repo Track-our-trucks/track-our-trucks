@@ -17,15 +17,15 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
         stopsArr.push(val[i]);
       }
     }
-    for(let i = 0; i < stopsArr.length; i++){
-      var hours = Math.floor(stopsArr[i].stopTime/1000/60/60)
-      var minutes = Math.floor((stopsArr[i].stopTime/1000/60) - (hours * 60))
-      stopsArr[i].stopTime = hours + ':' + minutes;
-    }
+    // for(let i = 0; i < stopsArr.length; i++){
+    //   var hours = Math.floor(stopsArr[i].stopTime/1000/60/60)
+    //   var minutes = Math.floor((stopsArr[i].stopTime/1000/60) - (hours * 60))
+    //   stopsArr[i].stopTime = hours + ':' + minutes;
+    // }
     $scope.stops = stopsArr;
 }
 
-  var dateFilter = () => {
+  $scope.dateFilter = (val) => {
     var filteredByDate = [];
     for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
       if((new Date($scope.vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
@@ -36,33 +36,37 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
   }
 
 
-  $scope.getStopTime = () => {
+//   $scope.getStopTime = () => {
+//     $scope.theVehicleArr = []
+//     for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
+//       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
+//         dateFilter($scope.theVehicleArr)
+//         // $scope.stillThere = true;
+//         // $scope.showTime = false;
+//         return;
+//       }
+//       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && $scope.vehicle.timeDistanceProfiles[i + 1].event === 11){
+//
+//         diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
+//         $scope.vehicle.timeDistanceProfiles[i].stopTime = diff;
+//         $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
+//         // $scope.stillThere = false;
+//         // $scope.showTime = true;
+//       }
+//       else if($scope.vehicle.timeDistanceProfiles[i].event === 12){
+//         $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
+//       }
+//   }
+//   dateFilter(theVehicleArr);
+// }
 
-    for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
-      // if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
-      //   getStops(val);
-      //   // $scope.stillThere = true;
-      //   // $scope.showTime = false;
-      //   // return;
-      // }
-      if($scope.vehicle.timeDistanceProfiles[i].event === 12 && $scope.vehicle.timeDistanceProfiles[i + 1].event === 11){
-
-        var diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
-        $scope.vehicle.timeDistanceProfiles[i].stopTime = diff;
-        // $scope.stillThere = false;
-        // $scope.showTime = true;
-      }
-  }
-  dateFilter();
-}
 
 
 
 
 
 
-
-  $scope.getStopTime();
+  $scope.dateFilter();
 
 
 
