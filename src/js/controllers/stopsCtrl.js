@@ -28,7 +28,7 @@ angular.module('trackOurTruck').controller('stopsCtrl', function($state, $scope,
   var dateFilter = (val) => {
     var filteredByDate = [];
     for(var i = 0; i < val.length; i++){
-      if((new Date(val.fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
+      if((new Date(val[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
         filteredByDate.push(val[i]);
       }
     }
