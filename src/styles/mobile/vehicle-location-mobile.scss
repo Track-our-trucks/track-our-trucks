@@ -1,0 +1,112 @@
+@import '../web/main';
+
+@media (max-width: 900px) {
+
+  .vehicle-location-view {
+
+      flex-direction: column;
+
+      .location-left {
+
+        flex-direction: row;
+        width: 97vw;
+        height: 205px;
+
+
+
+      }
+
+
+      .location-header {
+
+        width: 50%;
+
+
+          .input-group{
+
+
+
+          #calender{
+
+          }
+          .icon-calender {
+
+
+          }
+        }
+          .time-from-to{
+
+          }
+          input {
+
+            font-size: 15px;
+
+          }
+          input:focus {
+
+          }
+          bsb{
+
+
+            button{
+
+
+            }
+          }
+
+          ::-webkit-input-placeholder {
+
+          }
+          :-moz-placeholder {
+
+          }
+          ::-moz-placeholder {
+
+          }
+          :-ms-input-placeholder {
+
+          }
+          .icon-caret-up-down {
+
+
+          }
+      }
+      .vehicle-locations {
+
+          ul {
+
+
+              li {
+
+
+              }
+              li:hover {
+
+              }
+          }
+      }
+
+      ng-map {
+        height: 80vh;
+
+          .marker-cont{
+
+
+          .marker-desc{
+
+
+          }
+
+          .marker-tri{
+
+          }
+        }
+
+
+      }
+
+
+  }
+
+
+}
