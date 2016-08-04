@@ -63,8 +63,22 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($filter, $scope, $aut
 
 
 
+    $scope.timeFilterShow = false;
+    $scope.timeFilterHidden = true;
+    var flag = false;
+    $scope.showTimeFilter = () => {
+      if(!flag){
+        $scope.timeFilterHidden = false;
+        $scope.timeFilterShow = true;
+        flag = true;
+      }
+      else {
+        $scope.timeFilterHidden = true;
+        $scope.timeFilterShow = false;
+        flag = false;
+      }
 
-
+    }
 
 
 

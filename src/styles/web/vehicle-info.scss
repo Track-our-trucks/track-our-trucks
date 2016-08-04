@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background: $dteal;
+    background: $dblue;
     height: auto;
     cursor: default;
 
@@ -14,7 +14,7 @@
       justify-content: space-between;
       align-items: flex-start;
       width: 100%;
-      background: $dblue;
+      background: $mteal;
       text-align: left;
 
 
@@ -22,7 +22,7 @@
         border-radius: 5px;
         background-color: white;
         border-style: outset;
-        color: $mteal;
+        color: $dblue;
       }
 
     .vehicle-name-tab {
