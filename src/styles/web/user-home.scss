@@ -9,6 +9,7 @@
 .main-side-menu{
   height: 100vh;
   width: 25vw;
+  min-width: 235px;
   background-color: $dblue;
   // max-width: 305px;
 
@@ -24,6 +25,7 @@
 img{
   cursor: pointer;
   width: 80%;
+  min-width: 145px;
 }
 }
 .side-menu-options{
@@ -128,24 +130,25 @@ img{
     width: 25vw;
     height: 70px;
     background-color: $dgrey;
-    // border-top: 5px $orange solid;
+    border-top: 10px $orange solid;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     justify-content: center;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0px;
-    min-width: 275px;
+
 
 
 
     opacity: 0.99;
 
     p{
-    font-size: 30px;
+    font-size: 20px;
     color: $white;
     font-family: $font2;
+    }
+
+    .mobHelp{
+      display: none;
     }
   }
   .userhome-footer:hover{
@@ -173,49 +176,58 @@ img{
   justify-content: space-between;
   align-items: center;
 
-  height: 10vh;
-  min-height: 77px;
+
+  height: 77px;
   width: 75vw;
   background-color: $mteal;
   color: $white;
   font-family: $font1;
   cursor: default;
 
+  .mobLogo{
+    display: none;
+
+  }
 
   .dash{
     font-size: 22px;
-    margin-left: 20px;
+
+
+
   }
   .user-info-cont{
+
+    height: 100%;
+    width: auto;
+
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    // position: relative;
+
+
     cursor: pointer;
-    // border: 3px solid black;
-    // height: 10vh;
+
 
 
     .username{
-      position: absolute;
-      // bottom: 20px;
-      right: 100px;
-      p{
 
+      p{
+        margin-top: 5px;
       }
 
     }
     .user-icon{
-      position: absolute;
-      right: 1px;
+      position: relative;
+      height: 100%;
+      width: 80px;
 
 
     .icon-circle-thin{
       position: absolute;
       font-size: 55px;
-      right: 40px;
-      bottom: -35px;
+      right: 15px;
+      top: 15%;
 
       .icon-user{
         position: absolute;

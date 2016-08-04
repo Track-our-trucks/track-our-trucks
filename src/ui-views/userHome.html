@@ -34,7 +34,10 @@
 
   <div class="userhome-footer">
 
-    <p>Need Help?</p>
+    <p class='regHelp'>Need Help?</p>
+
+    <p class='mobHelp'>Help?</p>
+
   </div>
 
 </section>
@@ -45,32 +48,37 @@
 
   <section class="user-top-menu">
 
-    <section class="dash">
-      <h2>Dashboard</h2>
-    </section>
+        <img ui-sref="welcome" class="mobLogo" src="./LogoTextWhiteBlue.png" alt="" />
+
+        <h2 class="dash">Dashboard</h2>
+
+
 
 
     <section class="user-info-cont" ng-click="userInfo()">
+
       <div class="username">
+
         <p>
           {{theUser.name.toUpperCase()}}
         </p>
+
       </div>
+
+
       <div class="user-icon">
         <div class="icon-circle-thin">
-          <div class="icon-user">
-
-          </div>
+          <div class="icon-user"></div>
         </div>
-
       </div>
+
     </section>
 
   </section>
 
   <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
     <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" icon="./map-marker.png" ></marker>
-  
+
 
 
   </ng-map>
