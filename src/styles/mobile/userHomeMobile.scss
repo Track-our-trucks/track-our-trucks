@@ -1,6 +1,6 @@
 @import '../web/main';
 
-@media (max-width: 800px) {
+@media (max-width: 938px) {
 
 
   .user-home-main{
@@ -9,6 +9,9 @@
   }
 
   .main-side-menu{
+
+
+    min-width: 100px;
 
 
   }
@@ -30,6 +33,8 @@
 
 
         .truck-user-list{
+
+          flex-direction: column;
 
 
           div{
@@ -132,7 +137,7 @@
 
 
         .icon-user{
-          
+
 
         }
       }
@@ -142,6 +147,346 @@
     }
   }
 
+
+
+}
+
+@media (max-width: 700px) {
+
+.user-home-main{
+
+  width: 50px;
+
+
+}
+
+.main-side-menu{
+
+height: 76vh;
+margin-top: 12vh;
+
+
+}
+.side-menu-top{
+
+  display: none;
+
+
+img{
+
+}
+}
+.side-menu-options{
+
+  margin-top: 10px;
+
+  ul{
+
+    li{
+      justify-content: flex-start;
+      padding-left: 0px;
+
+      .truck-user-list{
+
+
+
+
+        div{
+
+
+        }
+        p{
+          font-size: 10px;
+
+        }
+      }
+        .icon-right-open{
+
+          display: none;
+        }
+
+        .side-menu-end{
+
+
+
+          .car-status{
+
+
+            #car-active{
+
+            }
+            #car-idle{
+
+            }
+
+            #car-off{
+
+            }
+
+          }
+
+        }
+
+
+    }
+    li:hover{
+
+    }
+  }
+}
+
+#foot{
+
+
+
+
+  .userhome-footer{
+
+    width: 100vw;
+    height: 12vh;
+
+    p{
+
+    }
+
+    .mobHelp{
+      display: block;
+    }
+
+    .regHelp{
+      display: none;
+    }
+  }
+  .userhome-footer:hover{
+
+  }
+}
+
+
+
+
+.user-right-section{
+
+
+  ng-map{
+
+    height: 76vh;
+    width: 100vw;
+
+  }
+
+
+
+.user-top-menu{
+
+
+  width: 100vw;
+  height: 12vh;
+  margin-left: -100px;
+
+  .mobLogo{
+    display: block;
+    width: 200px;
+    margin-left: 20px;
+  }
+
+  .dash{
+
+    display: none;
+
+  }
+  .user-info-cont{
+
+
+    .username{
+
+
+      p{
+
+      }
+
+    }
+    .user-icon{
+
+
+
+    .icon-circle-thin{
+
+
+      .icon-user{
+
+
+      }
+    }
+
+      }
+    }
+  }
+}
+
+
+}
+
+@media (max-width: 500px) {
+
+.user-home-main{
+
+
+
+
+}
+
+.main-side-menu{
+
+
+
+}
+.side-menu-top{
+
+
+
+img{
+
+}
+}
+.side-menu-options{
+
+
+
+  ul{
+
+    li{
+
+
+      .truck-user-list{
+
+
+
+
+        div{
+
+
+        }
+        p{
+
+
+        }
+      }
+        .icon-right-open{
+
+
+        }
+
+        .side-menu-end{
+
+
+
+          .car-status{
+
+
+            #car-active{
+
+            }
+            #car-idle{
+
+            }
+
+            #car-off{
+
+            }
+
+          }
+
+        }
+
+
+    }
+    li:hover{
+
+    }
+  }
+}
+
+#foot{
+
+
+
+
+  .userhome-footer{
+
+
+    p{
+
+    }
+
+    .mobHelp{
+
+    }
+
+    .regHelp{
+
+    }
+  }
+  .userhome-footer:hover{
+
+  }
+}
+
+
+
+
+.user-right-section{
+
+
+  ng-map{
+
+
+
+  }
+
+
+
+.user-top-menu{
+
+
+
+  .mobLogo{
+
+  }
+
+  .dash{
+
+
+
+  }
+  .user-info-cont{
+
+
+    .username{
+        display:none;
+
+      p{
+
+      }
+
+    }
+    .user-icon{
+
+
+
+    .icon-circle-thin{
+
+
+      .icon-user{
+
+
+      }
+    }
+
+      }
+    }
+  }
+}
 
 
 }

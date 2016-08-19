@@ -12,49 +12,61 @@
         background: $white;
     }
 
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 25vh;
-      align-items: center;
-      font-size: 2vh;
 
-
-        b {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width:17vw;
-          font-size: 1.5vh;
-          padding-left: 1.5vh;
-          padding-right: 1.5vh;
-        }
-
-        button {
-          border-radius: 5px;
-          background-color: white;
-          border-style: outset;
-          color: $mteal;
-        }
-    }
     .location-header {
         padding: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-content: space-between;
-        background: $mteal;
+        justify-content: space-around;
+        align-content: center;
+        background: $mgrey;
         cursor: default;
         color: $white;
-        height: 45vh;
+
+        height: 245px;
 
 
-        // .icon-calender {
-        //     font-size: 20px;
-        //     color: $white;
-        // }
+        .input-group{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
 
+
+        #calender{
+          margin-bottom: 3px;
+        }
+        .icon-calender {
+            font-size: 25px;
+            color: $white;
+
+        }
+      }
+      #timeFilterSection {
+        background: $mgrey;
+        height: 22vh;
+        margin-top: -3px;
+        width: 110%;
+        margin-left: -10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+        .time-from-to{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          b {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
         input {
             border: none;
             background: none;
@@ -63,15 +75,31 @@
             text-align: center;
             cursor: pointer;
 
+
         }
         input:focus {
             outline: none;
             border: none;
         }
-        button{
-          cursor: pointer;
+        bsb{
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding-top: 10px;
 
+          button{
+            height:35px;
+            width: 110px;
+            background-color: $orange;
+            color: $white;
+            font-family: $font3;
+            font-size: 12px;
+            border-radius: 2px;
+            cursor: pointer;
+
+          }
         }
+
         ::-webkit-input-placeholder {
             color: $white;
         }
