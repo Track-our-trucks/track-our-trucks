@@ -25,4 +25,5 @@ angular.module('trackOurTruck').controller('lowBatteryCtrl', function($state, $s
       }
     }
     battLows(filteredByDate);
-})
+  }
+  })
