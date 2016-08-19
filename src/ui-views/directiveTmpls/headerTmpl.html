@@ -26,10 +26,10 @@
   <div class="hamburger-menu" ng-if = (hamMenu)>
 
     <ul>
-        <li ui-sref = "welcome">Home</li>
-        <li ui-sref = "about">About</li>
-        <li ng-click ='loginModal()' >Login</li>
-        <li ng-click ='signupModal()'>Signup</li>
+        <li ui-sref = "welcome" ng-click = "menuOn()">Home</li>
+        <li ui-sref = "about" ng-click = "menuOn()">About</li>
+        <li ng-click ='loginModal()' ng-click = "menuOn()">Login</li>
+        <li ng-click ='signupModal()' ng-click = "menuOn()">Signup</li>
     </ul>
 
   </div>
