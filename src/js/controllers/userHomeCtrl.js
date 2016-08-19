@@ -27,7 +27,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
     $scope.time = $interval( () => {
       $scope.getUser();
 
-    }, 10000)
+    }, 30000)
   }
 
   $scope.timer()
@@ -80,7 +80,10 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
       for (var i = 0; i < $scope.vehicleArr.length; i++) {
 
-        tmpArr.push([$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].lat,$scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].long])
+        tmpArr.push([
+          $scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].lat,
+          $scope.vehicleArr[i].timeDistanceProfiles[$scope.vehicleArr[i].timeDistanceProfiles.length-1].long
+        ])
 
 
       }
@@ -138,17 +141,10 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
       $state.go("welcome");
     }
 
-    $scope.showName = (index, location) => {
+    $scope.showDesc = (event, index, pin) => {
 
-      console.log(index);
-      console.log(location);
-
-       $scope.choiceName = $scope.vehicleArr[index].name;
-       $scope.choiceCenter = location;
-
-
-
-
+       $scope.choiceOn = true;
+       $scope.choiceCenter = pin;
 
     }
 
@@ -156,4 +152,4 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
       $scope.choiceOn = false;
     }
-})
+  }

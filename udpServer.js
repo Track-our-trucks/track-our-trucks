@@ -42,8 +42,8 @@ udpServer.on('message', (message, remote) => {
             long: +convert(messageStr.substring(50, 58)).toFixed(4),
             speed: Math.round(parseInt(messageStr.substring(66, 74), 16) * cmSecToMPH), //speed in mph
             heading: parseInt(messageStr.substring(74, 78), 16), //degrees from true north
-            event: parseInt(messageStr.substring(100, 102), 16),
-            distanceTraveled: parseInt(messageStr.substring(102, 104), 16)
+            event: parseInt(messageStr.substring(100, 102), 16)
+            // distanceTraveled: parseInt(messageStr.substring(102, 104), 16)
         };
     } catch (e) {
         console.log(`ERROR decoding data: ${e}`);
