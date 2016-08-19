@@ -77,7 +77,7 @@
   </section>
 
   <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
-    <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" on-click="showDesc(event, $index, pin, dayLocations)" icon="./map-marker.png" ></marker>
+    <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" on-click="showDesc(event, $index, pin)" icon="./map-marker.png" ></marker>
 
 
     <custom-marker class="vehicle-info-marker"position="{{choiceCenter}}" ng-if="choiceOn">

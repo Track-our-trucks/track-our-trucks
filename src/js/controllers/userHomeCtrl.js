@@ -141,13 +141,15 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
       $state.go("welcome");
     }
 
-    $scope.showDesc = (event, index, pin, dayLocations) => {
+    $scope.showDesc = (event, index, pin) => {
 
        $scope.choiceOn = true;
-       
+       $scope.choiceCenter = pin;
+
     }
 
     $scope.choiceOff= () => {
 
       $scope.choiceOn = false;
     }
+  }
