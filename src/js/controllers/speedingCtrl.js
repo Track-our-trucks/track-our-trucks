@@ -7,8 +7,6 @@ angular.module('trackOurTruck').controller('speedingCtrl', function($state, $sco
     $scope.wideModalOn = true;
   }
 
-
-
   var getSpeeds = val => {
     var speedsArr = [];
     for(var i = 0; i < val.length; i++){
@@ -16,11 +14,6 @@ angular.module('trackOurTruck').controller('speedingCtrl', function($state, $sco
         speedsArr.push(val[i]);
       }
     }
-    // for(let i = 0; i < stopsArr.length; i++){
-    //   var hours = Math.floor(stopsArr[i].stopTime/1000/60/60)
-    //   var minutes = Math.floor((stopsArr[i].stopTime/1000/60) - (hours * 60))
-    //   stopsArr[i].stopTime = hours + ':' + minutes;
-    // }
     $scope.speeds = speedsArr;
 }
 
@@ -33,38 +26,6 @@ angular.module('trackOurTruck').controller('speedingCtrl', function($state, $sco
     }
     getSpeeds(filteredByDate);
   }
-
-
-//   $scope.getStopTime = () => {
-//     $scope.theVehicleArr = []
-//     for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
-//       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
-//         dateFilter($scope.theVehicleArr)
-//         // $scope.stillThere = true;
-//         // $scope.showTime = false;
-//         return;
-//       }
-//       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && $scope.vehicle.timeDistanceProfiles[i + 1].event === 11){
-//
-//         diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
-//         $scope.vehicle.timeDistanceProfiles[i].stopTime = diff;
-//         $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
-//         // $scope.stillThere = false;
-//         // $scope.showTime = true;
-//       }
-//       else if($scope.vehicle.timeDistanceProfiles[i].event === 12){
-//         $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
-//       }
-//   }
-//   dateFilter(theVehicleArr);
-// }
-
-
-
-
-
-
-
   $scope.dateFilter();
 
 
