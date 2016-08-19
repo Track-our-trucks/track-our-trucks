@@ -24,7 +24,7 @@ angular.module('trackOurTruck').controller('accelerationCtrl', function($state, 
         filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
       }
     }
-    getSpeeds(filteredByDate);
+    getAccs(filteredByDate);
   }
   $scope.dateFilter();
 })
