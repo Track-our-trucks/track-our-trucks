@@ -1,5 +1,36 @@
 <section class="behaviorSections">
+<div class="">
   <center>Hard Turns</center>
-  <center><button type="button" name="button" ng-click="back()">Back</button></center>
+  <datepicker date-format='EEE MMMM d y' selector="form-control">
+
+  <div class="input-group">
+
+     <input class="form-control" placeholder="Choose a date" ng-model="theDate" ng-change="dateFilter()" /><br>
+
+                <span class="input-group-addon" style="cursor: pointer">
+
+     <i class="fa fa-lg fa-calendar"></i>
+     </span>
+  </datepicker>
+</div>
+
+
+
+
+
+
+
+
+     <ol ng-repeat="hardTurn in hardTurns">
+       <li>Address: {{hardTurn.address}}<br>
+         Time: {{hardTurn.fixTime | date: 'shortTime'}}<br>
+
+         <!-- Time at Stop: <b ng-show="showTime">{{stop.stopTime | date: 'h:mm:ss'}}</b> -->
+         <!-- <b ng-show="stillThere">Still at this location</b> -->
+       </li>
+     </l>
+
+
 
 </section>
+<center><button type="button" name="button" ng-click="back()">Back</button></center>
