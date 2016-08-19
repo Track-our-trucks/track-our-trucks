@@ -1,8 +1,71 @@
 angular.module('trackOurTruck').controller('speedingCtrl', function($state, $scope, vehicleService){
-  $scope.back = () => {
+  $scope.theDate = new Date()
+  $scope.vehicle = vehicleService.theSelectedVehicle
 
+  $scope.back = () => {
     $state.go('userHome.vehicleInfo.behaviors');
     $scope.wideModalOn = true;
-
   }
+
+
+
+  var getSpeeds = val => {
+    var speedsArr = [];
+    for(var i = 0; i < val.length; i++){
+      if(val[i].event === 60 || val[i].event === 61 || val[i].event === 62 || val[i].event === 63){
+        speedsArr.push(val[i]);
+      }
+    }
+    // for(let i = 0; i < stopsArr.length; i++){
+    //   var hours = Math.floor(stopsArr[i].stopTime/1000/60/60)
+    //   var minutes = Math.floor((stopsArr[i].stopTime/1000/60) - (hours * 60))
+    //   stopsArr[i].stopTime = hours + ':' + minutes;
+    // }
+    $scope.speeds = speedsArr;
+}
+
+  $scope.dateFilter = (val) => {
+    var filteredByDate = [];
+    for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
+      if((new Date($scope.vehicle.timeDistanceProfiles[i].fixTime)).toDateString() === (new Date($scope.theDate)).toDateString()){
+        filteredByDate.push($scope.vehicle.timeDistanceProfiles[i]);
+      }
+    }
+    getSpeeds(filteredByDate);
+  }
+
+
+//   $scope.getStopTime = () => {
+//     $scope.theVehicleArr = []
+//     for(var i = 0; i < $scope.vehicle.timeDistanceProfiles.length; i++){
+//       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && !$scope.vehicle.timeDistanceProfiles[i + 1]){
+//         dateFilter($scope.theVehicleArr)
+//         // $scope.stillThere = true;
+//         // $scope.showTime = false;
+//         return;
+//       }
+//       if($scope.vehicle.timeDistanceProfiles[i].event === 12 && $scope.vehicle.timeDistanceProfiles[i + 1].event === 11){
+//
+//         diff = Math.abs($scope.vehicle.timeDistanceProfiles[i + 1].fixTime - $scope.vehicle.timeDistanceProfiles[i].fixTime)
+//         $scope.vehicle.timeDistanceProfiles[i].stopTime = diff;
+//         $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
+//         // $scope.stillThere = false;
+//         // $scope.showTime = true;
+//       }
+//       else if($scope.vehicle.timeDistanceProfiles[i].event === 12){
+//         $scope.theVehicleArr.push($scope.vehicle.timeDistanceProfiles[i])
+//       }
+//   }
+//   dateFilter(theVehicleArr);
+// }
+
+
+
+
+
+
+
+  $scope.dateFilter();
+
+
 })
