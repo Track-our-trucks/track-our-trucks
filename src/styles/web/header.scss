@@ -1,5 +1,6 @@
 @import "main";
 
+
 .welcome-header {
     height: 10vh;
     width: 100%;
@@ -10,17 +11,17 @@
 }
 .logo-cont {
     cursor: pointer;
-    height: 163.4px;
-    width: 245px;
+    height: 120px;
+    width: 180px;
     position: absolute;
-    top: 20px;
-    left: 40px;
-    
+    top: -2px;
+    left: 0px;
+
     box-shadow: 0 0 158px 71px rgba(0,0,0,0.544);
     .logo {
         height: 100%;
         width: 100%;
-        background-image: url('./LogoOrangeTealG.png');
+        background-image: url('./LogoAllColors.png');
         background-size: contain;
         background-repeat: no-repeat;
     }
