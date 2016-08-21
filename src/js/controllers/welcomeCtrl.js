@@ -1,5 +1,7 @@
 angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $document) => {
 
+
+
   let body = $document.find('body')[0];
   let html = $document.find('html')[0];
 
@@ -25,6 +27,7 @@ angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $docu
       $scope.thinModalOn = false;
       body.style.overflow="";
       html.style.overflow="";
+
 
   }
 
@@ -54,8 +57,9 @@ $scope.loginModal = () => {
 $scope.globe = () =>{
 
   $state.go('welcome.globe');
-
+  
 }
+
 
 $scope.marker = () =>{
 
@@ -84,6 +88,11 @@ $scope.speed = () =>{
 $scope.calender = () =>{
 
   $state.go('welcome.calender');
+
+}
+$scope.rating = () =>{
+
+  $state.go('welcome.rating');
 
 }
 

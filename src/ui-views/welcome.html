@@ -8,13 +8,13 @@
 
         <section class="welcome-content">
 
-            <h1>Vehicle Tracking made Easy</h1>
+            <h1>Track Our Truck</h1>
 
             <div class="title-bar">
 
             </div>
 
-            <h3>Simply, Accurate, and Effective</h3>
+            <h3>Vehicle Tracking made Easy</h3>
             <div class="welcome-button-container">
                 <button type="button" name="button" ng-click ='signupModal()'>Signup Now</button>
             </div>
@@ -29,14 +29,13 @@
 
     <div class="slope-content">
 
-        <h3>Get Real-time Updates</h3>
+        <h3>Track Driver Behavior and Location in Real-Time</h3>
 
         <div class="slope-content-lower">
 
           <div class="slope-content-lower-left">
           <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Know where your vehicles are and how they are being driven with our accurate driver behavior reporting and GPS devices.
           </p>
         </div>
 
@@ -72,7 +71,7 @@
 <section class='welcome-driving'>
 
     <div class = "driving-content-view">
-
+      
         <ui-view></ui-view>
 
     </div>
@@ -82,45 +81,52 @@
         <ul>
 
             <li ng-mouseover=globe() ui-sref='welcome.globe'>
-                <div class="icon-globe"></div>
+                <div class="icon-map-marker"></div>
 
                 <p>
-                  Global Services
+                  GPS Location & Tracking
+                </p>
+            </li>
+
+            <li ng-mouseover=rating() ui-sref='welcome.rating'>
+                <div class="icon-line-chart"></div>
+                <p>
+                    Driver Ratings & Cost Analysis
                 </p>
             </li>
 
             <li ng-mouseover=marker() ui-sref='welcome.marker'>
-                <div class="icon-map-marker"></div>
-                <p>
-                    GPS Location
-                </p>
-            </li>
-
-            <li ng-mouseover=truck() ui-sref='welcome.truck'>
-                <div class="icon-truck"></div>
-                <p>
-                    Vehicle Tracking
-                </p>
-            </li>
-
-            <li ng-mouseover=clock() ui-sref='welcome.clock'>
-                <div class="icon-clock-o"></div>
-                <p>
-                    Time Management
-                </p>
-            </li>
-
-            <li ng-mouseover=speed() ui-sref='welcome.speed'>
                 <div class="icon-tachometer"></div>
                 <p>
                     Speeding Alerts
                 </p>
             </li>
 
-            <li ng-mouseover=calender() ui-sref='welcome.calender'>
-                <div class="icon-calendar"></div>
+            <li ng-mouseover=truck() ui-sref='welcome.truck'>
+                <div class="icon-truck"></div>
+                <p>
+                    Multiple Driving Behaviors
+                </p>
+            </li>
+
+            <li ng-mouseover=clock() ui-sref='welcome.clock'>
+                <div class="icon-clock-o"></div>
                 <p>
                     Daily Timeline
+                </p>
+            </li>
+
+            <li ng-mouseover=speed() ui-sref='welcome.speed'>
+                <div class="icon-wrench"></div>
+                <p>
+                    Maintenance Notifications
+                </p>
+            </li>
+
+            <li ng-mouseover=calender() ui-sref='welcome.calender'>
+                <div class="icon-tools"></div>
+                <p>
+                    Engine Codes & Diagnostics
                 </p>
             </li>
 
@@ -140,8 +146,7 @@
 
           <div class="slope-content-lower-left">
           <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Driving behavior effects driving costs. The better you drive the less you will need to spend on vehicle repairs, maintenance, and violations. Bottom line is you will drive safer, increase vehicle longevity, and save money.
           </p>
         </div>
 
