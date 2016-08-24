@@ -1,5 +1,6 @@
 @import 'main';
 
+
 .welcome-background {
     height: 100vh;
     width: 100vw;
@@ -47,7 +48,7 @@
 
     button {
       cursor: pointer;
-        background: $teal;
+        background: $orange;
         color: $white;
         padding: 10px;
         font-size: 17px;
@@ -60,7 +61,7 @@
         width: 220px;
         font-size: 19px;
         transition: 0.3s;
-        background: $orange;
+        background: $teal;
     }
     button:focus {
         outline: 0;
@@ -123,8 +124,12 @@
         font-family: $font1;
         font-size: 40px;
         color: $white;
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
+        margin-top: 10px;
         cursor: default;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
 
 
     }
@@ -279,13 +284,14 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-
+        width: 40vw;
 
         h3{
           font-family: $font1;
           font-size: 40px;
           color: $white;
           text-align: center;
+          // margin-right: 10vw;
         }
 
         .title-bar {
@@ -293,6 +299,7 @@
             height: 4px;
             width: 45%;
             margin: 15px;
+            // margin-right: 10vw;
 
         }
 
@@ -305,6 +312,9 @@
         font-size: 22px;
         text-align: center;
         margin-top: 25px;
+        // margin-right: 10vw;
+        width: 40vw;
+        line-height: 150%;
 
       }
 
@@ -319,12 +329,17 @@
       flex-direction: column;
       box-shadow: 0 0 131px 58px rgba(0,0,0,0.6);
       background: rgba(0,0,0,0.55);
+      width: 60vw;
+      margin-left: 4vw;
+
       li{
         display: flex;
         flex-direction: row;
-        padding: 6px;
-        margin: 20px;
+        padding: 3px;
+        margin: 15px;
         cursor: pointer;
+        padding-left: 7vw;
+
         div{
           color: $teal;
           margin-right: 20px;
@@ -336,17 +351,23 @@
           color: $white;
           font-size: 30px;
           border-bottom: transparent 3px solid ;
+          display: flex;
+          align-items: center;
+          text-align: left;
         }
-        p:after{
-          display:block;
-          content: '';
-          border-bottom: solid 3px $orange;
-          transform: scaleX(0.0001);
-          transition: transform 250ms ease-in-out;
+        p:hover {
+          
         }
-        p:hover:after {
-             transform: scaleX(1)
-        }
+        // p:after{
+        //   display:block;
+        //   content: '';
+        //   border-bottom: solid 3px $orange;
+        //   transform: scaleX(0.0001);
+        //   transition: transform 250ms ease-in-out;
+        // }
+        // p:hover:after {
+        //      transform: scaleX(1)
+        // }
 
       }
 

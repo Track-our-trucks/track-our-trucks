@@ -25,4 +25,5 @@ angular.module('trackOurTruck').controller('hardStopsCtrl', function($state, $sc
       }
     }
     getHardStops(filteredByDate);
+}
 })

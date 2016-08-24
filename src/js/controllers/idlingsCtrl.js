@@ -25,4 +25,5 @@ angular.module('trackOurTruck').controller('idlingsCtrl', function($state, $scop
       }
     }
     getIdlings(filteredByDate);
-})
+  }
+  })

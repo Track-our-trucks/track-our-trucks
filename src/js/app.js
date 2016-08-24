@@ -57,6 +57,11 @@ $stateProvider
   templateUrl:'./ui-views/welcomeCalender.html',
   controller: 'welcomeCtrl'
 })
+.state("welcome.rating", {
+  url:'/',
+  templateUrl:'./ui-views/welcomeRating.html',
+  controller: 'welcomeCtrl'
+})
 .state("welcome.login", {
   url:'/login',
   templateUrl:'./ui-views/login.html',

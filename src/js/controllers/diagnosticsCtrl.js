@@ -25,4 +25,5 @@ angular.module('trackOurTruck').controller('diagnosticsCtrl', function($state, $
       }
     }
     getDs(filteredByDate);
+}
 })
