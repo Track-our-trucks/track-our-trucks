@@ -37,14 +37,14 @@ udpServer.on('message', (message, remote) => {
     try {
         esn = messageStr.substring(4, 14);
         decoded = {
-            // fixTime: parseInt(messageStr.substring(34, 42), 16) * secToMs, //unix time in ms
-            // lat: +convert(messageStr.substring(42, 50)).toFixed(4),
-            // long: +convert(messageStr.substring(50, 58)).toFixed(4),
-            // speed: Math.round(parseInt(messageStr.substring(66, 74), 16) * cmSecToMPH), //speed in mph
-            // heading: parseInt(messageStr.substring(74, 78), 16), //degrees from true north
-            // event: parseInt(messageStr.substring(100, 102), 16)
+            fixTime: parseInt(messageStr.substring(34, 42), 16) * secToMs, //unix time in ms
+            lat: +convert(messageStr.substring(42, 50)).toFixed(4),
+            long: +convert(messageStr.substring(50, 58)).toFixed(4),
+            speed: Math.round(parseInt(messageStr.substring(66, 74), 16) * cmSecToMPH), //speed in mph
+            heading: parseInt(messageStr.substring(74, 78), 16), //degrees from true north
+            event: parseInt(messageStr.substring(100, 102), 16)
             // distanceTraveled: parseInt(messageStr.substring(102, 104), 16)
-            message: messageStr
+
         };
     } catch (e) {
         console.log(`ERROR decoding data: ${e}`);
