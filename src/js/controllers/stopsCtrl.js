@@ -24,7 +24,7 @@ var getStops = val => {
     for(var j = 0; j < stopsArr.length; j++){
 
      if(stopsArr[j + 1]){
-      	stopsArr[j + 1].stopTime = (stopsArr[j + 1].fixTime).getMilliseconds() - (stopsArr[j].fixTime).getMilliseconds();
+      	stopsArr[j + 1].stopTime = (stopsArr[j + 1].fixTime) - (stopsArr[j].fixTime);
       	stopsArr.splice(j, 1);
       }
 
