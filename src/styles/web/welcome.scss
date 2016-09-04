@@ -1,5 +1,13 @@
 @import 'main';
 
+.authenticating {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-color: $teal;
+  opacity: .5;
+}
+
 
 .welcome-background {
     height: 100vh;
@@ -356,7 +364,7 @@
           text-align: left;
         }
         p:hover {
-          
+
         }
         // p:after{
         //   display:block;
