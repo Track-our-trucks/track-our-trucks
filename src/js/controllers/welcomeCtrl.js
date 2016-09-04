@@ -1,6 +1,6 @@
 angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $document) => {
 
-
+$scope.loadHidden = true;
 
   let body = $document.find('body')[0];
   let html = $document.find('html')[0];
@@ -57,7 +57,7 @@ $scope.loginModal = () => {
 $scope.globe = () =>{
 
   $state.go('welcome.globe');
-  
+
 }
 
 
