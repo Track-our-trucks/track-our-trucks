@@ -1,5 +1,7 @@
 angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $document) => {
 
+  $scope.loadHidden = true;
+  $scope.logoHidden = false;
 
 
   let body = $document.find('body')[0];
@@ -45,6 +47,7 @@ angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $docu
 $scope.loginModal = () => {
 
   $state.go('welcome.login');
+
 
   $scope.thinModalOn = true;
 
