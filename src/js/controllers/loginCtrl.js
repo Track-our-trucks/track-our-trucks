@@ -1,8 +1,6 @@
 angular.module('trackOurTruck').controller('loginCtrl', ($auth, $scope, $state, userService) => {
 
   $scope.login = user => {
-    $scope.loadHidden = false;
-
     userService.login(user).then(
       response => {
         $scope.errorMessage = '';
