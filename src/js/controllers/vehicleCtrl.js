@@ -121,7 +121,7 @@ $scope.loadingHiddenVehicle = false;
     })
 
     var positionFilter = theDayPins => {
-
+      $scope.loadingHiddenVehicle = true;
         var compass = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
         var newCompass;
         $scope.directions = [];
@@ -160,7 +160,6 @@ $scope.loadingHiddenVehicle = false;
             $scope.lines = newLine;
 
             $scope.dayLocations = theDayPins;
-            $scope.loadingHiddenVehicle = true;
 
       }
       else {
