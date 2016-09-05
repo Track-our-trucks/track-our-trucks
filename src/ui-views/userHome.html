@@ -1,7 +1,13 @@
+
 <modal-dir></modal-dir>
 
 <section class="user-home-main">
+  <div ng-hide="loadUser" class="loadingUser">
+    <div class="img">
+  <span>Loading Vehicle Data</span>
 
+    </div>
+  </div>
 <section class="main-side-menu">
    <div class="side-menu-top">
      <img ui-sref="welcome" src="./LogoTextTeal.png" alt="" />
@@ -32,7 +38,7 @@
    </div>
 <section ui-sref="help" id="foot">
 
-  <div class="userhome-footer">
+  <div ng-hide='mapHidden'class="userhome-footer">
 
     <p class='regHelp'>Need Help?</p>
 
@@ -67,7 +73,7 @@
 
 
       <div class="user-icon">
-        <div class="icon-circle-thin">
+        <div ng-hide='mapHidden'class="icon-circle-thin">
           <div class="icon-user"></div>
         </div>
       </div>
@@ -76,7 +82,7 @@
 
   </section>
 
-  <ng-map zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
+  <ng-map ng-hide='mapHidden' zoom="11" center="[40.74, -74.18]" zoom-to-include-markers="auto" >
     <marker ng-repeat="location in currentLocations track by $index" position="{{location}}" on-click="showDesc(event, $index, pin)" icon="./map-marker.png" ></marker>
 
 
