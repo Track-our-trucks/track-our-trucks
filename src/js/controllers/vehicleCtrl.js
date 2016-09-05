@@ -1,6 +1,6 @@
 angular.module('trackOurTruck').controller('vehicleCtrl', ($filter, $scope, $auth, $state, $rootScope, vehicleService, $interval, userService) => {
 
-
+$scope.loadingHiddenVehicle = false;
     //FAKE DATE
 
     // var fakeData = [
@@ -160,6 +160,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($filter, $scope, $aut
             $scope.lines = newLine;
 
             $scope.dayLocations = theDayPins;
+            $scope.loadingHiddenVehicle = true;
 
       }
       else {
