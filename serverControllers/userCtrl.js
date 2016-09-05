@@ -79,7 +79,7 @@ module.exports = {
   },
 
   login: (req, res) => {
-      User.findOne({email: req.body.email}).populate('vehicles').exec( (err, user) => {
+      User.findOne({email: req.body.email}, (err, user) => {
           if (!user) {
               return res.status(401).send({
                   message: 'Invalid email and/or password'
