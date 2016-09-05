@@ -103,7 +103,7 @@ angular.module('trackOurTruck').controller('vehicleCtrl', ($filter, $scope, $aut
     var vehicleTimer = () => {
         $scope.vehicleTime = $interval(() => {
             $scope.getUserVehicle();
-        }, 10000)
+        }, 600000)
     }
 
     var vehicleStopTimer = () => {
