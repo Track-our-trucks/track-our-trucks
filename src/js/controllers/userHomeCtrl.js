@@ -75,7 +75,8 @@ $scope.loadingHidden = false;
 
   $scope.getCurrentLocations = () => {
 
-    $scope.loadingHidden = true;
+
+
 
       var tmpArr = [];
 
@@ -90,7 +91,7 @@ $scope.loadingHidden = false;
       }
 
       $scope.currentLocations = tmpArr;
-
+$scope.loadingHidden = true;
 
 
   }
