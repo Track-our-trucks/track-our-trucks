@@ -5,7 +5,7 @@
 
     <h3>SIGN IN</h3>
 
-<form ng-submit="login(user)" class="loginMOD">
+<form class="loginMOD">
 
     <div class='error-message'>{{errorMessage}}</div>
 
@@ -19,7 +19,7 @@
         <input ng-model="user.password" type="password" name="name"  placeholder="Password"></input>
     </div>
 
-    <button type="submit" name="button">SIGN IN</button>
+    <button type="submit" ng-click="loading(); login(user)" name="button">SIGN IN</button>
 </form>
   </section>
 

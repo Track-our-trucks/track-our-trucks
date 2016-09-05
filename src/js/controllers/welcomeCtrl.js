@@ -1,8 +1,14 @@
-angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $document) => {
+angular.module('trackOurTruck').controller('welcomeCtrl', ($scope, $state, $document, userService) => {
 
   $scope.loadHidden = true;
   $scope.logoHidden = false;
 
+  $scope.loading = function(){
+    $scope.loadHidden = false;
+    $scope.logoHidden = true;
+    $scope.thinModalOn = false;
+    $scope.modalOff();
+  }
 
   let body = $document.find('body')[0];
   let html = $document.find('html')[0];
