@@ -77,7 +77,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
 
 
       var tmpArr = [];
-
+      
       for (var i = 0; i < $scope.vehicleArr.length; i++) {
 
         tmpArr.push([
