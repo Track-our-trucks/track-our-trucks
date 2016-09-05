@@ -26,6 +26,9 @@ module.exports = {
         res.status(500).json(err.message)
       }
       else {
+        for(var i = 0; i < user.vehicles.length; i++){
+          user.vehicles[i].timeDistanceProfiles = [user.vehicles[i].timeDistanceProfiles[user.vehicles[i].timeDistanceProfiles.length - 1]];
+        }
         res.status(200).json(user)
       }
     })
