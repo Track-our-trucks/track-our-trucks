@@ -26,9 +26,6 @@ module.exports = {
         res.status(500).json(err.message)
       }
       else {
-        for(var i = 0; i < user.vehicles.length; i++){
-          user.vehicles[i].timeDistanceProfiles = [user.vehicles[i].timeDistanceProfiles[user.vehicles[i].timeDistanceProfiles.length - 1]];
-        }
         res.status(200).json(user)
       }
     })
@@ -82,7 +79,7 @@ module.exports = {
   },
 
   login: (req, res) => {
-      User.findOne({email: req.body.email}, (err, user) => {
+      User.findOne({email: req.body.email}).populate('vehicles').exec( (err, user) => {
           if (!user) {
               return res.status(401).send({
                   message: 'Invalid email and/or password'
