@@ -1,6 +1,6 @@
 angular.module('trackOurTruck').controller('vehicleCtrl', ($filter, $scope, $auth, $state, $rootScope, vehicleService, $interval, userService) => {
 
-$scope.loadingHiddenVehicle = false;
+$scope.loadingHiddenOneVehicle = false;
     //FAKE DATE
 
     // var fakeData = [
@@ -121,7 +121,7 @@ $scope.loadingHiddenVehicle = false;
     })
 
     var positionFilter = theDayPins => {
-      $scope.loadingHiddenVehicle = true;
+      $scope.loadingHiddenOneVehicle = true;
         var compass = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
         var newCompass;
         $scope.directions = [];
