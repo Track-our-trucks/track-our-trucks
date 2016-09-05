@@ -3,6 +3,9 @@ angular.module('trackOurTruck').service('adminService', function($http, $q) {
 
   this.selectedUser;
 
+
+
+
   this.getUsers = () => {
     return $http({
       method: "GET",

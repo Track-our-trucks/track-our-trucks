@@ -1,10 +1,9 @@
 angular.module('trackOurTruck').controller('loginCtrl', ($auth, $scope, $state, userService) => {
 
+  
 
   $scope.login = user => {
-    $scope.thinModalOn = false;
-    $scope.loadHidden = false;
-    $scope.logoHidden = true;
+
 
     userService.login(user).then(
       response => {
@@ -20,6 +19,7 @@ angular.module('trackOurTruck').controller('loginCtrl', ($auth, $scope, $state, 
           $scope.user.password = '';
         }
   })
-  }
+
+}
 
 })
