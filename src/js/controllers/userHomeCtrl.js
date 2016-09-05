@@ -1,8 +1,7 @@
 angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
 
 
-  $scope.mapHidden = true;
-  $scope.loadUser = false;
+
 
 
   var payload = () => {
@@ -90,8 +89,7 @@ angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $stat
       }
 
       $scope.currentLocations = tmpArr;
-      $scope.mapHidden = false;
-      $scope.loadUser = true;
+
 
 
   }
