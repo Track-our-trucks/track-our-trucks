@@ -1,6 +1,5 @@
 angular.module('trackOurTruck').controller('userHomeCtrl', ($auth, $scope, $state, $interval, $rootScope, userService, vehicleService) => {
 
-$scope.loadingHidden = true;
 
 
 
@@ -91,7 +90,7 @@ $scope.loadingHidden = true;
       }
 
       $scope.currentLocations = tmpArr;
-      $scope.loadingHidden = true;
+
 
 
   }
